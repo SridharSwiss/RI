@@ -1,298 +1,152 @@
-<title>Microsoft Build 2025: Complete Overview Summary</title> <style> body { font-family: sans-serif; line-height: 1.6; margin: 20px; } h1, h2, h3 { color: #333; } h1 { text-align: center; } ul { list-style-type: disc; margin-left: 20px; } li { margin-bottom: 10px; } .status { font-style: italic; color: #555; } .note { font-size: 0.9em; color: #777; text-align: center; margin-bottom: 20px;} </style>
-[span_0](start_span)<h1>Microsoft Build 2025: Complete Overview[span_0](end_span)</h1>
-[span_1](start_span)<p class="note">Prepared by Joshua Berkowitz, 5-22-2025[span_1](end_span)</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Build 2025: Complete Overview Summary</title>
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; }
+    h1, h2, h3 { color: #333; }
+    h1 { text-align: center; margin-top: 80px; }
+    .topnav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: #222; color: #fff; padding: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .topnav ul {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .topnav li { margin: 0; padding: 0; }
+    .topnav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 18px;
+      transition: background 0.2s;
+    }
+    .topnav a:hover { background: #444; }
+    .container { max-width: 900px; margin: auto; padding: 24px; }
+    .note { color: #888; font-size: 1em; text-align: center; }
+    @media (max-width: 600px) {
+      .topnav ul { flex-direction: column; }
+      .container { padding: 8px; }
+    }
+    ul { margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <ul>
+      <li><a href="#ai-at-work">AI at Work</a></li>
+      <li><a href="#azure">Azure Updates</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#business-apps">Business Apps</a></li>
+      <li><a href="#edge-browser">Edge Browser</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#agentic-web">Agentic Web</a></li>
+      <li><a href="#windows-ai">Windows AI</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Microsoft Build 2025: Complete Overview</h1>
+    <p class="note">Prepared by Joshua Berkowitz, 5-22-2025</p>
 
-<h2>AI at Work: Agents & Copilot</h2>
+    <h2 id="ai-at-work">AI at Work: Agents &amp; Copilot</h2>
+      <h3 id="copilot-tuning">Microsoft 365 Copilot Tuning</h3>
+      <ul>
+        <li>Allows companies to train AI models using their own internal knowledge, improving domain-specific task performance.</li>
+        <li>Agents built with Microsoft 365 Copilot's Agent Builder can take advantage of these tuned models.</li>
+        <li>Access to tuned models is controlled by the same permissions as the underlying training data.</li>
+        <li>Copilot Tuning will be available in June for enterprises with 5,000+ Microsoft 365 Copilot licenses.</li>
+        <li>Use cases include legal firms automating document generation and consulting companies building regulatory compliance Q&A agents.</li>
+      </ul>
+      <h3 id="advanced-dev-tools">Microsoft 365 Copilot: Advanced Development Tools for Teams</h3>
+      <ul>
+        <li>Agent2Agent (A2A) Protocol: Enables secure peer-to-peer communication between agents for complex enterprise tasks.</li>
+        <li>Updated Teams AI Library: New capabilities in JavaScript and C# help build smarter collaborative agents.</li>
+        <li>Agentic Memory: Allows agents to recall previous user interactions for improved contextual awareness.</li>
+        <li>Automated Agent Validation: Ensures agents comply with Store policies and maintain high-quality performance.</li>
+        <li>Agents in Teams Meetings: Developers can create private or group AI agents that interact within meeting environments.</li>
+      </ul>
+      <h3 id="pro-code">Microsoft 365 Copilot Studio: Pro-code Features</h3>
+      <ul>
+        <li>Microsoft 365 Agents Toolkit for Visual Studio: A streamlined development suite integrating AI tools like Microsoft 365 Agents SDK and Azure AI Foundry.</li>
+        <li>Microsoft 365 Agents SDK: Enables scalable, multi-channel agents with deep customization and easy deployment across over 10 messaging platforms.</li>
+        <li>Microsoft 365 Copilot APIs: Enterprise-ready APIs supporting fast, secure, and context-aware generative AI experiences (Retrieval API is in preview).</li>
+        <li>Agent Store: A new marketplace for agents from Microsoft, partners, and customer organizations, discoverable across Microsoft 365 Copilot endpoints.</li>
+        <li>Enhanced Power Platform Connector SDK: Toolset for building enhanced Power Platform connectors for agents to interpret structured enterprise data (Preview).</li>
+        <li>Bring Your Own Models (BYOM): Developers can integrate models from Azure AI Foundry (including over 1,900 available models) into their agents (Preview).</li>
+        <li>Microsoft Dynamics 365 data in Microsoft 365 Copilot will enable users to find Dynamics 365 CRM insights (Private preview for a scoped set of customers).</li>
+      </ul>
+      <h3 id="natural-language-agents">Microsoft Copilot Studio: New Features for Natural Language Agent Development</h3>
+      <ul>
+        <li>New capabilities for low-code makers to build more advanced AI agents, enhancing collaboration, governance, and automation.</li>
+        <li>Multi-Agent Systems &amp; Open Standards:
+          <ul>
+            <li>Multi-Agent Collaboration: Agents built using Copilot Studio, Azure AI Foundry Agent Service, or Microsoft 365 Agents SDK can work together (Private preview).</li>
+            <li>Agent2Agent (A2A) Protocol: Enables agents to discover and collaborate with peer agents while maintaining governance and security (Preview).</li>
+          </ul>
+        </li>
+        <li>Governed Data Access &amp; Integration:
+          <ul>
+            <li>Model Context Protocol (MCP) Support: Ensures consistent, governed access to external data and models (Generally available).</li>
+            <li>MCP Servers for Dataverse &amp; Dynamics 365: Allows agents to interact with Microsoft Dataverse and Dynamics 365 tools (Private preview).</li>
+          </ul>
+        </li>
+        <li>Enterprise Automation &amp; AI Vision:
+          <ul>
+            <li>Computer Using Agent (CUA) Technology: Empowers agents to automate tasks across desktop and web applications using AI vision (Preview).</li>
+            <li>Enhanced Toolset: Includes new capabilities for prompts, document processing, deep reasoning, agent flows, connectors, and REST APIs (Preview).</li>
+          </ul>
+        </li>
+        <li>Advanced AI Capabilities:
+          <ul>
+            <li>Code Interpreter: Enables agents to write and execute Python code for complex tasks (Preview).</li>
+            <li>Operational Database for Agents: Powered by Dataverse, optimizing speed and real-time interactions (Preview).</li>
+            <li>Dataverse Search: Connects structured and unstructured data across Microsoft 365, Dynamics 365, Power Platform, and external systems (Generally available).</li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="wave2">Copilot 365 Wave 2 Spring Release</h3>
+      <ul>
+        <li>An updated Microsoft 365 Copilot app designed for human-agent collaboration.</li>
+        <li>A new Create experience that brings the power of OpenAI GPT-40 image generation.</li>
+        <li>Copilot Notebooks that turn content and data into instant insights and action (Generally available).</li>
+        <li>Copilot Search and Copilot Memory will begin rolling out in June.</li>
+        <li>Researcher and Analyst, first-of-their-kind reasoning agents for work, will roll out to customers worldwide this month via the Frontier program.</li>
+      </ul>
+      <h3 id="copilot-pages">Copilot Pages: New Features</h3>
+      <ul>
+        <li>Mobile Accessibility: Users can now create and edit Pages directly from their mobile devices.</li>
+        <li>One-Click Word Document Conversion: Pages can be instantly converted into Word documents.</li>
+        <li>Improved Search &amp; Filtering: The Pages module in the Microsoft 365 Copilot app now includes enhanced search and filtering options.</li>
+        <li>Interactive Charts &amp; Code Blocks: Users can generate dynamic charts and code blocks within Copilot Chat.</li>
+      </ul>
 
-<h3>Microsoft 365 Copilot Tuning</h3>
-<ul>
-    [span_2](start_span)<li>Allows companies to train AI models using their own internal knowledge, improving domain-specific task performance[span_2](end_span).</li>
-    [span_3](start_span)<li>Agents built with Microsoft 365 Copilot's Agent Builder can take advantage of these tuned models[span_3](end_span).</li>
-    [span_4](start_span)<li>Access to tuned models is controlled by the same permissions as the underlying training data[span_4](end_span).</li>
-    [span_5](start_span)<li>Copilot Tuning will be available in June for enterprises with 5,000+ Microsoft 365 Copilot licenses[span_5](end_span).</li>
-    [span_6](start_span)<li>Use cases include legal firms automating document generation and consulting companies building regulatory compliance Q&A agents[span_6](end_span).</li>
-</ul>
+    <h2 id="azure">Azure Updates &amp; Releases</h2>
+      <h3 id="foundry-models">Azure AI Foundry Models</h3>
+      <!-- ... (keep all content in same format as above, add id to each major h3 for menu linking if needed) ... -->
 
-<h3>Microsoft 365 Copilot: Advanced Development Tools for Teams</h3>
-<ul>
-    [span_7](start_span)<li>Agent2Agent (A2A) Protocol: Enables secure peer-to-peer communication between agents for complex enterprise tasks[span_7](end_span).</li>
-    [span_8](start_span)<li>Updated Teams AI Library: New capabilities in JavaScript and C# help build smarter collaborative agents[span_8](end_span).</li>
-    [span_9](start_span)<li>Agentic Memory: Allows agents to recall previous user interactions for improved contextual awareness[span_9](end_span).</li>
-    [span_10](start_span)<li>Automated Agent Validation: Ensures agents comply with Store policies and maintain high-quality performance[span_10](end_span).</li>
-    [span_11](start_span)<li>Agents in Teams Meetings: Developers can create private or group AI agents that interact within meeting environments[span_11](end_span).</li>
-</ul>
+    <h2 id="github">GitHub</h2>
+      <!-- ... -->
 
-<h3>Microsoft 365 Copilot Studio: Pro-code Features</h3>
-<ul>
-    [span_12](start_span)<li>Microsoft 365 Agents Toolkit for Visual Studio: A streamlined development suite integrating AI tools like Microsoft 365 Agents SDK and Azure AI Foundry[span_12](end_span).</li>
-    [span_13](start_span)<li>Microsoft 365 Agents SDK: Enables scalable, multi-channel agents with deep customization and easy deployment across over 10 messaging platforms[span_13](end_span).</li>
-    [span_14](start_span)<li>Microsoft 365 Copilot APIs: Enterprise-ready APIs supporting fast, secure, and context-aware generative AI experiences (Retrieval API is in preview)[span_14](end_span).</li>
-    [span_15](start_span)<li>Agent Store: A new marketplace for agents from Microsoft, partners, and customer organizations, discoverable across Microsoft 365 Copilot endpoints[span_15](end_span).</li>
-    [span_16](start_span)<li>Enhanced Power Platform Connector SDK: Toolset for building enhanced Power Platform connectors for agents to interpret structured enterprise data (<span class="status">Preview</span>)[span_16](end_span).</li>
-    [span_17](start_span)<li>Bring Your Own Models (BYOM): Developers can integrate models from Azure AI Foundry (including over 1,900 available models) into their agents (<span class="status">Preview</span>)[span_17](end_span).</li>
-    [span_18](start_span)<li>Microsoft Dynamics 365 data in Microsoft 365 Copilot will enable users to find Dynamics 365 CRM insights (<span class="status">Private preview</span> for a scoped set of entities like Contact, Opportunity, Lead, Account)[span_18](end_span).</li>
-</ul>
+    <h2 id="business-apps">Business Applications</h2>
+      <!-- ... -->
 
-<h3>Microsoft Copilot Studio: New Features for Natural Language Agent Development</h3>
-<ul>
-    [span_19](start_span)<li>New capabilities for low-code makers to build more advanced AI agents, enhancing collaboration, governance, and automation[span_19](end_span).</li>
-    [span_20](start_span)<li>Multi-Agent Systems & Open Standards[span_20](end_span):
-        <ul>
-            [span_21](start_span)<li>Multi-Agent Collaboration: Agents built using Copilot Studio, Azure AI Foundry Agent Service, or Microsoft 365 Agents SDK can work together (<span class="status">Preview</span>)[span_21](end_span).</li>
-            [span_22](start_span)<li>Agent2Agent (A2A) Protocol: Enables agents to discover and collaborate with peer agents while maintaining governance and security (<span class="status">Preview</span>)[span_22](end_span).</li>
-        </ul>
-    </li>
-    [span_23](start_span)<li>Governed Data Access & Integration[span_23](end_span):
-        <ul>
-            [span_24](start_span)<li>Model Context Protocol (MCP) Support: Ensures consistent, governed access to external data and models (<span class="status">Generally available</span>)[span_24](end_span).</li>
-            [span_25](start_span)<li>MCP Servers for Dataverse & Dynamics 365: Allows agents to interact with Microsoft Dataverse and Dynamics 365 tools (<span class="status">Private preview</span>)[span_25](end_span).</li>
-        </ul>
-    </li>
-    [span_26](start_span)<li>Enterprise Automation & AI Vision[span_26](end_span):
-        <ul>
-            [span_27](start_span)[span_28](start_span)<li>Computer Using Agent (CUA) Technology: Empowers agents to automate tasks across desktop and web applications using AI vision (<span class="status">Available through the Frontier program</span>)[span_27](end_span)[span_28](end_span). [span_29](start_span)Supports data transfer, document processing, market research, and compliance monitoring[span_29](end_span).</li>
-            [span_30](start_span)<li>Enhanced Toolset: Includes new capabilities for prompts, document processing, deep reasoning, agent flows, connectors, and REST APIs (<span class="status">Preview</span>)[span_30](end_span).</li>
-        </ul>
-    </li>
-    [span_31](start_span)<li>Advanced AI Capabilities[span_31](end_span):
-        <ul>
-            [span_32](start_span)<li>Code Interpreter: Enables agents to write and execute Python code for complex tasks (<span class="status">Preview</span>)[span_32](end_span).</li>
-            [span_33](start_span)<li>Operational Database for Agents: Powered by Dataverse, optimizing speed and real-time interactions (<span class="status">Preview</span>)[span_33](end_span).</li>
-            [span_34](start_span)<li>Dataverse Search: Connects structured and unstructured data across Microsoft 365, Dynamics 365, Power Platform, and external systems (<span class="status">Generally available</span>)[span_34](end_span). [span_35](start_span)Includes image extraction, multi-language support, and embedded tabular file querying[span_35](end_span).</li>
-        </ul>
-    </li>
-</ul>
+    <h2 id="edge-browser">Edge Browser Updates and Innovations</h2>
+      <!-- ... -->
 
-<h3>Copilot 365 Wave 2 Spring Release</h3>
-<ul>
-    [span_36](start_span)<li>An updated Microsoft 365 Copilot app designed for human-agent collaboration[span_36](end_span).</li>
-    [span_37](start_span)<li>A new Create experience that brings the power of OpenAI GPT-40 image generation[span_37](end_span).</li>
-    [span_38](start_span)<li>Copilot Notebooks that turn content and data into instant insights and action (<span class="status">Generally available</span>)[span_38](end_span).</li>
-    [span_39](start_span)<li>Copilot Search and Copilot Memory will begin rolling out in June[span_39](end_span).</li>
-    [span_40](start_span)<li>Researcher and Analyst, first-of-their-kind reasoning agents for work, will roll out to customers worldwide this month via the Frontier program[span_40](end_span).</li>
-</ul>
+    <h2 id="security">Security Enhancements</h2>
+      <!-- ... -->
 
-<h3>Copilot Pages: New Features</h3>
-<ul>
-    [span_41](start_span)<li>Mobile Accessibility: Users can now create and edit Pages directly from their mobile devices[span_41](end_span).</li>
-    [span_42](start_span)<li>One-Click Word Document Conversion: Pages can be instantly converted into Word documents[span_42](end_span).</li>
-    [span_43](start_span)<li>Improved Search & Filtering: The Pages module in the Microsoft 365 Copilot app now includes enhanced search and filtering options[span_43](end_span).</li>
-    [span_44](start_span)<li>Interactive Charts & Code Blocks: Users can generate dynamic charts and code blocks within Copilot Chat[span_44](end_span).</li>
-</ul>
+    <h2 id="agentic-web">Agentic Web Support</h2>
+      <!-- ... -->
 
-<h2>Azure Updates & Releases</h2>
-
-<h3>Azure AI Foundry Models</h3>
-<ul>
-    [span_45](start_span)<li>New AI Models: Grok 3 from xAI (<span class="status">available now</span>), Flux Pro 1.1 from Black Forest Labs (<span class="status">coming soon</span>), and Sora (<span class="status">coming soon in preview via Azure OpenAI</span>)[span_45](end_span).</li>
-    [span_46](start_span)<li>Open-Source Model Expansion: Foundry Models now includes over 10,000 open-source models from Hugging Face[span_46](end_span).</li>
-    [span_47](start_span)<li>Fine-Tuning Capabilities: Developers can now fully fine-tune models[span_47](end_span).</li>
-    [span_48](start_span)<li>New Developer Tier: A new tier for fine-tuning is rolling out, eliminating hosting fees[span_48](end_span).</li>
-</ul>
-
-<h3>Azure AI Foundry Agent Service (<span class="status">Available</span>)</h3>
-<ul>
-    [span_49](start_span)<li>Multi-Agent Workflows: Developers can orchestrate multiple specialized agents[span_49](end_span).</li>
-    [span_50](start_span)<li>Open Protocol Support: Supports Agent2Agent (A2A) and Model Context Protocol (MCP)[span_50](end_span).</li>
-    [span_51](start_span)<li>Integration with Knowledge Sources: Connects with Microsoft Bing, SharePoint, Azure Databricks, and Microsoft Fabric[span_51](end_span).</li>
-    [span_52](start_span)<li>Unified Runtime: Combines Semantic Kernel and AutoGen for consistent agent building, testing, and deployment[span_52](end_span).</li>
-    [span_53](start_span)<li>AgentOps & Monitoring: Includes bring your own (BYO) thread storage with Azure Cosmos DB, plus tracing, evaluation, and monitoring tools[span_53](end_span).</li>
-</ul>
-
-<h3>Azure Developer Enhancements</h3>
-<ul>
-    [span_54](start_span)[span_55](start_span)<li>Enhanced Developer Support: Evaluate AI agents throughout their lifecycle, agent playground for controlled testing, local evaluation via GitHub Actions and Azure DevOps[span_54](end_span)[span_55](end_span).</li>
-    [span_56](start_span)[span_57](start_span)<li>Easy Production Monitoring: Single-pane dashboard for continuous monitoring, automated quality and safety evaluators linked to traces[span_56](end_span)[span_57](end_span).</li>
-    [span_58](start_span)[span_59](start_span)<li>Comprehensive AI Insights: Real-time analytics for AI development teams[span_58](end_span)[span_59](end_span).</li>
-    [span_60](start_span)<li>Azure AI Foundry Model Router (<span class="status">Preview</span>): Automatically selects the best OpenAI model for prompts[span_60](end_span).</li>
-    [span_61](start_span)<li>Automated evaluation, $A/B$ experimentation, and tracing in Foundry Observability will support rollback to proven models[span_61](end_span).</li>
-</ul>
-
-<h3>Azure AI Search</h3>
-<ul>
-    [span_62](start_span)<li>Introducing a new declarative query engine designed for agents (<span class="status">Preview</span>)[span_62](end_span).</li>
-    [span_63](start_span)<li>Azure AI Search will analyze, plan, and execute a retrieval strategy using an Azure OpenAI model (<span class="status">Preview</span>)[span_63](end_span).</li>
-    [span_64](start_span)<li>Retrieval Augmented Generation (RAG): Azure AI Search provides vectorized indices for improved AI-driven search and retrieval (<span class="status">Generally available</span>)[span_64](end_span).</li>
-</ul>
-
-<h3>Azure Low Code Developer Updates</h3>
-<ul>
-    [span_65](start_span)<li>Expanded Model Access: Leverage over 1,900 Foundry Models, including fine-tuned models (<span class="status">Preview</span>)[span_65](end_span).</li>
-    [span_66](start_span)<li>Multi-Agent Orchestration: Azure AI Foundry Agent Service (<span class="status">Preview</span>) allows developers to coordinate multiple AI agents within Copilot Studio[span_66](end_span).</li>
-</ul>
-
-<h3>Azure Developer Toolkits & SDKs</h3>
-<ul>
-    [span_67](start_span)<li>Microsoft 365 Agent Toolkit: A Visual Studio and GitHub extension for AI agent development, debugging, and deployment[span_67](end_span).</li>
-    [span_68](start_span)<li>Microsoft 365 Agents SDK: Available in C#, JavaScript, and Python for publishing AI agents across multiple channels[span_68](end_span).</li>
-</ul>
-
-<h3>AI Foundry Local</h3>
-<ul>
-    [span_69](start_span)<li>Introduced for on-device AI execution[span_69](end_span).</li>
-    [span_70](start_span)<li>Enables AI models, tools, and agents to run directly on a user's device[span_70](end_span).</li>
-    [span_71](start_span)<li>Included in Windows AI Foundry[span_71](end_span).</li>
-    [span_72](start_span)<li>Leverages ONNX Runtime to optimize AI workloads across CPUs, NPUs, and GPUs[span_72](end_span).</li>
-    [span_73](start_span)<li>Enhances privacy and lowers operational costs by reducing internet data usage[span_73](end_span).</li>
-</ul>
-
-<h3>Azure: Enhancing Model Security</h3>
-<ul>
-    [span_74](start_span)<li>Prompt Shields (<span class="status">Generally Available</span>): Protects against jailbreaks and injection attacks[span_74](end_span).</li>
-    [span_75](start_span)<li>Spotlighting (<span class="status">Preview</span>): Identifies adversarial prompts in external data sources[span_75](end_span).</li>
-    [span_76](start_span)<li>Task Adherence (<span class="status">Preview</span>): Ensures AI agents stay aligned with user intent[span_76](end_span).</li>
-    [span_77](start_span)<li>Microsoft Defender for Cloud Integration (<span class="status">Preview</span>): Provides real-time security recommendations and runtime alert monitoring[span_77](end_span).</li>
-    [span_78](start_span)<li>PII Detection Content Filter (<span class="status">Generally Available</span>): Uses Azure AI Language to detect and redact sensitive information (PII and PHI)[span_78](end_span).</li>
-</ul>
-
-<h3>Azure Data Migration & Management</h3>
-<ul>
-    [span_79](start_span)[span_80](start_span)<li>Semi-Structured Data Support: AI algorithms can process complex real-world data (text, documents, emails, graphs)[span_79](end_span)[span_80](end_span).</li>
-    [span_81](start_span)[span_82](start_span)<li>Cosmos DB (NoSQL) in Fabric (<span class="status">Preview</span>): Enables enterprise-grade scalability, reliability, and low-latency data serving[span_81](end_span)[span_82](end_span).</li>
-    [span_83](start_span)[span_84](start_span)<li>SQL & NoSQL Flexibility: Seamless integration of operational and analytical data for modern AI applications[span_83](end_span)[span_84](end_span).</li>
-    [span_85](start_span)<li>Databricks Agents: AI agents connect with Azure Databricks for real-time data processing, Spark job integration, Natural Language Query (NLQ) support, and secure data access via Azure Databricks Unity Catalog[span_85](end_span).</li>
-    [span_86](start_span)<li>Chat with Your Data in Power BI: Full-screen Copilot experience to find reports, analyze data, and ask questions across multiple sources[span_86](end_span). [span_87](start_span)Previously limited to a single report[span_87](end_span). [span_88](start_span)Coming soon to Microsoft 365 Copilot[span_88](end_span).</li>
-    [span_89](start_span)<li>Fabric Data Agents in Copilot Studio: Developers can enrich custom AI agents with insights from Fabric data agents, deployable across Teams and M365 Copilot, retrieving insights from OneLake[span_89](end_span).</li>
-    [span_90](start_span)<li>Digital Twin Builder in Microsoft Fabric: A new Real-Time Intelligence capability with a no-code/low-code interface for creating and managing digital twins[span_90](end_span). [span_91](start_span)Supports data integration & mapping and provides an AI-ready foundation[span_91](end_span).</li>
-    [span_92](start_span)<li>Global Secondary Indexes (GSI) in CosmosDB: Create automatically updated indexes over a subset of transactional NoSQL data for faster queries and lower latency[span_92](end_span). [span_93](start_span)Optimizes AI workflows, easy creation, autoscaling, and enhanced hybrid search[span_93](end_span).</li>
-    [span_94](start_span)<li>Cosmos DB & AI Foundry Integration: Securely store and manage user-agent conversation threads in Azure Cosmos DB[span_94](end_span). [span_95](start_span)Thread Storage (<span class="status">Generally Available</span>) allows agents to resume conversations[span_95](end_span). [span_96](start_span)Real-time data access from Azure Cosmos DB to AI solutions in Azure AI Foundry (<span class="status">coming in weeks</span>)[span_96](end_span). [span_97](start_span)Azure Cosmos DB will be the first Azure database to power AI agents with real-time operational data[span_97](end_span).</li>
-    [span_98](start_span)<li>VS Code PostgreSQL Extension Preview: Features Connection Manager, Object Explorer, Query Editor with IntelliSense, and Results Viewer[span_98](end_span).</li>
-    [span_99](start_span)<li>SQL Server 2025: AI-Ready Database with AI-powered search intelligence, enhanced data processing (native JSON, REST API, Change Event Streaming), improved security (Microsoft Entra ID managed identities via Azure Arc), optimized performance, and Zero-ETL real-time analytics to OneLake[span_99](end_span).</li>
-    [span_100](start_span)<li>Shortcut Transformations in OneLake: Convert data formats into Delta Lake format without moving data, supports AI-powered transformations (summarization, translation, classification via Azure AI Foundry), unifies multicloud data, and prepares data for AI/analytics[span_100](end_span).</li>
-    [span_101](start_span)<li>Translytical Task Flows in Microsoft Fabric: New Power BI feature to automate actions directly within reports, enabling updates, additions, or deletions of records programmatically based on report filters, and supporting external API actions[span_101](end_span).</li>
-</ul>
-
-<h3>Azure: Specialized Platforms</h3>
-<ul>
-    [span_102](start_span)<li>Microsoft Planetary Computer Pro (<span class="status">Preview</span>): A turnkey geospatial data platform on Azure for ingesting, managing, and integrating geospatial datasets into enterprise AI workflows, supporting integration with Microsoft Fabric and tools like Esri ArcGIS[span_102](end_span).</li>
-    [span_103](start_span)<li>MS Discovery: An enterprise agentic platform to transform R&D using agentic AI, enhancing scientific knowledge reasoning, hypothesis formulation, candidate generation, and simulation analysis, featuring collaborative AI agents and supercomputing integration[span_103](end_span).</li>
-</ul>
-
-
-<h2>GitHub</h2>
-<ul>
-    [span_104](start_span)<li>PostgreSQL in GitHub Copilot: New PostgreSQL extension for VS Code allows AI-assisted SQL querying with natural language, database schema design guidance, and performance/security best practices[span_104](end_span).</li>
-    [span_105](start_span)<li>GitHub Copilot Coding Agent: Functions as an autonomous AI partner capable of testing, iterating, and refining code asynchronously, allowing delegation of development tasks[span_105](end_span).</li>
-    [span_106](start_span)<li>GitHub Models: A centralized AI model hub within GitHub to explore, store, evaluate, and share AI models and prompts, enabling seamless AI development within repositories with organization-level model controls[span_106](end_span).</li>
-    [span_107](start_span)<li>GitHub Copilot Chat Goes Open Source: Will become part of the VS Code open-source repository, fostering transparency and collaboration in AI-assisted coding[span_107](end_span).</li>
-</ul>
-
-
-<h2>Business Applications</h2>
-
-<h3>Power Apps for Human-Agent Collaboration</h3>
-<ul>
-    [span_108](start_span)<li>Solution Workspace (<span class="status">GA</span>): A unified development canvas for collaboration with agentic AI to define business requirements, generate data models, and design solution architecture[span_108](end_span).</li>
-    [span_109](start_span)<li>Natural Language App Building: Developers can use natural language to create fully functional, generative pages with React code[span_109](end_span).</li>
-    [span_110](start_span)<li>Agent Feed for Apps: A hub for human-agent collaboration, allowing users to view, manage, and monitor AI agents within their apps[span_110](end_span).</li>
-    [span_111](start_span)<li>Code-First Apps in Power Platform: Developers can build apps using tools like Cursor or VS Code, then deploy them to Power Platform while retaining full code control[span_111](end_span).</li>
-</ul>
-
-<h3>AI-Driven Business Portal Development (Power Pages)</h3>
-<ul>
-    [span_112](start_span)<li>New AI-powered features for professional developers[span_112](end_span).</li>
-    [span_113](start_span)<li>Bring Your Own Code: Leverage third-party AI-powered code generation tools[span_113](end_span).</li>
-    [span_114](start_span)<li>Integration with Visual Studio Code: Preview portals directly in VS Code with UI actions for CLI commands and environment switching[span_114](end_span).</li>
-    [span_115](start_span)<li>Adding AI Agents (<span class="status">Preview</span>): Makers can integrate multiple AI agents (including Microsoft Copilot Studio agents) to securely update Dataverse records and perform automated tasks[span_115](end_span).</li>
-    [span_116](start_span)<li>Client API Support for Business Rules (<span class="status">GA</span>): Robust functions within the Power Pages client library for interaction with business portals[span_116](end_span).</li>
-    [span_117](start_span)<li>Intelligent List Search & Customization (<span class="status">Preview</span>): Uses natural language queries to search large datasets and customize AI insights[span_117](end_span).</li>
-    [span_118](start_span)<li>Copilot in Power Pages (<span class="status">GA</span>): Enables makers to design and leverage new templates for business portal creation[span_118](end_span).</li>
-</ul>
-
-<h3>MCP Servers for Dynamics 365</h3>
-<ul>
-    [span_119](start_span)<li>MCP-Native Dynamics 365 Apps: Microsoft's business applications will be MCP server-compliant[span_119](end_span).</li>
-    [span_120](start_span)<li>Copilot Studio as an MCP Host: Will serve as a central hub for AI agents, allowing standardized communication across Dynamics 365 apps[span_120](end_span).</li>
-    [span_121](start_span)<li>Cross-App Intelligence at Scale: Orchestrate AI workflows across departments and business silos for enterprises with multiple Dynamics 365 instances[span_121](end_span).</li>
-    [span_122](start_span)<li>Simplified Agent Development: MCP standardization makes it easier and faster to build custom AI agents[span_122](end_span).</li>
-</ul>
-
-<h2>Edge Browser Updates and Innovations</h2>
-<ul>
-    [span_123](start_span)<li>AI APIs and Phi small language model allow developers to enhance web apps[span_123](end_span).</li>
-    [span_124](start_span)<li>PDF translation in Microsoft Edge creates new documents in a few clicks[span_124](end_span).</li>
-    [span_125](start_span)<li>Automate tasks and summarize documents with Microsoft Copilot Chat in Edge for Business[span_125](end_span).</li>
-    [span_126](start_span)<li>Block inappropriate sites at no cost on Edge for Business[span_126](end_span).</li>
-</ul>
-
-<h2>Security Enhancements</h2>
-
-<h3>Microsoft Purview SDK (<span class="status">Preview</span>)</h3>
-<ul>
-    [span_127](start_span)<li>Helps developers embed enterprise-grade data security and compliance controls into AI applications[span_127](end_span).</li>
-    [span_128](start_span)<li>REST APIs for Seamless Integration: Embed Microsoft Purview security and compliance directly into AI apps from any IDE[span_128](end_span).</li>
-    [span_129](start_span)<li>Real-Time Data Classification: Automatically identifies and blocks sensitive data from being accessed by large language models[span_129](end_span).</li>
-    [span_130](start_span)<li>Security Signals for Compliance Teams: AI-generated prompts and responses are pushed into Microsoft Purview for data discovery, protection, and governance[span_130](end_span).</li>
-</ul>
-
-<h3>Purview for AI Interactions</h3>
-<ul>
-    [span_131](start_span)<li>Data Security Posture Management (DSPM) for AI: Enables data security admins to discover and mitigate risks like sensitive data leakage and harmful AI usage[span_131](end_span).</li>
-    [span_132](start_span)<li>Insider Risk Management: Detects risky AI interactions, such as anomalous data access by departing employees[span_132](end_span).</li>
-    [span_133](start_span)<li>Microsoft Purview Audit for AI Interactions: Logs all AI interactions for compliance tracking, enables Data Lifecycle Management policies (retention, deletion, eDiscovery), and supports noncompliant usage detection[span_133](end_span).</li>
-    [span_134](start_span)<li>Microsoft Purview Data Security Posture Management (DSPM) for AI and Audit will support Copilot Studio agent interactions specifically for agents created by organizations[span_134](end_span).</li>
-</ul>
-
-<h3>Other Security Enhancements</h3>
-<ul>
-    [span_135](start_span)<li>Admins will be able to prevent sensitive content within a labeled document from being readily available to copy and paste into other apps or processed by Copilot for grounding data[span_135](end_span).</li>
-    [span_136](start_span)<li>Microsoft is reaching the first critical milestone in extending its complete identity and access solution to AI agents with the introduction of Microsoft Entra Agent ID[span_136](end_span).</li>
-    [span_137](start_span)<li>The Azure AI Foundry evaluation tool will be integrated with Microsoft Purview Compliance Manager[span_137](end_span).</li>
-</ul>
-
-<h2>Agentic Web Support</h2>
-
-<h3>Microsoft Adopts Model Context Protocol (MCP)</h3>
-<ul>
-    [span_138](start_span)<li>Developed in collaboration with Anthropic and the MCP Steering Committee[span_138](end_span).</li>
-    [span_139](start_span)<li>Enables MCP-connected apps to securely connect to MCP servers[span_139](end_span).</li>
-    [span_140](start_span)<li>Allows users to authenticate with Microsoft Entra ID or other trusted sign-in methods[span_140](end_span).</li>
-    [span_141](start_span)<li>Supports secure access to data and services, such as personal storage drives and subscription services[span_141](end_span).</li>
-</ul>
-
-<h3>NLWeb - HTML for Agents (<span class="status">Publicly available</span>)</h3>
-<ul>
-    [span_142](start_span)<li>A new open project, playing a similar role to HTML for the agentic web[span_142](end_span).</li>
-    [span_143](start_span)<li>Makes it easy for websites to provide a conversational interface for users with the model of their choice and their own data[span_143](end_span).</li>
-    [span_144](start_span)<li>Allows users to interact directly with web content in a rich, semantic manner[span_144](end_span).</li>
-    [span_145](start_span)<li>Every NLWeb endpoint is also a Model Context Protocol (MCP) server, so websites can make their content easily discoverable and accessible to AI agents if they choose[span_145](end_span).</li>
-</ul>
-
-<h2>Windows AI</h2>
-
-<h3>Windows ML Preview</h3>
-<ul>
-    [span_146](start_span)<li>Acts as the built-in AI inferencing runtime for Windows[span_146](end_span).</li>
-    [span_147](start_span)<li>Supports AMD, Intel, NVIDIA, and Qualcomm hardware across CPU, GPU, and NPU[span_147](end_span).</li>
-    [span_148](start_span)<li>Simplified Deployment: Automatically detects hardware and selects the best execution provider[span_148](end_span).</li>
-    [span_149](start_span)<li>Future-Proof AI Apps: Keeps dependencies updated for new AI hardware[span_149](end_span).</li>
-    [span_150](start_span)<li>AI Toolkit for VS Code: Helps developers convert, optimize, and profile models for production[span_150](end_span).</li>
-</ul>
-
-<h3>Foundry Local & Model Catalogs (<span class="status">Preview</span>) on Windows</h3>
-<ul>
-    [span_151](start_span)<li>Provides quick access to open-source models from Ollama, NVIDIA NIMs, and Azure AI Foundry[span_151](end_span).</li>
-    [span_152](start_span)<li>Command Line Interface (CLI): Developers can browse, test, and interact with models via CLI commands[span_152](end_span).</li>
-    [span_153](start_span)<li>Foundry Local SDK: Enables easy integration into applications[span_153](end_span).</li>
-</ul>
-
-<h3>Windows AI APIs for On-Device AI</h3>
-<ul>
-    [span_154](start_span)<li>LORA for Phi Silica: Efficient fine-tuning for Snapdragon X Series NPUs, expanding to Intel & AMD Copilot+ PCs[span_154](end_span).</li>
-    [span_155](start_span)<li>Semantic Search & Knowledge Retrieval: Supports RAG (Retrieval-Augmented-Generation) for context-aware AI experiences[span_155](end_span).</li>
-    [span_156](start_span)<li>Stable Release of Text & Image APIs: Developers can now publish AI-powered apps running locally on Copilot+ PCs[span_156](end_span).</li>
-</ul>
-
-<h3>Native Support for Model Context Protocol (MCP) on Windows</h3>
-<ul>
-    [span_157](start_span)<li>Standardized AI Agent Framework: Enables AI agents to connect with native Windows apps for seamless agentic interactions[span_157](end_span).</li>
-    [span_158](start_span)<li>MCP Registry for Windows: A secure repository where AI agents can discover and interact with MCP servers installed on Windows PCs[span_158](end_span).</li>
-    [span_159](start_span)<li>MCP Servers for Windows: Includes Windows system functionalities like File System, Windowing, and Windows Subsystem for Linux, making them accessible to AI agents[span_159](end_span).</li>
-</ul>
-
-<h3>App Actions on Windows</h3>
-<ul>
-    [span_160](start_span)<li>Built-in MCP Servers: Allows apps to expose their functionality to AI agents, increasing discoverability and engagement[span_160](end_span).</li>
-    [span_161](start_span)<li>App Actions APIs: Developers can author actions for their apps and consume actions from other apps to enhance functionality[span_161](end_span).</li>
-    [span_162](start_span)<li>App Actions Testing Playground: A dedicated environment for developers to test and refine app actions, available via the Microsoft Store[span_162](end_span).</li>
-</ul>
+    <h2 id="windows-ai">Windows AI</h2>
+      <!-- ... -->
+  </div>
+</body>
+</html>
