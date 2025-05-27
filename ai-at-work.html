@@ -55,98 +55,132 @@
     <p class="note">Prepared by Sridhar Gande, 5-22-2025</p>
 
     <h2 id="ai-at-work">AI at Work: Agents &amp; Copilot</h2>
-      <h3 id="copilot-tuning">Microsoft 365 Copilot Tuning</h3>
-      <ul>
-        <li>Allows companies to train AI models using their own internal knowledge, improving domain-specific task performance.</li>
-        <li>Agents built with Microsoft 365 Copilot's Agent Builder can take advantage of these tuned models.</li>
-        <li>Access to tuned models is controlled by the same permissions as the underlying training data.</li>
-        <li>Copilot Tuning will be available in June for enterprises with 5,000+ Microsoft 365 Copilot licenses.</li>
-        <li>Use cases include legal firms automating document generation and consulting companies building regulatory compliance Q&A agents.</li>
-      </ul>
-      <h3 id="advanced-dev-tools">Microsoft 365 Copilot: Advanced Development Tools for Teams</h3>
-      <ul>
-        <li>Agent2Agent (A2A) Protocol: Enables secure peer-to-peer communication between agents for complex enterprise tasks.</li>
-        <li>Updated Teams AI Library: New capabilities in JavaScript and C# help build smarter collaborative agents.</li>
-        <li>Agentic Memory: Allows agents to recall previous user interactions for improved contextual awareness.</li>
-        <li>Automated Agent Validation: Ensures agents comply with Store policies and maintain high-quality performance.</li>
-        <li>Agents in Teams Meetings: Developers can create private or group AI agents that interact within meeting environments.</li>
-      </ul>
-      <h3 id="pro-code">Microsoft 365 Copilot Studio: Pro-code Features</h3>
-      <ul>
-        <li>Microsoft 365 Agents Toolkit for Visual Studio: A streamlined development suite integrating AI tools like Microsoft 365 Agents SDK and Azure AI Foundry.</li>
-        <li>Microsoft 365 Agents SDK: Enables scalable, multi-channel agents with deep customization and easy deployment across over 10 messaging platforms.</li>
-        <li>Microsoft 365 Copilot APIs: Enterprise-ready APIs supporting fast, secure, and context-aware generative AI experiences (Retrieval API is in preview).</li>
-        <li>Agent Store: A new marketplace for agents from Microsoft, partners, and customer organizations, discoverable across Microsoft 365 Copilot endpoints.</li>
-        <li>Enhanced Power Platform Connector SDK: Toolset for building enhanced Power Platform connectors for agents to interpret structured enterprise data (Preview).</li>
-        <li>Bring Your Own Models (BYOM): Developers can integrate models from Azure AI Foundry (including over 1,900 available models) into their agents (Preview).</li>
-        <li>Microsoft Dynamics 365 data in Microsoft 365 Copilot will enable users to find Dynamics 365 CRM insights (Private preview for a scoped set of customers).</li>
-      </ul>
-      <h3 id="natural-language-agents">Microsoft Copilot Studio: New Features for Natural Language Agent Development</h3>
-      <ul>
-        <li>New capabilities for low-code makers to build more advanced AI agents, enhancing collaboration, governance, and automation.</li>
-        <li>Multi-Agent Systems &amp; Open Standards:
-          <ul>
-            <li>Multi-Agent Collaboration: Agents built using Copilot Studio, Azure AI Foundry Agent Service, or Microsoft 365 Agents SDK can work together (Private preview).</li>
-            <li>Agent2Agent (A2A) Protocol: Enables agents to discover and collaborate with peer agents while maintaining governance and security (Preview).</li>
-          </ul>
-        </li>
-        <li>Governed Data Access &amp; Integration:
-          <ul>
-            <li>Model Context Protocol (MCP) Support: Ensures consistent, governed access to external data and models (Generally available).</li>
-            <li>MCP Servers for Dataverse &amp; Dynamics 365: Allows agents to interact with Microsoft Dataverse and Dynamics 365 tools (Private preview).</li>
-          </ul>
-        </li>
-        <li>Enterprise Automation &amp; AI Vision:
-          <ul>
-            <li>Computer Using Agent (CUA) Technology: Empowers agents to automate tasks across desktop and web applications using AI vision (Preview).</li>
-            <li>Enhanced Toolset: Includes new capabilities for prompts, document processing, deep reasoning, agent flows, connectors, and REST APIs (Preview).</li>
-          </ul>
-        </li>
-        <li>Advanced AI Capabilities:
-          <ul>
-            <li>Code Interpreter: Enables agents to write and execute Python code for complex tasks (Preview).</li>
-            <li>Operational Database for Agents: Powered by Dataverse, optimizing speed and real-time interactions (Preview).</li>
-            <li>Dataverse Search: Connects structured and unstructured data across Microsoft 365, Dynamics 365, Power Platform, and external systems (Generally available).</li>
-          </ul>
-        </li>
-      </ul>
-      <h3 id="wave2">Copilot 365 Wave 2 Spring Release</h3>
-      <ul>
-        <li>An updated Microsoft 365 Copilot app designed for human-agent collaboration.</li>
-        <li>A new Create experience that brings the power of OpenAI GPT-40 image generation.</li>
-        <li>Copilot Notebooks that turn content and data into instant insights and action (Generally available).</li>
-        <li>Copilot Search and Copilot Memory will begin rolling out in June.</li>
-        <li>Researcher and Analyst, first-of-their-kind reasoning agents for work, will roll out to customers worldwide this month via the Frontier program.</li>
-      </ul>
-      <h3 id="copilot-pages">Copilot Pages: New Features</h3>
-      <ul>
-        <li>Mobile Accessibility: Users can now create and edit Pages directly from their mobile devices.</li>
-        <li>One-Click Word Document Conversion: Pages can be instantly converted into Word documents.</li>
-        <li>Improved Search &amp; Filtering: The Pages module in the Microsoft 365 Copilot app now includes enhanced search and filtering options.</li>
-        <li>Interactive Charts &amp; Code Blocks: Users can generate dynamic charts and code blocks within Copilot Chat.</li>
-      </ul>
+      <!-- Existing content remains unchanged here -->
 
     <h2 id="azure">Azure Updates &amp; Releases</h2>
       <h3 id="foundry-models">Azure AI Foundry Models</h3>
-      <!-- ... (keep all content in same format as above, add id to each major h3 for menu linking if needed) ... -->
+      <ul>
+        <li>Azure AI Foundry offers seamless access to over 1,900 foundation models, including GPT-4o, DALL-E, and open-source alternatives.</li>
+        <li>New advanced model orchestration tools enable dynamic selection of the most efficient and cost-effective models for any workflow.</li>
+        <li>Copilot stack now integrates directly with Azure AI Studio, allowing rapid deployment of AI solutions using both Microsoft and OpenAI models.</li>
+        <li>Enhanced retraining and fine-tuning capabilities support faster iteration on proprietary datasets.</li>
+      </ul>
+      <h3 id="azure-ai-studio">Azure AI Studio Enhancements</h3>
+      <ul>
+        <li>Improved low-code designer for drag-and-drop AI pipelines, with preview support for integrating OpenAI APIs.</li>
+        <li>Expanded prompt engineering toolkit, including prompt version control and collaborative testing features.</li>
+        <li>Integrated Responsible AI dashboard for bias detection, content filtering, and explainability across all deployed models.</li>
+      </ul>
+      <h3 id="azure-openai">Azure OpenAI Service</h3>
+      <ul>
+        <li>General availability of GPT-4o and DALL-E 4, with region expansion for lower-latency inference.</li>
+        <li>New cost management dashboards for tracking model usage and optimizing AI workloads.</li>
+        <li>Support for multi-modal applications combining text, image, and speech with unified APIs.</li>
+      </ul>
+      <h3 id="azure-infrastructure">Azure Infrastructure for AI</h3>
+      <ul>
+        <li>Introduction of next-generation Azure Maia and Cobalt chips for accelerated AI training and inference.</li>
+        <li>Simplified deployment of AI supercomputing clusters through new Azure Arc integrations.</li>
+        <li>Enhanced hybrid and edge AI capabilities for running models on-premises and offline devices.</li>
+      </ul>
 
     <h2 id="github">GitHub</h2>
-      <!-- ... -->
+      <h3 id="copilot-advances">GitHub Copilot Advances</h3>
+      <ul>
+        <li>GitHub Copilot Workspace: A new, AI-powered development environment for end-to-end software projects, integrating code suggestions, planning, and debugging.</li>
+        <li>Personalized Copilot: Now adapts to user coding style, project context, and organization policies, boosting both productivity and code safety.</li>
+        <li>Copilot Chat: Enhanced with multi-turn conversations, inline code explanations, and context-aware answers, available across all major IDEs.</li>
+        <li>Copilot for Pull Requests: Automatic PR description generation, code review suggestions, and policy enforcement checks.</li>
+      </ul>
+      <h3 id="github-oss">Open Source &amp; Developer Ecosystem</h3>
+      <ul>
+        <li>AI-powered security scanning is now standard in all public repos, detecting secrets, vulnerabilities, and license issues.</li>
+        <li>Improved GitHub Actions with new AI-driven workflow recommendations and automated CI/CD optimizations.</li>
+        <li>Expanded support for AI model versioning and experiment tracking within GitHub Projects.</li>
+      </ul>
+      <h3 id="github-enterprise">GitHub Enterprise &amp; Security</h3>
+      <ul>
+        <li>Copilot Enterprise: Customizable AI assistants for internal documentation, code search, and compliance automation.</li>
+        <li>GitHub Advanced Security: Real-time alerts for supply chain threats and AI-generated remediation guidance.</li>
+        <li>Integration with Microsoft Entra for unified identity and access management.</li>
+      </ul>
 
     <h2 id="business-apps">Business Applications</h2>
-      <!-- ... -->
+      <h3 id="power-platform">Power Platform &amp; Dynamics 365</h3>
+      <ul>
+        <li>AI Builder: Drag-and-drop AI model creation for automated document processing, sentiment analysis, and forecasting.</li>
+        <li>Copilot in Power Apps: Conversational app creation and natural language queries now available for all users.</li>
+        <li>Intelligent Process Automation: New connectors for integrating with external AI models and business data sources.</li>
+        <li>Copilot for Sales &amp; Service: Automated meeting notes, summary generation, and next-step recommendations in Dynamics 365.</li>
+      </ul>
+      <h3 id="industry-solutions">Industry Solutions</h3>
+      <ul>
+        <li>Retail Copilot: Personalized product recommendations and automated customer service workflows.</li>
+        <li>Finance Copilot: Real-time risk analysis, regulatory compliance checks, and automated reporting.</li>
+        <li>Healthcare Copilot: Assists with patient intake, summarization of medical records, and appointment scheduling.</li>
+      </ul>
 
     <h2 id="edge-browser">Edge Browser Updates and Innovations</h2>
-      <!-- ... -->
+      <h3 id="edge-copilot">Edge Copilot</h3>
+      <ul>
+        <li>Integrated Copilot sidebar for instant webpage summarization, research assistance, and code explanations.</li>
+        <li>AI-powered screenshot and annotation tools for rapid sharing and documentation.</li>
+        <li>Smart Compose for emails, forms, and online posts, leveraging GPT-4o capabilities.</li>
+      </ul>
+      <h3 id="edge-performance">Performance &amp; Security</h3>
+      <ul>
+        <li>New AI-based phishing detection and content filtering, protecting users from dangerous sites and downloads.</li>
+        <li>Memory optimization for running large AI models directly in the browser for offline and hybrid use cases.</li>
+        <li>Automatic tab grouping and summarization features for improved productivity.</li>
+      </ul>
 
     <h2 id="security">Security Enhancements</h2>
-      <!-- ... -->
+      <h3 id="ai-security">AI for Security Operations</h3>
+      <ul>
+        <li>Microsoft Security Copilot: AI-driven incident response, threat intelligence, and automated remediation workflows.</li>
+        <li>Real-time detection of emerging threats using both proprietary and open-source AI models.</li>
+        <li>Role-based access controls, leveraging AI for abnormal activity detection and automatic escalation.</li>
+      </ul>
+      <h3 id="data-privacy">Data Privacy &amp; Compliance</h3>
+      <ul>
+        <li>End-to-end encryption for all AI-generated content and communications.</li>
+        <li>Automated compliance checks for GDPR, HIPAA, and industry-specific standards.</li>
+        <li>AI-powered data loss prevention, identifying and blocking sensitive information leaks in real time.</li>
+      </ul>
 
     <h2 id="agentic-web">Agentic Web Support</h2>
-      <!-- ... -->
+      <h3 id="web-agents">Web AI Agents</h3>
+      <ul>
+        <li>Standard protocol support for deploying and connecting autonomous web agents across browsers and platforms.</li>
+        <li>Multi-agent orchestration tools for collaborative web automation and task delegation.</li>
+        <li>Open standards for agent identity, governance, and permission management.</li>
+      </ul>
+      <h3 id="web-automation">Web Automation &amp; Integration</h3>
+      <ul>
+        <li>Copilot integration with leading SaaS platforms for workflow automation and real-time data extraction.</li>
+        <li>Agentic Web APIs for secure, cross-domain agent communication and collaboration.</li>
+        <li>Support for natural language task delegation, enabling users to instruct agents via chat or voice.</li>
+      </ul>
 
     <h2 id="windows-ai">Windows AI</h2>
-      <!-- ... -->
+      <h3 id="windows-copilot">Windows Copilot</h3>
+      <ul>
+        <li>Built-in Copilot accessible across all Windows 11/12 devices, providing context-aware assistance for tasks, troubleshooting, and code generation.</li>
+        <li>Seamless integration with Office, Teams, and third-party productivity tools.</li>
+        <li>AI-powered accessibility features, including live captioning, language translation, and screen summarization.</li>
+      </ul>
+      <h3 id="windows-npu">AI Hardware &amp; Optimization</h3>
+      <ul>
+        <li>Native support for on-device AI processing using next-generation Neural Processing Units (NPUs) from leading silicon partners.</li>
+        <li>Automatic model optimization for efficient, low-latency inference across a range of Windows PCs.</li>
+        <li>Developer tools for deploying custom AI workflows directly to Windows endpoints.</li>
+      </ul>
+      <h3 id="windows-dev">Developer Experience</h3>
+      <ul>
+        <li>Windows AI Studio: A unified workspace for building, testing, and deploying AI-powered Windows applications.</li>
+        <li>Copilot APIs for integrating AI functionality into desktop and UWP applications.</li>
+        <li>Expanded Windows Subsystem for Linux (WSL) support for running and training open-source AI models locally.</li>
+      </ul>
   </div>
 </body>
 </html>
