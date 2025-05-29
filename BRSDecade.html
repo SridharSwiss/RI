@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>తెలంగాణ అభివృద్ధి నివేదిక</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Soft shadow */
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .growth-positive {
+            color: #10B981; /* Green for positive growth */
+        }
+        .growth-icon {
+            color: #10B981; /* Green for positive growth icons */
+        }
+        .before-value {
+            color: #6B7280; /* Muted gray for before values */
+        }
+        .current-value {
+            color: #4F46E5; /* Primary accent color (Indigo) */
+        }
+        .section-heading {
+            color: #1F2937; /* Dark gray for headings */
+        }
+        .highlight-text {
+            color: #4F46E5; /* Primary accent color (Indigo) */
+            font-weight: 600;
+        }
+        .bar-chart-container {
+            height: 150px; /* Fixed height for bar charts */
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        .bar {
+            width: 50%; /* Each bar takes half width */
+            background-color: #4F46E5; /* Primary accent color */
+            border-radius: 0.5rem 0.5rem 0 0; /* Rounded top corners */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-top: 0.5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem; /* text-sm */
+            position: relative;
+        }
+        .bar.before {
+            background-color: #9CA3AF; /* Muted gray for before bar */
+        }
+        .bar-label {
+            position: absolute;
+            top: -1.5rem;
+            color: #1F2937;
+            font-size: 0.875rem;
+        }
+        .progress-bar-bg {
+            background-color: #E5E7EB; /* Light gray for progress bar background */
+        }
+        .progress-bar-fill {
+            background-color: #3B82F6; /* Blue for progress bar fill */
+            border-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-xl shadow-2xl">
+        <h1 class="text-3xl md:text-5xl font-extrabold text-center mb-10 section-heading">తెలంగాణ ప్రగతి ప్రస్థానం</h1>
+        <p class="text-center text-lg text-gray-600 mb-12">
+            తెలంగాణ రాష్ట్రం ఏర్పడిన తర్వాత సాధించిన అద్భుతమైన అభివృద్ధిని గణాంకాలతో విజువలైజేషన్ ద్వారా తెలుసుకోండి.
+        </p>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                ఆర్థిక వృద్ధి: స్థూల రాష్ట్ర దేశీయోత్పత్తి & తలసరి ఆదాయం
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <div class="text-6xl text-yellow-500 mb-4">
+                        <i class="fas fa-chart-line"></i> </div>
+                    <p class="text-sm before-value mb-1">ముందు:</p>
+                    <p class="text-xl md:text-2xl font-semibold before-value mb-2">రూ. 3.79 లక్షల కోట్లు</p>
+                    <p class="text-sm current-value mb-1">ప్రస్తుతం:</p>
+                    <p class="text-4xl md:text-5xl font-extrabold current-value mb-4">రూ. 13.27 లక్షల కోట్లు</p>
+                    <div class="flex items-center justify-center text-2xl md:text-3xl font-bold growth-positive">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+251%</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">స్థూల రాష్ట్ర దేశీయోత్పత్తి (GSDP)</p>
+                </div>
+
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <div class="text-6xl text-green-500 mb-4">
+                        <i class="fas fa-money-bill-wave"></i> </div>
+                    <p class="text-sm before-value mb-1">ముందు:</p>
+                    <p class="text-xl md:text-2xl font-semibold before-value mb-2">రూ. 93,151</p>
+                    <p class="text-sm current-value mb-1">ప్రస్తుతం:</p>
+                    <p class="text-4xl md:text-5xl font-extrabold current-value mb-4">రూ. 3,12,398</p>
+                    <div class="flex items-center justify-center text-2xl md:text-3xl font-bold growth-positive">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+235%</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">తలసరి ఆదాయం (Per Capita Income)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                విద్యుత్ సామర్థ్యం: కరెంట్‌ కోతల నుంచి నిరంతర వెలుగు దివ్వెగా
+            </h2>
+            <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                <div class="flex items-center mb-6">
+                    <div class="text-5xl text-gray-400 mr-4">
+                        <i class="fas fa-bolt"></i> <p class="text-lg font-semibold mt-2">7.8 GW</p>
+                    </div>
+                    <div class="text-9xl text-yellow-500">
+                        <i class="fas fa-bolt animate-pulse"></i> <p class="text-2xl font-bold mt-4">19.3 GW</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center text-3xl md:text-4xl font-bold growth-positive mb-4">
+                    <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                    <span>+147%</span>
+                </div>
+                <p class="text-lg text-center text-gray-600 highlight-text">
+                    కరెంట్‌ కోతల నుంచి నిరంతర వెలుగు దివ్వెగా
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                ఐటీ రంగం: హైదరాబాద్: గ్లోబల్ ఐటీ హబ్‌గా ఆవిర్భావం
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="card p-6 md:p-8 flex-1">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-laptop-code text-4xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-bold section-heading">ఐటీ ఎగుమతులు</h3>
+                    </div>
+                    <div class="bar-chart-container">
+                        <div class="bar before" style="height: 60%;">
+                            <span class="bar-label">ముందు</span>
+                            <span class="mt-auto">రూ. 57,258 కోట్లు</span>
+                        </div>
+                        <div class="bar" style="height: 100%;">
+                            <span class="bar-label">ప్రస్తుతం</span>
+                            <span class="mt-auto">రూ. 2,41,275 కోట్లు</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center text-2xl font-bold growth-positive mt-6">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+321%</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 md:p-8 flex-1">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-users text-4xl text-purple-500 mr-4"></i>
+                        <h3 class="text-xl font-bold section-heading">ఐటీ ఉపాధి</h3>
+                    </div>
+                    <div class="bar-chart-container">
+                        <div class="bar before" style="height: 50%;">
+                            <span class="bar-label">ముందు</span>
+                            <span class="mt-auto">3.23 లక్షలు</span>
+                        </div>
+                        <div class="bar" style="height: 100%;">
+                            <span class="bar-label">ప్రస్తుతం</span>
+                            <span class="mt-auto">9.05 లక్షలు</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center text-2xl font-bold growth-positive mt-6">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+180%</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-lg text-gray-600 mt-8 highlight-text">
+                హైదరాబాద్: గ్లోబల్ ఐటీ హబ్‌గా ఆవిర్భావం
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                వ్యవసాయ విప్లవం: బీడు భూముల నుంచి పంట సిరుల తెలంగాణ
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <h3 class="text-xl font-bold mb-6 section-heading">స్థూల సాగునీటి ప్రాంతం</h3>
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="text-8xl text-gray-400 mb-4">
+                            <i class="fas fa-seedling"></i> </div>
+                        <p class="text-lg before-value mb-2">ముందు: 62.48 లక్షల ఎకరాలు</p>
+                        <div class="text-8xl text-green-600 mb-4">
+                            <i class="fas fa-leaf"></i> </div>
+                        <p class="text-lg current-value mb-2">ప్రస్తుతం: 135 లక్షల ఎకరాలు</p>
+                    </div>
+                    <div class="flex items-center justify-center text-3xl font-bold growth-positive">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+117%</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <h3 class="text-xl font-bold mb-6 section-heading">వరి ఉత్పత్తి</h3>
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="text-8xl text-yellow-700 mb-4">
+                            <i class="fas fa-box"></i> </div>
+                        <p class="text-lg before-value mb-2">ముందు: 34.02 లక్షల టన్నులు</p>
+                        <div class="text-8xl text-yellow-500 mb-4">
+                            <i class="fas fa-boxes"></i> </div>
+                        <p class="text-lg current-value mb-2">ప్రస్తుతం: 150.5 లక్షల టన్నులు</p>
+                    </div>
+                    <div class="flex items-center justify-center text-3xl font-bold growth-positive">
+                        <i class="fas fa-arrow-up mr-2 growth-icon"></i>
+                        <span>+342%</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-lg text-gray-600 mt-8 highlight-text">
+                వ్యవసాయ విప్లవం: బీడు భూముల నుంచి పంట సిరుల తెలంగాణ
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                సులభతర వాణిజ్యం: పారిశ్రామిక అభివృద్ధికి నూతన శకం
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <div class="text-6xl text-green-600 mb-4">
+                        <i class="fas fa-coins"></i> </div>
+                    <p class="text-sm text-gray-500 mb-2">టీఎస్-ఐపాస్ ద్వారా పెట్టుబడులు (సంచితం)</p>
+                    <p class="text-4xl md:text-5xl font-extrabold current-value mb-4">రూ. 2.53 లక్షల కోట్లు</p>
+                </div>
+
+                <div class="card p-6 md:p-8 flex-1 text-center">
+                    <div class="text-6xl text-indigo-600 mb-4">
+                        <i class="fas fa-handshake"></i> </div>
+                    <p class="text-sm text-gray-500 mb-2">టీఎస్-ఐపాస్ ద్వారా ఉపాధి (సంచితం)</p>
+                    <p class="text-4xl md:text-5xl font-extrabold current-value mb-4">17.26 లక్షలు ఉపాధి అవకాశాలు</p>
+                </div>
+            </div>
+            <p class="text-center text-lg text-gray-600 mt-8 highlight-text">
+                సులభతర వాణిజ్యం: పారిశ్రామిక అభివృద్ధికి నూతన శకం
+            </p>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center section-heading">
+                మిషన్ భగీరథ: ప్రతి ఇంటికీ సురక్షిత తాగునీరు
+            </h2>
+            <div class="card p-6 md:p-8 flex flex-col items-center justify-center">
+                <div class="text-8xl text-blue-500 mb-6">
+                    <i class="fas fa-faucet"></i> </div>
+                <p class="text-lg text-gray-600 mb-4">గ్రామీణ నల్లా కనెక్షన్లు</p>
+                <div class="w-full max-w-md bg-gray-200 rounded-full h-8 mb-4 progress-bar-bg">
+                    <div class="bg-blue-600 h-8 rounded-full flex items-center justify-center text-white font-bold progress-bar-fill" style="width: 100%;">
+                        100%
+                    </div>
+                </div>
+                <p class="text-2xl font-bold current-value mb-4">ప్రతి ఇంటికీ సురక్షిత తాగునీరు</p>
+                <p class="text-lg text-center text-gray-600 highlight-text">
+                    మిషన్ భగీరథ విజయం
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
