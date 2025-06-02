@@ -3,41 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Principles and Usages</title>
+    <title>The EU AI Act: A Comprehensive Overview</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #343a40;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1100px;
             margin: auto;
             overflow: auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            background: #003399; /* EU Blue */
+            color: #ffffff;
+            padding: 1.5rem 0;
             text-align: center;
+            border-bottom: 5px solid #FFCC00; /* EU Yellow */
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
         }
 
         nav {
-            background: #444;
+            background: #495057;
             color: #fff;
-            padding: 0.5rem;
+            padding: 0.75rem 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -47,192 +57,411 @@
         }
 
         nav ul li {
-            display: inline;
-            margin-right: 20px;
+            display: inline-block; /* Changed from inline for better spacing control */
+            margin: 0 15px; /* Adjusted margin */
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            background-color: #003399;
+            text-decoration: none;
         }
 
         section {
-            padding: 2rem 0;
-            border-bottom: 1px #ccc dotted;
+            padding: 2.5rem 0;
+            border-bottom: 1px #e0e0e0 solid;
         }
 
-        section:last-child {
+        section:last-of-type { /* Changed from section:last-child */
             border-bottom: none;
         }
 
         h2 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 2rem;
+            color: #003399;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #FFCC00;
+            padding-bottom: 0.5rem;
         }
 
         h3 {
-            color: #555;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
+            color: #17a2b8;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.7rem;
+            font-weight: 600;
         }
 
-        ul {
-            list-style: disc;
-            padding-left: 20px;
+        h4 {
+            color: #343a40;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        ul, ol {
+            list-style-position: outside;
+            padding-left: 25px;
+            margin-bottom: 1rem;
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
         }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .risk-category {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .risk-unacceptable { background-color: #ffebee; border-left: 5px solid #d32f2f; } /* Light Red */
+        .risk-high { background-color: #fff3e0; border-left: 5px solid #ffa000; }       /* Light Orange */
+        .risk-limited { background-color: #e3f2fd; border-left: 5px solid #1976d2; }    /* Light Blue */
+        .risk-minimal { background-color: #e8f5e9; border-left: 5px solid #388e3c; }    /* Light Green */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #6c757d;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -110px; /* Use half of the width to center */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
 
         footer {
             text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
+            padding: 2rem 0;
+            background: #343a40;
+            color: #f8f9fa;
             margin-top: 2rem;
         }
+        footer p { margin-bottom: 0.3rem; }
+        footer a { color: #FFCC00; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
         /* Responsive adjustments */
+        @media (max-width: 992px) {
+            header h1 { font-size: 2.4rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
+        }
+
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            nav ul li {
-                display: block;
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            h2 {
-                font-size: 1.75rem;
-            }
-            h3 {
-                font-size: 1.3rem;
-            }
+            header h1 { font-size: 2rem; }
+            nav ul li { display: block; margin: 10px 0; }
+            nav a { display: block; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.5rem; }
+            .container { padding: 0 15px; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Our AI Principles and Usages</h1>
+            <h1>The EU AI Act</h1>
+            <p>A Comprehensive Overview of the European Union's Landmark Artificial Intelligence Regulation</p>
         </div>
     </header>
 
-    <nav>
+    <nav id="navbar">
         <div class="container">
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#principles">Principles</a></li>
-                <li><a href="#usage-guidelines">Usage Guidelines</a></li>
+                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="#scope">Scope</a></li>
+                <li><a href="#risk-approach">Risk Approach</a></li>
+                <li><a href="#high-risk-obligations">High-Risk AI</a></li>
+                <li><a href="#transparency">Transparency</a></li>
                 <li><a href="#governance">Governance</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#penalties">Penalties</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#preparation">Preparation</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
         <section id="introduction">
-            <h2>👋 Introduction</h2>
-            <p>Artificial Intelligence (AI) presents transformative opportunities for our organization and society. We are committed to developing and using AI responsibly, ethically, and in a manner that aligns with our core values and benefits our stakeholders. This document outlines the fundamental principles that guide our AI initiatives and the usage guidelines for deploying AI technologies.</p>
+            <h2>👋 Introduction to the EU AI Act</h2>
+            <p>The European Union's AI Act is a landmark piece of legislation, representing the world's first comprehensive attempt to regulate artificial intelligence. Proposed by the European Commission in April 2021 and formally adopted in 2024, the Act aims to ensure that AI systems used in the EU are safe, transparent, ethical, and respect fundamental rights. It follows a risk-based approach, imposing stricter rules on AI systems that pose greater risks to individuals and society.</p>
+            <p>This document provides a detailed overview of the EU AI Act, its key provisions, obligations, and implications for businesses and developers working with AI.</p>
+            <div class="highlight">
+                <p><strong>Key Goal:</strong> To establish a harmonized legal framework for AI across the EU, fostering innovation while safeguarding fundamental rights and user safety.</p>
+            </div>
         </section>
 
-        <hr>
-
-        <section id="principles">
-            <h2>📜 Core AI Principles</h2>
-            <p>Our approach to AI is founded on the following key principles:</p>
+        <section id="objectives">
+            <h2>🎯 Objectives of the Act</h2>
+            <p>The EU AI Act has several overarching objectives:</p>
             <ul>
-                <li>
-                    <h3>⚖️ Fairness and Non-Discrimination</h3>
-                    <p>We strive to design and deploy AI systems that are fair and equitable. We will work to identify and mitigate harmful biases in our AI models and data to prevent discriminatory outcomes based on sensitive characteristics such as race, ethnicity, gender, religion, age, or disability.</p>
-                </li>
-                <li>
-                    <h3>🔍 Transparency and Explainability</h3>
-                    <p>We aim for transparency in our AI systems. Where appropriate and feasible, we will provide clear explanations about how our AI systems make decisions, the data they use, and their intended purpose. This helps build trust and allows for better understanding and scrutiny.</p>
-                </li>
-                <li>
-                    <h3>🛡️ Accountability and Human Oversight</h3>
-                    <p>We believe in human accountability for AI systems. We will establish clear lines of responsibility for the development, deployment, and operation of AI. Meaningful human oversight will be maintained, especially for critical applications, to ensure AI systems operate as intended and to intervene when necessary.</p>
-                </li>
-                <li>
-                    <h3>🔒 Privacy and Security</h3>
-                    <p>Protecting individual privacy and ensuring data security are paramount. We will handle personal data used in AI systems with care, adhering to applicable privacy laws and regulations. Robust security measures will be implemented to protect AI systems and the data they process from unauthorized access or misuse.</p>
-                </li>
-                <li>
-                    <h3>✅ Reliability and Safety</h3>
-                    <p>Our AI systems will be developed and tested rigorously to ensure they are reliable, perform as intended, and are safe for their intended use. We will implement measures to prevent unintended consequences and to ensure systems operate robustly in various conditions.</p>
-                </li>
-                <li>
-                    <h3>🤝 Beneficence and Human Values</h3>
-                    <p>We will develop and use AI to benefit society and individuals, aligning with human values and well-being. We will consider the broader societal impact of our AI systems and strive to use AI for positive and constructive purposes.</p>
-                </li>
+                <li><strong>Ensure AI systems are safe and respect fundamental rights and EU values:</strong> Protecting health, safety, and fundamental rights from risks posed by AI systems.</li>
+                <li><strong>Provide legal certainty:</strong> Establishing clear rules to facilitate investment and innovation in AI.</li>
+                <li><strong>Enhance governance and effective enforcement:</strong> Creating a robust governance structure for the oversight of AI systems.</li>
+                <li><strong>Develop a single market for lawful, safe, and trustworthy AI applications:</strong> Preventing market fragmentation and ensuring a level playing field.</li>
+                <li><strong>Promote an AI that is human-centric and trustworthy:</strong> Ensuring that AI development serves humanity and adheres to ethical principles.</li>
             </ul>
         </section>
 
-        <hr>
-
-        <section id="usage-guidelines">
-            <h2>💡 Responsible AI Usage Guidelines</h2>
-            <p>These guidelines apply to all individuals involved in the design, development, deployment, and use of AI systems within our organization:</p>
+        <section id="scope">
+            <h2>🌍 Scope of the Act</h2>
+            <p>The AI Act has a broad territorial scope and applies to:</p>
             <ul>
-                <li>
-                    <h3>📊 Data Handling</h3>
-                    <p>Ensure data used for training and operating AI systems is accurate, relevant, and ethically sourced. Respect data privacy and confidentiality. Implement appropriate data governance practices.</p>
+                <li><strong>Providers</strong> placing AI systems on the EU market or putting them into service, irrespective of whether they are established within the EU or in a third country.</li>
+                <li><strong>Users (deployers)</strong> of AI systems located within the EU.</li>
+                <li><strong>Providers and users (deployers)</strong> of AI systems located in a third country, where the output produced by the AI system is used in the EU.</li>
+            </ul>
+            <p>The definition of an AI system in the Act is aligned with the OECD definition, covering machine learning, logic- and knowledge-based approaches, and statistical approaches. It does not apply to AI systems developed or used exclusively for military purposes or to AI systems used by public authorities in a third country or international organisations for law enforcement and judicial cooperation, provided they offer reciprocal safeguards.</p>
+        </section>
+
+        <section id="risk-approach">
+            <h2>🚦 Risk-Based Approach</h2>
+            <p>The AI Act categorizes AI systems into four risk levels, with obligations proportionate to the level of risk:</p>
+
+            <div class="risk-category risk-unacceptable">
+                <h3><span class="tooltip">🚫 Unacceptable Risk AI<span class="tooltiptext">AI systems posing a clear threat to the safety, livelihoods, and rights of people.</span></span></h3>
+                <p>These AI systems are deemed to present a clear threat to fundamental rights and are therefore <strong>banned</strong> in the EU. Examples include:</p>
+                <ul>
+                    <li>AI systems that deploy subliminal techniques beyond a person’s consciousness to materially distort their behavior in a manner that causes or is likely to cause physical or psychological harm.</li>
+                    <li>AI systems that exploit vulnerabilities of specific groups (due to age, physical or mental disability) to materially distort their behavior in a harmful way.</li>
+                    <li>Social scoring systems by public authorities for general purposes.</li>
+                    <li>Real-time remote biometric identification systems in publicly accessible spaces for law enforcement purposes (with narrow exceptions).</li>
+                    <li>Emotion recognition in the workplace and educational institutions (unless for medical/safety reasons).</li>
+                    <li>Indiscriminate scraping of facial images from the internet or CCTV footage to create facial recognition databases.</li>
+                </ul>
+            </div>
+
+            <div class="risk-category risk-high">
+                <h3><span class="tooltip">⚠️ High-Risk AI<span class="tooltiptext">AI systems that create a high risk to health, safety, or fundamental rights of persons.</span></span></h3>
+                <p>High-risk AI systems are permitted but are subject to stringent requirements and a conformity assessment before being placed on the market. These systems fall into two main categories:</p>
+                <ol>
+                    <li>AI systems intended to be used as a safety component of products, or are themselves products, covered by existing EU product safety legislation (e.g., toys, medical devices, machinery).</li>
+                    <li>Specific AI systems listed in Annex III of the Act, covering critical areas such as:
+                        <ul>
+                            <li>Biometric identification and categorisation of natural persons (with exceptions for verification).</li>
+                            <li>Management and operation of critical infrastructure (e.g., water, gas, electricity).</li>
+                            <li>Education and vocational training (e.g., assessing students).</li>
+                            <li>Employment, workers management, and access to self-employment (e.g., CV-sorting software).</li>
+                            <li>Access to and enjoyment of essential private and public services and benefits (e.g., credit scoring, dispatching emergency services).</li>
+                            <li>Law enforcement (e.g., evaluating evidence, predicting crime).</li>
+                            <li>Migration, asylum, and border control management (e.g., verifying travel documents, assessing asylum applications).</li>
+                            <li>Administration of justice and democratic processes (e.g., AI assisting judicial authorities).</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Providers of high-risk AI systems face significant obligations (detailed in the next section).</p>
+            </div>
+
+            <div class="risk-category risk-limited">
+                <h3><span class="tooltip">💬 Limited Risk AI<span class="tooltiptext">AI systems with specific transparency obligations.</span></span></h3>
+                <p>For AI systems classified as limited risk, the focus is on transparency. Users should be made aware that they are interacting with an AI system. This includes:</p>
+                <ul>
+                    <li>AI systems intended to interact directly with natural persons (e.g., chatbots), which must inform users that they are interacting with an AI, unless this is obvious from the context.</li>
+                    <li>AI systems used to generate or manipulate image, audio, or video content that appreciably resembles existing persons, places or events and would falsely appear to a person to be authentic or truthful ("deepfakes"). The AI-generated nature must be disclosed.</li>
+                    <li>AI systems that generate text for publication on matters of public interest must disclose that the text is AI-generated, unless reviewed and edited by a human with editorial responsibility.</li>
+                </ul>
+            </div>
+
+            <div class="risk-category risk-minimal">
+                <h3><span class="tooltip">✅ Minimal or No Risk AI<span class="tooltiptext">The vast majority of AI systems, which can be developed and used freely.</span></span></h3>
+                <p>This category includes AI systems like spam filters or AI in video games. The Act does not impose mandatory obligations for these systems, though providers may choose to voluntarily adhere to codes of conduct.</p>
+            </div>
+        </section>
+
+        <section id="high-risk-obligations">
+            <h2>📝 Obligations for Providers of High-Risk AI Systems</h2>
+            <p>Providers of high-risk AI systems must comply with a comprehensive set of requirements throughout the AI system's lifecycle:</p>
+            <ul>
+                <li><strong>Risk Management System:</strong> Establish, implement, document, and maintain a continuous iterative risk management system.</li>
+                <li><strong>Data Governance and Management:</strong> Ensure training, validation, and testing data sets are relevant, representative, free of errors, and complete. Appropriate data governance and management practices must be applied.</li>
+                <li><strong>Technical Documentation:</strong> Draw up detailed technical documentation demonstrating compliance with the requirements before placing the system on the market. This documentation must be kept up-to-date.</li>
+                <li><strong>Record-Keeping (Logging):</strong> Ensure AI systems are designed to automatically record events ("logs") while the high-risk AI systems are operating to ensure a level of traceability of the system's functioning.</li>
+                <li><strong>Transparency and Provision of Information to Users:</strong> Design systems to be sufficiently transparent to enable users to interpret the system's output and use it appropriately. Users must be provided with clear and adequate instructions for use.</li>
+                <li><strong>Human Oversight:</strong> Ensure systems can be effectively overseen by humans during their use. This includes measures to allow human intervention to prevent or minimize risks.</li>
+                <li><strong>Accuracy, Robustness, and Cybersecurity:</strong> Design and develop systems to achieve an appropriate level of accuracy, robustness, and cybersecurity throughout their lifecycle.</li>
+                <li><strong>Conformity Assessment:</strong> Undergo a conformity assessment procedure before being placed on the market or put into service. For most high-risk AI systems listed in Annex III, a self-assessment by the provider is sufficient. However, for certain particularly critical AI systems (e.g., remote biometric identification), a third-party conformity assessment by a Notified Body is required.</li>
+                <li><strong>Registration:</strong> Register their high-risk AI systems in an EU-wide public database managed by the European Commission (some exceptions for law enforcement).</li>
+                <li><strong>Quality Management System:</strong> Implement a quality management system ensuring compliance with the Act.</li>
+                <li><strong>Post-Market Monitoring:</strong> Establish and implement a post-market monitoring system to collect and analyze data about the performance of high-risk AI systems.</li>
+                <li><strong>Incident Reporting:</strong> Report any serious incidents and malfunctions to national competent authorities.</li>
+            </ul>
+            <p>Importers and distributors also have specific obligations to ensure that the AI systems they handle comply with the Act.</p>
+        </section>
+
+        <section id="transparency">
+            <h2>🗣️ Transparency Requirements for Certain AI Systems</h2>
+            <p>Beyond high-risk systems, the Act imposes specific transparency obligations for certain AI systems to ensure individuals are aware they are interacting with AI or exposed to AI-generated content:</p>
+            <ul>
+                <li><strong>Chatbots and AI interacting with humans:</strong> Users must be informed that they are interacting with an AI system, unless it is obvious.</li>
+                <li><strong>Emotion recognition systems and biometric categorisation systems:</strong> Individuals exposed to these systems need to be informed of their operation.</li>
+                <li><strong>Deepfakes (AI-generated content):</strong> If AI is used to generate or manipulate image, audio, or video content that could be mistaken for authentic, it must be disclosed that the content is AI-generated. This also applies to text generated by AI that is published on matters of public interest.</li>
+            </ul>
+            <p>These rules aim to prevent deception and empower individuals to make informed decisions.</p>
+        </section>
+
+         <section id="governance">
+            <h2>🏛️ Governance and Enforcement</h2>
+            <p>The EU AI Act establishes a governance framework at both Union and national levels:</p>
+            <ul>
+                <li><strong>European AI Office:</strong> A new European AI Office will be established within the European Commission. Its tasks include:
+                    <ul>
+                        <li>Supporting the consistent application of the AI Act.</li>
+                        <li>Developing guidelines and standards.</li>
+                        <li>Overseeing the rules for general-purpose AI models.</li>
+                        <li>Monitoring the implementation and enforcement of the Act.</li>
+                        <li>Coordinating with national authorities.</li>
+                    </ul>
                 </li>
-                <li>
-                    <h3>🛠️ Model Development and Validation</h3>
-                    <p>Employ rigorous testing and validation procedures to ensure AI models are accurate, fair, and robust. Document development processes, data sources, and model limitations.</p>
-                </li>
-                <li>
-                    <h3>🚀 Deployment Considerations</h3>
-                    <p>Before deploying an AI system, assess its potential impact on users and society. Implement monitoring mechanisms to track performance and identify any unintended outcomes. Provide clear information to users about how the AI system works.</p>
-                </li>
-                <li>
-                    <h3>🚫 Prohibited Uses</h3>
-                    <p>AI systems should not be used for purposes that are illegal, unethical, or violate human rights. This includes, but is not limited to, creating or spreading disinformation, engaging in unlawful surveillance, or developing autonomous weapons that contravene international humanitarian law.</p>
-                </li>
-                <li>
-                    <h3>🧑‍🏫 Continuous Learning and Improvement</h3>
-                    <p>Stay informed about a_i_ advancements, ethical considerations, and best practices. Regularly review and update AI systems and these guidelines to ensure they remain relevant and effective.</p>
-                </li>
+                <li><strong>National Competent Authorities:</strong> Each EU Member State will designate one or more national competent authorities responsible for supervising and enforcing the Act. These authorities will conduct market surveillance, investigate non-compliance, and impose penalties.</li>
+                <li><strong>Notified Bodies:</strong> Independent third-party bodies designated by Member States to conduct conformity assessments for certain high-risk AI systems where required.</li>
+                <li><strong>European Artificial Intelligence Board (EAIB):</strong> Composed of representatives from national supervisory authorities and the European Data Protection Supervisor (EDPS), the Board will advise and assist the Commission and Member States to ensure consistent application of the Act.</li>
+                <li><strong>Codes of Conduct and Standardisation:</strong> The Act encourages the development of codes of conduct for non-high-risk AI systems and promotes the creation of harmonised technical standards to support compliance.</li>
+                <li><strong>Regulatory Sandboxes:</strong> Member States are encouraged to establish AI regulatory sandboxes to allow businesses, especially SMEs and startups, to test innovative AI systems in a controlled environment under the supervision of competent authorities.</li>
             </ul>
         </section>
 
-        <hr>
+        <section id="penalties">
+            <h2>💰 Fines and Penalties for Non-Compliance</h2>
+            <p>The AI Act introduces significant penalties for non-compliance, which can be substantial, especially for large enterprises:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type of Infringement</th>
+                        <th>Maximum Fine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Non-compliance with the prohibition of AI practices (unacceptable risk) or with requirements for high-risk AI related to data and data governance (for GPAI models with systemic risk)</td>
+                        <td>Up to €35 million or 7% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
+                    </tr>
+                    <tr>
+                        <td>Non-compliance with most other obligations of the Act, including those for high-risk AI systems not covered above, and obligations for providers and deployers of certain AI systems.</td>
+                        <td>Up to €15 million or 3% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
+                    </tr>
+                    <tr>
+                        <td>Providing incorrect, incomplete, or misleading information to notified bodies and national competent authorities.</td>
+                        <td>Up to €7.5 million or 1.5% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>For SMEs and startups, the fines are generally capped at the lower of these percentages or fixed amounts. Member States will lay down rules on effective, proportionate, and dissuasive penalties.</p>
+        </section>
 
-        <section id="governance">
-            <h2>🏛️ Governance and Oversight</h2>
-            <p>We are committed to establishing strong governance mechanisms to oversee our AI activities. This includes:</p>
+        <section id="timeline">
+            <h2>🗓️ Timeline for Implementation</h2>
+            <p>The EU AI Act has a phased implementation timeline following its entry into force (20 days after publication in the Official Journal of the EU):</p>
             <ul>
-                <li>Establishing an AI ethics review board or committee.</li>
-                <li>Implementing clear roles and responsibilities for AI development and deployment.</li>
-                <li>Providing regular training on AI ethics and responsible AI practices.</li>
-                <li>Creating channels for reporting concerns related to AI systems.</li>
-                <li>Regularly auditing our AI systems and practices to ensure compliance with these principles and guidelines.</li>
+                <li><strong>6 months after entry into force:</strong> Provisions on prohibited AI systems (unacceptable risk) will start to apply.</li>
+                <li><strong>12 months after entry into force:</strong> Rules on general-purpose AI governance (including for GPAI models with systemic risk), and obligations for bodies responsible for pre-market conformity assessment (Notified Bodies) will apply. The European AI Office is also expected to be operational.</li>
+                <li><strong>24 months after entry into force:</strong> Most other provisions, including obligations for high-risk AI systems (as defined in Annex III), will apply. Some specific exceptions for high-risk systems used by public authorities will apply after 36 months.</li>
+                <li><strong>36 months after entry into force:</strong> Obligations for high-risk AI systems that are safety components of products covered by existing EU legislation (Annex II) will apply, unless specific transitional periods are shorter under that legislation.</li>
             </ul>
+            <p>It's crucial for organizations to monitor the exact dates and prepare accordingly.</p>
         </section>
 
-        <hr>
-
-        <section id="contact">
-            <h2>📞 Contact & Reporting</h2>
-            <p>For questions regarding these AI Principles and Usages, or to report a concern related to our AI systems, please contact:</p>
-            <p>[Insert Contact Email or Department Here, e.g., ai.ethics@example.com or Legal Department]</p>
-            <p>We are committed to addressing all inquiries and concerns promptly and fairly.</p>
+        <section id="preparation">
+            <h2>🚀 What Businesses Should Do to Prepare</h2>
+            <p>Organizations developing, deploying, or distributing AI systems in or for the EU market should take proactive steps:</p>
+            <ol>
+                <li><strong>Understand the Act:</strong> Familiarize yourself with the definitions, scope, risk categories, and specific obligations relevant to your AI systems.</li>
+                <li><strong>Inventory AI Systems:</strong> Identify and classify all AI systems your organization develops, uses, or places on the market according to the Act's risk categories.</li>
+                <li><strong>Assess Risk and Gap Analysis:</strong> For systems potentially classified as high-risk, conduct a thorough risk assessment and a gap analysis against the Act's requirements (data governance, technical documentation, transparency, human oversight, etc.).</li>
+                <li><strong>Implement Data Governance:</strong> Review and enhance data collection, processing, and management practices, particularly for data used to train AI models.</li>
+                <li><strong>Develop Technical Documentation:</strong> Start preparing the necessary technical documentation for high-risk AI systems.</li>
+                <li><strong>Establish Risk Management Frameworks:</strong> Implement robust risk management systems as required for high-risk AI.</li>
+                <li><strong>Focus on Transparency and Explainability:</strong> Ensure mechanisms are in place for transparency, especially for limited-risk AI and high-risk AI.</li>
+                <li><strong>Plan for Human Oversight:</strong> Design AI systems to allow for effective human oversight where necessary.</li>
+                <li><strong>Consider Conformity Assessments:</strong> Understand the conformity assessment procedures (self-assessment or third-party) applicable to your high-risk AI systems.</li>
+                <li><strong>Monitor Regulatory Developments:</strong> Stay updated on guidelines, harmonized standards, and delegated/implementing acts from the European Commission and AI Office.</li>
+                <li><strong>Train Staff:</strong> Educate relevant teams (legal, technical, product) on the AI Act's implications.</li>
+                <li><strong>Seek Legal Counsel:</strong> Consult with legal experts specializing in AI regulation to ensure compliance.</li>
+            </ol>
         </section>
+
+        <section id="further-information">
+            <h2>🔗 Further Information & Resources</h2>
+            <p>For the most current and official information, please refer to:</p>
+            <ul>
+                <li>The official website of the European Commission on AI policy.</li>
+                <li>Publications from the European Parliament and the Council of the EU.</li>
+                <li>Guidance documents released by the European AI Office (once established).</li>
+            </ul>
+            <p><em>Disclaimer: This document provides a general overview and should not be considered legal advice. Organizations should consult with legal professionals for specific guidance on compliance with the EU AI Act.</em></p>
+        </section>
+
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> [Your Organization's Name]. All Rights Reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Your Organization/Name. All Rights Reserved.</p>
+            <p>Information on this page is for general guidance only and not legal advice. Consult official EU resources for definitive information on the AI Act.</p>
+            <p><a href="#top">Back to Top</a></p>
         </div>
     </footer>
 
@@ -241,14 +470,40 @@
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
         // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+
+        // Active link highlighting in nav based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        window.onscroll = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) { // Adjust offset as needed
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        };
     </script>
 
 </body>
