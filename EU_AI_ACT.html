@@ -571,13 +571,14 @@ nav a:hover, nav a.active, nav a:focus {
                 }
             });
         };
-    </script>
-// Responsive nav toggle
+        // Responsive nav toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
 navToggle.addEventListener('click', function () {
     const isOpen = navList.classList.toggle('show');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
+    </script>
+
 </body>
 </html>
