@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Strategic Blueprint: Claims Analytics Transformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Neon Pulse -->
+    <!-- Application Structure Plan: A tab-based, single-page application (SPA) structure was chosen to logically segment the dense report into manageable, thematic sections: Vision, 100-Day Plan, Roadmap, Technology, and KPIs. This non-linear navigation allows users (e.g., executives, managers, team leads) to directly access the information most relevant to them without scrolling through the entire document. The interactive timeline and diagrams within each tab are designed to make complex processes and plans more intuitive and engaging than static text, directly supporting the goal of user understanding and ease of navigation. -->
+    <!-- Visualization & Content Choices: 
+        - Market Dynamics (Cyber Threat): Goal: Inform. Method: Dynamic stat cards. Interaction: Hover effects. Justification: Quickly conveys key statistics from the report's context section.
+        - Tech Stack: Goal: Organize. Method: Interactive HTML/CSS diagram. Interaction: Clicking tabs to reveal details. Justification: Clearly explains the distinct role of each technology (Databricks, Power BI, Palantir) in a visually organized manner, superior to a long text description.
+        - 100-Day Plan: Goal: Organize/Change. Method: Interactive HTML/CSS timeline. Interaction: Clicking phases to expand details. Justification: Translates the report's phased plan into an intuitive, time-based visual journey.
+        - Use Case Prioritization: Goal: Compare/Organize. Method: Chart.js Bubble Chart. Interaction: Tooltips on hover. Justification: Visually represents the 2x2 matrix described in the report, making the prioritization of "Quick Wins" immediately apparent. Library: Chart.js.
+        - Multi-Year Roadmap: Goal: Organize/Change. Method: Interactive HTML/CSS timeline with tabs. Interaction: Clicking tabs for Short, Mid, Long-term views. Justification: Breaks down the complex multi-year strategy into digestible, time-horizon-based segments.
+        - Data Flow: Goal: Organize. Method: HTML/CSS diagram. Interaction: Numbered steps with hover highlights. Justification: Simplifies the complex, multi-stage data journey from ingestion to insight into a clear, step-by-step process flow.
+        - KPI Framework: Goal: Compare/Organize. Method: Interactive HTML table with filtering. Interaction: Buttons to filter by KPI category. Justification: Allows users to dynamically explore the comprehensive KPI dictionary, focusing on the metrics most relevant to their role.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #00f5d4;
+            border-color: #00f5d4;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 450px;
+            max-height: 500px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00f5d4;
+            border: 4px solid #2d3748;
+        }
+        .glow-shadow {
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
+        }
+        .tech-tab-btn.active, .roadmap-tab-btn.active {
+            color: #00f5d4;
+            border-color: #00f5d4;
+        }
+        .kpi-filter-btn.active {
+            background-color: #00f5d4;
+            color: #1a202c;
+        }
+    </style>
+</head>
+<body class="text-[#f7fafc]">
+
+    <header class="bg-[#2d3748]/80 backdrop-blur-md shadow-lg shadow-black/20 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-[#00f5d4]">Claims Analytics Transformation</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <div id="nav-tabs" class="ml-10 flex items-baseline space-x-2">
+                        <a href="#vision" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold text-gray-300 hover:bg-gray-700 border-b-2 border-transparent active" data-tab="vision">Vision</a>
+                        <a href="#plan-100" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold text-gray-300 hover:bg-gray-700 border-b-2 border-transparent" data-tab="plan-100">100-Day Plan</a>
+                        <a href="#roadmap" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold text-gray-300 hover:bg-gray-700 border-b-2 border-transparent" data-tab="roadmap">Roadmap</a>
+                        <a href="#tech" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold text-gray-300 hover:bg-gray-700 border-b-2 border-transparent" data-tab="tech">Technology</a>
+                        <a href="#kpis" class="tab-btn px-4 py-2 rounded-full text-sm font-semibold text-gray-300 hover:bg-gray-700 border-b-2 border-transparent" data-tab="kpis">KPIs & Success</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Vision Section -->
+        <section id="vision" class="tab-content active">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white">Strategic Vision</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">Transforming Claims from a reactive cost center into a proactive, strategic intelligence hub that drives enterprise-wide profitability and resilience.</p>
+            </div>
+
+            <div class="bg-[#2d3748] p-8 rounded-2xl glow-shadow mb-12">
+                <h3 class="text-2xl font-bold text-center mb-6 text-white">The 2025 Reinsurance Landscape: Key Disruptors</h3>
+                <p class="text-gray-400 mb-8 text-center max-w-4xl mx-auto">The reinsurance market is navigating profound change. A data-driven strategy is not just an advantage; it's a necessity for survival and growth in a world of robust capital, escalating risks, and technological disruption.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="border border-gray-700 p-6 rounded-xl bg-[#1a202c]/50">
+                        <div class="text-4xl font-black text-[#00f5d4]">$113B+</div>
+                        <p class="mt-2 font-semibold">Alternative Capital</p>
+                        <p class="text-sm text-gray-500">A critical buffer against mounting catastrophe losses, with cat bonds surpassing $50B.</p>
+                    </div>
+                    <div class="border border-gray-700 p-6 rounded-xl bg-[#1a202c]/50">
+                         <div class="text-4xl font-black text-[#00f5d4]">45%</div>
+                        <p class="mt-2 font-semibold">Supply Chain Cyber Attacks</p>
+                        <p class="text-sm text-gray-500">The expected share of organizations facing significant supply chain attacks by 2025.</p>
+                    </div>
+                    <div class="border border-gray-700 p-6 rounded-xl bg-[#1a202c]/50">
+                        <div class="text-4xl font-black text-[#00f5d4]">$16.3B</div>
+                        <p class="mt-2 font-semibold">Cyber Insurance Market</p>
+                        <p class="text-sm text-gray-500">The projected global market size by 2025, with ransomware as the primary loss driver.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#2d3748] p-8 rounded-2xl glow-shadow">
+                <h3 class="text-2xl font-bold text-center mb-2 text-white">The Integrated Analytics Stack Advantage</h3>
+                <p class="text-gray-400 mb-8 text-center max-w-4xl mx-auto">Our existing technology creates a powerful synergy. Each component plays a distinct, complementary role in realizing our vision of an intelligence-driven claims function.</p>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center border-b border-gray-700 mb-6">
+                        <button class="tech-tab-btn p-4 font-semibold border-b-2 text-gray-400 active" data-tech="databricks">Databricks</button>
+                        <button class="tech-tab-btn p-4 font-semibold border-b-2 text-gray-400" data-tech="powerbi">Power BI</button>
+                        <button class="tech-tab-btn p-4 font-semibold border-b-2 text-gray-400" data-tech="palantir">Palantir</button>
+                    </div>
+                    <div id="tech-content-container">
+                        <div class="tech-tab-content active" data-tech="databricks">
+                            <h4 class="text-xl font-bold text-[#00f5d4]">The Data Intelligence Platform</h4>
+                            <p class="mt-2 text-gray-400">Serves as the foundational layer. It ingests, stores, processes, and governs all claims-related data at scale, housing the Medallion Architecture. It's the engine for building and deploying all AI/ML models, from severity prediction to fraud detection.</p>
+                        </div>
+                        <div class="tech-tab-content" data-tech="powerbi">
+                            <h4 class="text-xl font-bold text-[#00f5d4]">The Business Intelligence Layer</h4>
+                            <p class="mt-2 text-gray-400">The primary interface for business users. It provides intuitive, interactive dashboards and reports, democratizing data and enabling self-service analytics to foster a data-driven culture across the claims organization.</p>
+                        </div>
+                        <div class="tech-tab-content" data-tech="palantir">
+                            <h4 class="text-xl font-bold text-[#00f5d4]">The Advanced Investigation Workbench</h4>
+                            <p class="mt-2 text-gray-400">The specialized tool for deep-dive, complex investigations. It fuses disparate data sources to perform sophisticated network analysis, making it indispensable for tackling organized fraud and managing large-scale catastrophe events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 100-Day Plan Section -->
+        <section id="plan-100" class="tab-content">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white">100-Day Action Plan</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">A phased approach to build momentum, deliver early value, and establish data-driven leadership within the first three months.</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="border-l-2 border-gray-700 pl-8">
+                    <div class="mb-12 relative timeline-item">
+                        <h3 class="text-2xl font-bold text-[#00f5d4]">Phase I (Days 1-30): Discovery & Alignment</h3>
+                        <p class="text-gray-500 mb-4">The primary objective is to listen, learn, and map the human, process, and technical landscape to build the foundation for change.</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li><strong>Stakeholder Mapping:</strong> Identify and engage key individuals to understand priorities and pain points.</li>
+                            <li><strong>Process Immersion:</strong> Shadow claims adjusters to map the end-to-end claims lifecycle and identify bottlenecks.</li>
+                            <li><strong>Tech Stack Evaluation:</strong> Assess the current state and maturity of Databricks, Power BI, and Palantir.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-12 relative timeline-item">
+                        <h3 class="text-2xl font-bold text-[#00f5d4]">Phase II (Days 31-60): Strategy & Quick-Wins</h3>
+                        <p class="text-gray-500 mb-4">Synthesize findings into a coherent strategy and identify a high-impact, low-effort "quick-win" project to demonstrate value.</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li><strong>KPI Definition Workshop:</strong> Gain consensus on a core set of measurable business outcomes.</li>
+                            <li><strong>Use Case Prioritization:</strong> Brainstorm and score potential use cases to identify the best quick-win candidate.</li>
+                            <li><strong>Develop a Prototype:</strong> Create a tangible mockup of the quick-win project to gather early feedback.</li>
+                        </ul>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="text-2xl font-bold text-[#00f5d4]">Phase III (Days 61-100): Execution & Value Demonstration</h3>
+                        <p class="text-gray-500 mb-4">Deliver the quick-win project, demonstrate its value, and use this success to gain buy-in for the long-term strategic roadmap.</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li><strong>Deliver Quick-Win Project:</strong> Execute the end-to-end development of the prioritized project, such as the "Cedent Data Quality Dashboard".</li>
+                            <li><strong>Value Socialization:</strong> Craft a compelling data story to showcase the business outcomes and value delivered.</li>
+                            <li><strong>Roadmap Presentation:</strong> Present the full, multi-year strategic plan to senior leadership to secure sponsorship.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-[#2d3748] p-8 rounded-2xl glow-shadow mt-12">
+                <h3 class="text-2xl font-bold text-center mb-2 text-white">Prioritized Use Case Roadmap</h3>
+                <p class="text-gray-400 mb-8 text-center max-w-4xl mx-auto">Use cases are scored by Business Impact and Implementation Effort to identify "Quick Wins" (top-left quadrant) that deliver maximum value with minimal effort.</p>
+                <div class="chart-container">
+                    <canvas id="useCaseChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="tab-content">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white">Multi-Year Transformation Roadmap</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">A "crawl, walk, run" approach to systematically build a mature, data-driven claims organization, delivering continuous, incremental value.</p>
+            </div>
+             <div class="max-w-5xl mx-auto">
+                <div class="flex justify-center border-b border-gray-700 mb-8">
+                    <button class="roadmap-tab-btn p-4 font-semibold border-b-2 text-gray-400 active" data-roadmap="short">Short-Term (1-2 Years)</button>
+                    <button class="roadmap-tab-btn p-4 font-semibold border-b-2 text-gray-400" data-roadmap="mid">Mid-Term (2-3 Years)</button>
+                    <button class="roadmap-tab-btn p-4 font-semibold border-b-2 text-gray-400" data-roadmap="long">Long-Term (3-5 Years)</button>
+                </div>
+                <div id="roadmap-content-container">
+                    <div class="roadmap-tab-content active grid grid-cols-1 md:grid-cols-2 gap-6" data-roadmap="short">
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Centralized Claims Data Model</h4><p class="text-gray-400 mt-2">Implement the full Medallion Architecture in Databricks to unify data from all business lines into a single source of truth.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Operational BI Suite</h4><p class="text-gray-400 mt-2">Roll out standardized Power BI dashboards for real-time visibility into operations, replacing manual reporting.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Claims Leakage Reduction</h4><p class="text-gray-400 mt-2">Launch a high-ROI program to identify and reduce overpayments, directly improving the bottom line.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Initial Predictive Models</h4><p class="text-gray-400 mt-2">Deploy first models for Claim Severity Triage and Subrogation Potential Identification to enable proactive management.</p></div>
+                    </div>
+                    <div class="roadmap-tab-content grid grid-cols-1 md:grid-cols-2 gap-6" data-roadmap="mid">
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Advanced Fraud Detection</h4><p class="text-gray-400 mt-2">Evolve to ML-based fraud detection in Databricks, integrated with Palantir for complex ring analysis.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Litigation Propensity Models</h4><p class="text-gray-400 mt-2">Forecast the probability of litigation to enable proactive settlement strategies and reduce legal costs.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">External Data Integration</h4><p class="text-gray-400 mt-2">Enrich analysis by systematically integrating geospatial, weather, telematics, and economic data.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Pilot Prescriptive Analytics</h4><p class="text-gray-400 mt-2">Begin piloting "next-best-action" models to guide adjuster decisions on settlement offers and assignments.</p></div>
+                    </div>
+                    <div class="roadmap-tab-content grid grid-cols-1 md:grid-cols-2 gap-6" data-roadmap="long">
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Operationalize Generative AI</h4><p class="text-gray-400 mt-2">Implement LLMs to automate the summarization of unstructured claim documents, freeing thousands of adjuster hours.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Embed Prescriptive Analytics</h4><p class="text-gray-400 mt-2">Fully operationalize AI-driven recommendations for triage, reserving, settlement, and recovery across the lifecycle.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">Claims as an Enterprise Risk Signal</h4><p class="text-gray-400 mt-2">Establish the claims data hub as a primary source of real-time risk intelligence to inform dynamic underwriting and pricing.</p></div>
+                        <div class="bg-[#2d3748] p-6 rounded-xl shadow-lg"><h4 class="font-bold text-lg text-[#00f5d4]">"Touchless" Claims Processing</h4><p class="text-gray-400 mt-2">Achieve full straight-through processing (STP) for simple, low-risk claims, delivering unparalleled efficiency.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="tech" class="tab-content">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white">Technology Blueprint</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">The integrated architecture that translates our strategic vision into a concrete, scalable, and powerful implementation plan.</p>
+            </div>
+            <div class="bg-[#2d3748] p-8 rounded-2xl glow-shadow mb-12">
+                <h3 class="text-2xl font-bold text-center mb-6 text-white">The End-to-End Data Flow</h3>
+                 <p class="text-gray-400 mb-8 text-center max-w-4xl mx-auto">Follow a claim's journey from a raw cedent file to an actionable insight, showcasing the seamless integration of our technology stack.</p>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-[#1a202c]/50"><div class="flex-shrink-0 bg-[#00f5d4] text-[#1a202c] h-10 w-10 rounded-full flex items-center justify-center font-bold text-lg">1</div><div><h4 class="font-bold">Ingestion</h4><p class="text-gray-400">Cedent submits PDF loss notice and Excel bordereau to cloud storage.</p></div></div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-[#1a202c]/50"><div class="flex-shrink-0 bg-[#00f5d4] text-[#1a202c] h-10 w-10 rounded-full flex items-center justify-center font-bold text-lg">2</div><div><h4 class="font-bold">ETL & Cleansing (Databricks)</h4><p class="text-gray-400">Auto Loader ingests files. Delta Live Tables pipeline uses OCR to parse the PDF, cleanses the data, and loads it into conformed Silver layer tables.</p></div></div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-[#1a202c]/50"><div class="flex-shrink-0 bg-[#00f5d4] text-[#1a202c] h-10 w-10 rounded-full flex items-center justify-center font-bold text-lg">3</div><div><h4 class="font-bold">AI/ML Scoring (Databricks)</h4><p class="text-gray-400">A pre-trained ML model scores the new claim in real-time, flagging it with a high probability of litigation. Aggregated Gold tables are updated.</p></div></div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-[#1a202c]/50"><div class="flex-shrink-0 bg-[#00f5d4] text-[#1a202c] h-10 w-10 rounded-full flex items-center justify-center font-bold text-lg">4</div><div><h4 class="font-bold">BI Alert & Visualization (Power BI)</h4><p class="text-gray-400">The Claims Manager's dashboard refreshes, flashing a "High Litigation Risk" alert. The manager drills through to a detailed report.</p></div></div>
+                    <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-[#1a202c]/50"><div class="flex-shrink-0 bg-[#00f5d4] text-[#1a202c] h-10 w-10 rounded-full flex items-center justify-center font-bold text-lg">5</div><div><h4 class="font-bold">Deep Investigation (Palantir)</h4><p class="text-gray-400">The high-risk claim is pushed to Palantir. An investigator uses graph analytics to uncover a network of related suspicious claims from the same attorney, enabling a proactive legal strategy.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPIs & Success Section -->
+        <section id="kpis" class="tab-content">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white">Measuring & Communicating Success</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">A framework for demonstrating the value of the analytics program, justifying investment, and building organizational credibility.</p>
+            </div>
+            <div class="bg-[#2d3748] p-8 rounded-2xl glow-shadow">
+                <h3 class="text-2xl font-bold text-center mb-6 text-white">Claims Analytics KPI Framework</h3>
+                <p class="text-gray-400 mb-8 text-center max-w-4xl mx-auto">A balanced scorecard of Key Performance Indicators to provide a transparent, objective, and holistic view of the claims function's performance. Select a category to filter the table.</p>
+                <div class="flex justify-center space-x-2 mb-6" id="kpi-filter-btns">
+                    <button class="kpi-filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-300 active" data-filter="all">All</button>
+                    <button class="kpi-filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-300" data-filter="Operational">Operational</button>
+                    <button class="kpi-filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-300" data-filter="Financial">Financial</button>
+                    <button class="kpi-filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-300" data-filter="Maturity">Maturity</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead class="bg-[#1a202c]/50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">KPI Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Category</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Business Question</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Target</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kpi-table-body" class="bg-[#2d3748] divide-y divide-gray-700"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navTabs = document.getElementById('nav-tabs');
+            const tabContents = document.querySelectorAll('.tab-content');
+            navTabs.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    const targetTab = e.target.dataset.tab;
+                    navTabs.querySelectorAll('a').forEach(tab => tab.classList.remove('active'));
+                    e.target.classList.add('active');
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === targetTab) { content.classList.add('active'); }
+                    });
+                }
+            });
+            
+            const techTabContainer = document.querySelector('.max-w-4xl');
+            const techTabBtns = document.querySelectorAll('.tech-tab-btn');
+            const techTabContents = document.querySelectorAll('.tech-tab-content');
+            techTabContainer.addEventListener('click', (e) => {
+                if(e.target.classList.contains('tech-tab-btn')) {
+                    const targetTech = e.target.dataset.tech;
+                    techTabBtns.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    techTabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if(content.dataset.tech === targetTech) { content.classList.add('active'); }
+                    });
+                }
+            });
+
+            const roadmapTabContainer = document.querySelector('.max-w-5xl');
+            const roadmapTabBtns = document.querySelectorAll('.roadmap-tab-btn');
+            const roadmapTabContents = document.querySelectorAll('.roadmap-tab-content');
+            roadmapTabContainer.addEventListener('click', (e) => {
+                 if(e.target.classList.contains('roadmap-tab-btn')) {
+                    const targetRoadmap = e.target.dataset.roadmap;
+                    roadmapTabBtns.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    roadmapTabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if(content.dataset.roadmap === targetRoadmap) { content.classList.add('active'); }
+                    });
+                }
+            });
+
+            const kpiData = [
+                { name: 'Claim Cycle Time', category: 'Operational', question: 'How long does it take us to settle a claim?', target: 'Reduce by 15% YoY' },
+                { name: 'Claims Leakage %', category: 'Financial', question: 'How much are we overpaying on claims?', target: '< 2.0% of total paid' },
+                { name: 'Large Loss Prediction Accuracy', category: 'Maturity', question: 'How accurately can we predict large losses?', target: 'AUC > 0.85' },
+                { name: 'Subrogation Recovery Rate', category: 'Financial', question: 'How effective are we at recovering money?', target: 'Increase to 65%' },
+                { name: 'STP Rate', category: 'Operational', question: 'What % of claims are processed automatically?', target: 'Achieve 20% for simple claims' },
+                { name: 'Data Quality Score', category: 'Maturity', question: 'How complete and accurate is our data?', target: '> 98% completeness' },
+            ];
+            const kpiTableBody = document.getElementById('kpi-table-body');
+            const kpiFilterBtns = document.getElementById('kpi-filter-btns');
+            const renderKpiTable = (filter) => {
+                kpiTableBody.innerHTML = '';
+                const filteredData = filter === 'all' ? kpiData : kpiData.filter(item => item.category === filter);
+                filteredData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">${item.name}</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${item.category}</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${item.question}</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${item.target}</td>`;
+                    kpiTableBody.appendChild(row);
+                });
+            };
+            kpiFilterBtns.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const filter = e.target.dataset.filter;
+                    kpiFilterBtns.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderKpiTable(filter);
+                }
+            });
+            renderKpiTable('all');
+
+            const useCaseCtx = document.getElementById('useCaseChart').getContext('2d');
+            new Chart(useCaseCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [
+                        { label: 'Quick Win', data: [{ x: 2, y: 4, r: 15 }], backgroundColor: 'rgba(0, 245, 212, 0.7)', borderColor: '#00f5d4' }, 
+                        { label: 'Major Project', data: [{ x: 3, y: 4, r: 12 }, { x: 4, y: 5, r: 18 }, { x: 4, y: 4, r: 15 }], backgroundColor: 'rgba(255, 0, 247, 0.6)', borderColor: '#ff00f7' }, 
+                        { label: 'Strategic Epic', data: [{ x: 5, y: 5, r: 20 }], backgroundColor: 'rgba(255, 255, 255, 0.7)', borderColor: '#ffffff' }, 
+                        { label: 'Fill-In', data: [{ x: 3, y: 3, r: 10 }], backgroundColor: 'rgba(160, 174, 192, 0.6)', borderColor: '#a0aec0' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a0aec0' } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const labels = { '2,4': 'Cedent Data Quality Dashboard', '3,4': 'Claims Cycle Time Analysis', '4,5': 'Claims Leakage Detection', '4,4': 'Subrogation Opportunity Identifier', '5,5': 'Large Loss Predictive Model', '3,3': 'Automated CAT Event Triage' };
+                                    return labels[`${context.parsed.x},${context.parsed.y}`] || 'Use Case';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            title: { display: true, text: 'Business Impact →', font: { size: 14, weight: 'bold' }, color: '#a0aec0' }, 
+                            min: 1, max: 5.5, ticks: { stepSize: 1, color: '#a0aec0' }, grid: { color: 'rgba(160, 174, 192, 0.2)' } 
+                        },
+                        x: { 
+                            title: { display: true, text: '← Implementation Effort', font: { size: 14, weight: 'bold' }, color: '#a0aec0' }, 
+                            min: 1, max: 5.5, ticks: { stepSize: 1, reverse: true, color: '#a0aec0' }, grid: { color: 'rgba(160, 174, 192, 0.2)' } 
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
