@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Leadership Programs — Global Intelligence 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080f1e;
+  --bg2: #0d1628;
+  --card: #101c30;
+  --card2: #13213a;
+  --border: #1c2d47;
+  --border2: #243550;
+  --gold: #e8c84a;
+  --gold2: #f5da7c;
+  --teal: #2dd4bf;
+  --rose: #f87171;
+  --sky: #60a5fa;
+  --text: #e2e8f0;
+  --muted: #8fa3bc;
+  --green: #4ade80;
+  --orange: #fb923c;
+  --purple: #c084fc;
+  --indigo: #818cf8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+/* NAV TABS */
+.nav-tabs {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  overflow-x: auto;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  gap: 0;
+}
+.nav-tab {
+  padding: 14px 22px;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #080f1e 0%, #0e1e3a 50%, #091628 100%);
+  padding: 52px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+header::before { content:''; position:absolute; top:-80px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(232,200,74,.07) 0%,transparent 70%); pointer-events:none; }
+header::after { content:''; position:absolute; bottom:-60px; left:5%; width:350px; height:350px; background:radial-gradient(circle,rgba(45,212,191,.05) 0%,transparent 70%); pointer-events:none; }
+.header-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; opacity:.85; }
+header h1 { font-family:'Playfair Display',serif; font-size:clamp(30px,4.5vw,54px); font-weight:900; line-height:1.12; color:#fff; max-width:780px; }
+header h1 span { color:var(--gold); }
+header p.subtitle { margin-top:16px; color:var(--muted); max-width:620px; font-size:15px; font-weight:300; line-height:1.7; }
+.header-chips { margin-top:24px; display:flex; gap:10px; flex-wrap:wrap; }
+.chip { background:rgba(232,200,74,.08); border:1px solid rgba(232,200,74,.18); border-radius:20px; padding:5px 14px; font-size:11px; color:var(--gold2); font-family:'DM Mono',monospace; letter-spacing:.5px; }
+.chip.blue { background:rgba(96,165,250,.08); border-color:rgba(96,165,250,.18); color:var(--sky); }
+.chip.green { background:rgba(74,222,128,.08); border-color:rgba(74,222,128,.18); color:var(--green); }
+.chip.purple { background:rgba(192,132,252,.08); border-color:rgba(192,132,252,.18); color:var(--purple); }
+
+/* TABS CONTENT */
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* STATS */
+.stats-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; padding:28px 40px 0; }
+.stat { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 20px 16px; }
+.stat-num { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--gold); line-height:1; }
+.stat-label { font-size:11px; color:var(--muted); margin-top:6px; line-height:1.4; }
+
+/* FILTERS */
+.filters { background:var(--bg2); border-bottom:1px solid var(--border); padding:16px 40px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.f-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-family:'DM Mono',monospace; white-space:nowrap; }
+.filter-btn { background:transparent; border:1px solid var(--border); border-radius:20px; padding:5px 14px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:12px; cursor:pointer; transition:all .2s; white-space:nowrap; }
+.filter-btn:hover { border-color:var(--gold); color:var(--gold); }
+.filter-btn.active { background:var(--gold); border-color:var(--gold); color:var(--bg); font-weight:600; }
+.filter-sep { width:1px; height:24px; background:var(--border); margin:0 6px; flex-shrink:0; }
+.search-input { margin-left:auto; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:7px 14px; color:var(--text); font-family:'DM Sans',sans-serif; font-size:13px; width:220px; outline:none; transition:border-color .2s; }
+.search-input:focus { border-color:var(--gold); }
+.search-input::placeholder { color:var(--muted); }
+
+/* TABLE */
+.table-container { padding:24px 40px 60px; }
+.table-wrap { overflow-x:auto; border-radius:14px; border:1px solid var(--border); }
+table { width:100%; border-collapse:collapse; font-size:12.5px; min-width:1600px; }
+thead tr { background:#0a1525; }
+thead th { padding:12px 14px; text-align:left; font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:1.8px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); white-space:nowrap; cursor:pointer; user-select:none; transition:color .2s; }
+thead th:hover, thead th.sorted { color:var(--gold); }
+thead th .sort-arrow { opacity:.4; margin-left:4px; }
+thead th.sorted .sort-arrow { opacity:1; }
+tbody tr { background:var(--card); border-bottom:1px solid var(--border); transition:background .15s; cursor:pointer; }
+tbody tr:hover { background:var(--card2); }
+tbody tr:last-child { border-bottom:none; }
+tbody tr.hidden { display:none; }
+td { padding:13px 14px; vertical-align:middle; }
+
+/* CELL COMPONENTS */
+.prog-name { font-weight:600; color:#fff; font-size:13px; line-height:1.35; max-width:200px; }
+.prog-inst { font-size:10.5px; color:var(--teal); margin-top:2px; font-family:'DM Mono',monospace; letter-spacing:.3px; }
+.prog-country { font-size:10px; color:var(--muted); margin-top:1px; }
+
+.tier-badge { display:inline-block; border-radius:5px; padding:3px 8px; font-size:9.5px; font-family:'DM Mono',monospace; font-weight:500; letter-spacing:.8px; text-transform:uppercase; }
+.t-elite { background:rgba(192,132,252,.15); color:var(--purple); border:1px solid rgba(192,132,252,.3); }
+.t-premium { background:rgba(232,200,74,.13); color:var(--gold); border:1px solid rgba(232,200,74,.28); }
+.t-mid { background:rgba(96,165,250,.12); color:var(--sky); border:1px solid rgba(96,165,250,.22); }
+.t-budget { background:rgba(74,222,128,.1); color:var(--green); border:1px solid rgba(74,222,128,.22); }
+.t-free { background:rgba(45,212,191,.1); color:var(--teal); border:1px solid rgba(45,212,191,.22); }
+
+.price-cell { font-family:'DM Mono',monospace; font-weight:500; white-space:nowrap; font-size:12px; }
+.p-elite { color:var(--purple); }
+.p-high { color:var(--rose); }
+.p-mid { color:var(--orange); }
+.p-low { color:var(--green); }
+.p-free { color:var(--teal); }
+
+.stars { color:var(--gold); letter-spacing:-1px; font-size:12px; }
+
+.tag { display:inline-block; border-radius:4px; padding:2px 6px; font-size:9.5px; margin:1px 1px 1px 0; white-space:nowrap; }
+.tag-strat { background:rgba(96,165,250,.1); border:1px solid rgba(96,165,250,.2); color:var(--sky); }
+.tag-gov { background:rgba(251,146,60,.1); border:1px solid rgba(251,146,60,.2); color:var(--orange); }
+.tag-gen { background:rgba(232,200,74,.1); border:1px solid rgba(232,200,74,.2); color:var(--gold); }
+.tag-agent { background:rgba(192,132,252,.1); border:1px solid rgba(192,132,252,.2); color:var(--purple); }
+.tag-data { background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.2); color:var(--teal); }
+.tag-change { background:rgba(74,222,128,.1); border:1px solid rgba(74,222,128,.2); color:var(--green); }
+.tag-sector { background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.2); color:var(--rose); }
+.tag-ethics { background:rgba(129,140,248,.1); border:1px solid rgba(129,140,248,.2); color:var(--indigo); }
+
+.sector-tag { display:inline-block; background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.18); border-radius:4px; padding:2px 7px; font-size:9.5px; color:var(--rose); margin:1px; white-space:nowrap; }
+.sector-tag.ch { background:rgba(232,200,74,.08); border-color:rgba(232,200,74,.18); color:var(--gold); }
+
+.verdict-badge { display:inline-block; background:linear-gradient(135deg,#e8c84a,#f5da7c); color:var(--bg); border-radius:20px; padding:2px 10px; font-size:9px; font-weight:700; font-family:'DM Mono',monospace; letter-spacing:1px; white-space:nowrap; }
+.verdict-plain { font-size:11px; color:var(--muted); }
+
+.score-bar { display:flex; align-items:center; gap:8px; }
+.bar-outer { width:60px; height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+.bar-inner { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--teal),var(--sky)); }
+.score-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--text); }
+
+.platform-badge { display:inline-block; background:var(--bg2); border:1px solid var(--border); border-radius:5px; padding:2px 8px; font-size:10px; font-family:'DM Mono',monospace; color:var(--muted); }
+
+/* SECTOR MAP PANEL */
+.sector-panel { padding:28px 40px 60px; }
+.sector-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.sector-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px 24px; transition:border-color .2s; }
+.sector-card:hover { border-color:var(--border2); }
+.sector-icon { font-size:28px; margin-bottom:10px; }
+.sector-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#fff; margin-bottom:6px; }
+.sector-desc { font-size:12px; color:var(--muted); margin-bottom:14px; line-height:1.6; }
+.sector-courses { display:flex; flex-direction:column; gap:8px; }
+.sc-item { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
+.sc-item-name { font-size:12px; font-weight:600; color:var(--text); }
+.sc-item-inst { font-size:10px; color:var(--teal); font-family:'DM Mono',monospace; margin-top:2px; }
+.sc-item-why { font-size:11px; color:var(--muted); margin-top:4px; line-height:1.5; }
+
+/* DECISION PANEL */
+.decision-panel { padding:28px 40px 60px; }
+.decision-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px; }
+.decision-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px; }
+.dc-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:#fff; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.dc-icon { font-size:20px; }
+.dc-criterion { display:flex; flex-direction:column; gap:10px; }
+.criterion { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:12px 14px; }
+.criterion-name { font-size:12px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.criterion-desc { font-size:11px; color:var(--muted); line-height:1.6; }
+.criterion-options { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+.crit-opt { display:inline-block; background:rgba(96,165,250,.08); border:1px solid rgba(96,165,250,.18); border-radius:4px; padding:1px 8px; font-size:10px; color:var(--sky); font-family:'DM Mono',monospace; }
+.crit-opt.gold { background:rgba(232,200,74,.08); border-color:rgba(232,200,74,.18); color:var(--gold); }
+.crit-opt.green { background:rgba(74,222,128,.08); border-color:rgba(74,222,128,.18); color:var(--green); }
+.crit-opt.rose { background:rgba(248,113,113,.08); border-color:rgba(248,113,113,.18); color:var(--rose); }
+
+.recommend-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.rec-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; transition:border-color .2s; }
+.rec-card:hover { border-color:var(--gold); }
+.rec-profile { font-size:11px; font-family:'DM Mono',monospace; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.rec-card h4 { font-size:14px; font-weight:600; color:#fff; margin-bottom:4px; }
+.rec-card p { font-size:12px; color:var(--muted); line-height:1.6; }
+.rec-path { margin-top:10px; display:flex; flex-direction:column; gap:4px; }
+.rec-step { font-size:11px; color:var(--text); display:flex; gap:6px; align-items:flex-start; }
+.rec-step::before { content:'→'; color:var(--gold); flex-shrink:0; font-size:10px; margin-top:2px; }
+
+/* DETAIL PANEL */
+.overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:300; }
+.overlay.open { display:block; }
+.detail-panel { display:none; position:fixed; right:0; top:0; bottom:0; width:440px; background:#0a1525; border-left:1px solid var(--border2); z-index:400; overflow-y:auto; animation:slideIn .25s ease; padding:36px 30px; }
+@keyframes slideIn { from{transform:translateX(100%)} to{transform:translateX(0)} }
+.detail-panel.open { display:block; }
+.panel-close { position:absolute; top:18px; right:18px; background:var(--card); border:1px solid var(--border); border-radius:50%; width:32px; height:32px; color:var(--muted); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.panel-close:hover { color:var(--text); border-color:var(--gold); }
+.p-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
+.p-name { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:18px; }
+.p-price { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:var(--gold); line-height:1; }
+.p-price-note { font-size:11px; color:var(--muted); margin-top:3px; margin-bottom:20px; }
+.p-divider { border:none; border-top:1px solid var(--border); margin:18px 0; }
+.p-section { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.p-row { display:flex; justify-content:space-between; margin-bottom:9px; font-size:12.5px; }
+.p-row-label { color:var(--muted); }
+.p-row-val { color:var(--text); font-weight:500; text-align:right; max-width:55%; }
+.p-desc { font-size:13px; color:var(--muted); line-height:1.75; margin-bottom:16px; }
+.p-pros { list-style:none; }
+.p-pros li { padding:5px 0; font-size:12.5px; color:var(--text); display:flex; gap:8px; }
+.p-pros li::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
+.p-ch { margin-top:12px; }
+.p-ch-title { font-size:11px; font-family:'DM Mono',monospace; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.p-ch-item { background:var(--bg2); border:1px solid var(--border); border-radius:7px; padding:9px 12px; margin-bottom:6px; font-size:11px; color:var(--text); line-height:1.5; }
+.p-link { display:block; margin-top:24px; background:var(--gold); color:var(--bg); text-align:center; padding:13px; border-radius:8px; font-weight:700; text-decoration:none; font-size:13px; transition:background .15s; }
+.p-link:hover { background:var(--gold2); }
+
+/* LAYOUT */
+main { max-width:1600px; margin:0 auto; }
+.footer-note { margin:0 40px 40px; padding:20px 24px; background:var(--card); border:1px solid var(--border); border-radius:12px; font-size:12px; color:var(--muted); line-height:1.8; }
+
+@media(max-width:768px) {
+  header, .filters, .table-container, .sector-panel, .decision-panel { padding-left:16px; padding-right:16px; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .detail-panel { width:100%; }
+  .sector-grid { grid-template-columns:1fr; }
+  .decision-grid { grid-template-columns:1fr; }
+  .recommend-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Global Intelligence Report · March 2026 Edition</div>
+  <h1>AI Leadership Programs<br><span>World + Switzerland Edition</span></h1>
+  <p class="subtitle">Exhaustive analysis of 30 programs across elite universities, company initiatives, global platforms & sector-specific tracks — with extended decision criteria tailored for Switzerland's finance, insurance, pharma & reinsurance landscape.</p>
+  <div class="header-chips">
+    <span class="chip">30 Programs</span>
+    <span class="chip">15+ Institutions</span>
+    <span class="chip">$0 – $43,000</span>
+    <span class="chip blue">6 Swiss/Europe Programs</span>
+    <span class="chip green">6 Sector-Specific Tracks</span>
+    <span class="chip purple">Company Initiatives Included</span>
+  </div>
+</header>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" data-tab="programs">📊 All Programs</button>
+  <button class="nav-tab" data-tab="sectors">🏢 Switzerland & Sectors</button>
+  <button class="nav-tab" data-tab="decide">🎯 Decision Framework</button>
+</div>
+
+<!-- TAB 1: PROGRAMS -->
+<div class="tab-panel active" id="tab-programs">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">30</div><div class="stat-label">Programs compared globally</div></div>
+    <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Lowest cost — Microsoft/LinkedIn (free)</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Switzerland / Europe specific programs</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Top-10 university programs</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Online or hybrid accessible</div></div>
+  </div>
+
+  <div class="filters">
+    <span class="f-label">Tier:</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="free">Free</button>
+    <button class="filter-btn" data-filter="budget">Budget &lt;$1K</button>
+    <button class="filter-btn" data-filter="mid">Mid $1K–$5K</button>
+    <button class="filter-btn" data-filter="premium">Premium $5K+</button>
+    <div class="filter-sep"></div>
+    <span class="f-label">Filter:</span>
+    <button class="filter-btn" data-filter="switzerland">🇨🇭 Switzerland</button>
+    <button class="filter-btn" data-filter="short">≤6 Weeks</button>
+    <button class="filter-btn" data-filter="sector">Sector-Specific</button>
+    <button class="filter-btn" data-filter="company">Company Programs</button>
+    <button class="filter-btn" data-filter="nodegree">No Tech Required</button>
+    <input class="search-input" type="text" placeholder="🔍  Search programs, topics..." id="searchBox">
+  </div>
+
+  <div class="table-container">
+    <div class="table-wrap">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th>Program & Institution</th>
+            <th>Tier</th>
+            <th>Price (USD)</th>
+            <th>Duration</th>
+            <th>Platform</th>
+            <th>Certificate</th>
+            <th>Focus Areas</th>
+            <th>Sectors Covered</th>
+            <th>🇨🇭 Switzerland Relevance</th>
+            <th>Rating</th>
+            <th>Best For</th>
+            <th>Overall Score</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="footer-note" style="margin:20px 0 0;">
+      <strong>Note:</strong> Prices are approximate 2026 figures. Switzerland-specific programs may be priced in CHF (1 CHF ≈ $1.12 USD). Click any row for full details. Scores are composite ratings (0–100) across prestige, value, curriculum depth, Swiss/sector relevance, and accessibility. Sector tags are indicative — most programs are cross-industry applicable.
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: SECTOR MAP -->
+<div class="tab-panel" id="tab-sectors">
+  <div class="sector-panel">
+    <h2 style="font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:#fff; margin-bottom:6px;">Switzerland Business Sectors & AI Programs</h2>
+    <p style="color:var(--muted); font-size:14px; margin-bottom:28px; max-width:700px;">Switzerland's key industries — banking, insurance, reinsurance, pharma/life sciences, wealth management, and commodities — each have distinct AI leadership needs. Here are the best-matched programs per sector.</p>
+    <div class="sector-grid" id="sectorGrid"></div>
+  </div>
+</div>
+
+<!-- TAB 3: DECISION FRAMEWORK -->
+<div class="tab-panel" id="tab-decide">
+  <div class="decision-panel">
+    <h2 style="font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:#fff; margin-bottom:6px;">Decision Framework</h2>
+    <p style="color:var(--muted); font-size:14px; margin-bottom:28px; max-width:700px;">A structured framework to identify the right program for your goals, role, budget, and Swiss context. Review all 12 criteria before deciding.</p>
+
+    <div class="decision-grid" id="decisionGrid"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:18px;">Personalized Path Recommendations</h3>
+    <div class="recommend-grid" id="recommendGrid"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="detail-panel" id="detailPanel">
+  <button class="panel-close" id="panelClose">✕</button>
+  <div id="panelContent"></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   PROGRAM DATA — 30 programs
+═══════════════════════════════════════════ */
+const programs = [
+  // ── ELITE / PREMIUM ──────────────────────
+  {
+    name:"AI for Senior Executives",inst:"MIT xPRO / CSAIL",country:"USA",
+    tier:"premium",priceRaw:9500,priceDisplay:"~$9,500",
+    duration:"6–7 months",isShort:false,
+    platform:"Emeritus (Online+Campus)",
+    cert:"MIT xPRO Certificate",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"GenAI",c:"gen"},{l:"Change Mgmt",c:"change"},{l:"Governance",c:"gov"}],
+    sectors:["Finance","Insurance","Pharma","Reinsurance","Any"],chRelevance:"High — FINMA AI governance, Swiss digital transformation",
+    chScore:4,rating:5,score:95,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🏆 Best Overall",isBadge:true},
+    url:"https://executive-ed.xpro.mit.edu/ai-for-senior-executives-program",
+    desc:"Taught by MIT CSAIL faculty including Daniela Rus. Covers AI/ML strategy, GenAI, process automation, responsible AI, and change management. Hybrid with MIT campus immersion. Gold standard for senior executives.",
+    pros:["MIT CSAIL faculty — world's top AI lab","GenAI + Agentic AI deep modules","Capstone AI strategy roadmap","Hybrid: on-campus MIT immersion","Strong C-suite peer network","No coding required"],
+    chRelevanceDetail:["FINMA AI governance frameworks align with program's responsible AI track","Swiss banking/insurance data privacy — covered in AI ethics modules","Digital transformation roadmap directly applicable to Swiss financial sector","Agentic AI for wealth management and reinsurance workflows"]
+  },
+  {
+    name:"Leadership in AI & Analytics",inst:"Wharton Executive Education",country:"USA",
+    tier:"premium",priceRaw:9800,priceDisplay:"~$9,800",
+    duration:"6 months",isShort:false,
+    platform:"Online + Optional UPenn Campus",
+    cert:"Wharton Certificate",
+    focus:[{l:"AI Analytics",c:"data"},{l:"ML Strategy",c:"strat"},{l:"Data Governance",c:"gov"},{l:"LLMs",c:"gen"}],
+    sectors:["Finance","Banking","Asset Mgmt","Consulting","Any"],chRelevance:"High — Analytics-heavy for Swiss banks and asset managers",
+    chScore:4,rating:5,score:93,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🏅 Best for Analytics Leaders",isBadge:true},
+    url:"https://online-execed.wharton.upenn.edu/leadership-program-in-ai-and-analytics",
+    desc:"6-month program blending ML, data analytics, GenAI, and LLMs with enterprise strategy. Inspired by Reid Hoffman. Ideal for CDOs, data leaders, and analytics executives.",
+    pros:["Wharton brand — top global B-school","Analytics + AI deeply integrated","GenAI and LLM modules","Optional UPenn campus event","No technical background required","Strong governance framework"],
+    chRelevanceDetail:["Analytics leadership for Swiss private banking and wealth mgmt","Data governance aligns with Swiss FDPIC data protection law","ML for risk modeling — directly applicable to Swiss reinsurers","Cross-border data analytics for Swiss financial center"]
+  },
+  {
+    name:"AI Strategy & Implementation",inst:"IMD Business School",country:"🇨🇭 Switzerland",
+    tier:"premium",priceRaw:12200,priceDisplay:"CHF 10,900 (~$12.2K)",
+    duration:"5 days (intensive)",isShort:true,
+    platform:"On-Campus Lausanne + Online options",
+    cert:"IMD Certificate / Eligible for Exec Cert",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"GenAI",c:"gen"},{l:"Agentic AI",c:"agent"},{l:"Analytics",c:"data"}],
+    sectors:["Finance","Insurance","Pharma","Manufacturing","Any"],chRelevance:"🏆 Maximum — Swiss campus, Swiss faculty, Swiss industry focus",
+    chScore:5,rating:5,score:96,isSwiss:true,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🇨🇭 Best Switzerland Program",isBadge:true},
+    url:"https://www.imd.org/digital-transformation/aisi/ai-strategy-and-implementation/",
+    desc:"5-day intensive on IMD's Lausanne campus. Covers GenAI, Agentic AI, analytics strategy, and implementation. Part of IMD's Executive Certificate in AI and Digital Business Excellence. Faculty from IMD's Global Center for Digital and AI Transformation. Next start: April 2026.",
+    pros:["Lausanne campus — heart of Swiss business","IMD ranked #2 globally for executive education","Agentic AI coverage — very current","Part of stackable Executive Certificate","Swiss and European industry case studies","EPFL tech partnership"],
+    chRelevanceDetail:["Physical Lausanne campus experience — Swiss peer network","Swiss financial services, pharma (Roche, Novartis context) case studies","EU AI Act and Swiss regulatory alignment","Agentic AI for Swiss manufacturing and finance","IMD alumni network is deeply Swiss/European"]
+  },
+  {
+    name:"Leading Digital & AI Transformation",inst:"IMD Business School",country:"🇨🇭 Switzerland",
+    tier:"premium",priceRaw:12200,priceDisplay:"CHF 10,900 (~$12.2K)",
+    duration:"5 days (intensive)",isShort:true,
+    platform:"On-Campus Lausanne",
+    cert:"IMD Certificate / Eligible for Exec Cert",
+    focus:[{l:"Digital Transform",c:"strat"},{l:"AI Governance",c:"gov"},{l:"Change Mgmt",c:"change"},{l:"Ethics",c:"ethics"}],
+    sectors:["Finance","Insurance","Healthcare","Any"],chRelevance:"🏆 Maximum — Swiss focus, EU AI Act, change leadership",
+    chScore:5,rating:5,score:94,isSwiss:true,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🇨🇭 Swiss Digital Leadership",isBadge:true},
+    url:"https://www.imd.org/digital-transformation/ldait/leading-digital-ai-transformation/",
+    desc:"5-day Lausanne campus program covering digital transformation orchestration, AI governance, culture, cybersecurity, ethics, and roadmap building. Uses IMD's proprietary Digital Transformation Orchestra framework. Excellent for transformation leaders.",
+    pros:["IMD's Digital Transformation Orchestra framework","Covers AI governance and digital culture","Cybersecurity + AI resilience module","Ethics and corporate digital responsibility","Swiss peer executive network","Build complete digital transformation roadmap"],
+    chRelevanceDetail:["Digital Transformation Orchestra framework designed for Swiss context","EU AI Act compliance — critical for Swiss firms with EU exposure","Cybersecurity in AI — aligned with FINMA expectations","Swiss banking digital transformation case studies"]
+  },
+  {
+    name:"AI in Finance (Executive Programme)",inst:"University of St.Gallen (HSG)",country:"🇨🇭 Switzerland",
+    tier:"premium",priceRaw:3500,priceDisplay:"~$3,500",
+    duration:"3 days (intensive series)",isShort:true,
+    platform:"Zurich (In-Person + Networking)",
+    cert:"HSG Executive Certificate",
+    focus:[{l:"AI in Finance",c:"sector"},{l:"GenAI for FS",c:"gen"},{l:"Deep Learning",c:"data"},{l:"Risk Modeling",c:"gov"}],
+    sectors:["Banking","Asset Mgmt","Insurance","Reinsurance","FinTech"],chRelevance:"🏆 Maximum — Swiss finance sector, Zurich-based, UBS/EY faculty",
+    chScore:5,rating:5,score:92,isSwiss:true,isSector:true,isCompany:false,nodegree:false,
+    verdict:{txt:"🇨🇭 Best for Swiss Finance",isBadge:true},
+    url:"https://es.unisg.ch/en/executive-programme/ai-finance/",
+    desc:"Intensive Zurich-based executive program taught by HSG, UBS, EY, and ETH Zurich faculty. Covers AI/ML for trading, derivatives pricing, asset management, forecasting, and risk. UBS Head of Data Analytics is a speaker. Includes networking at Zurich's finance hub.",
+    pros:["HSG is Switzerland's top business school","UBS, EY, ETH Zurich faculty","Covers AI in trading, pricing, risk modeling","Zurich in-person — Swiss banking network","Generative AI for financial services","Deep learning applications in finance","Drinks and networking included"],
+    chRelevanceDetail:["Zurich-based — direct Swiss banking ecosystem access","Faculty from UBS, EY Zurich — real practitioners","AI in asset management directly applicable to Swiss private banks","Parametric risk and reinsurance AI covered","FINMA-aware content from Swiss practitioners"]
+  },
+  {
+    name:"Exec Certificate in AI & Digital Business",inst:"IMD Business School",country:"🇨🇭 Switzerland",
+    tier:"premium",priceRaw:29000,priceDisplay:"CHF 26–29K (~$29–33K)",
+    duration:"Up to 24 months (modular)",isShort:false,
+    platform:"Lausanne Campus + Online",
+    cert:"IMD Executive Certificate (CAS, 10 ECTS)",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"Innovation",c:"strat"},{l:"Digital Business",c:"data"},{l:"Governance",c:"gov"}],
+    sectors:["Finance","Pharma","Manufacturing","Any"],chRelevance:"🏆 Maximum — Swiss campus, accredited CAS qualification",
+    chScore:5,rating:5,score:95,isSwiss:true,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🇨🇭 Swiss Flagship Credential",isBadge:true},
+    url:"https://www.imd.org/programs-solutions/certification/digital-business-excellence/",
+    desc:"IMD's comprehensive 10-ECTS accredited Certificate of Advanced Studies. Combines multiple IMD AI and digital programs over up to 24 months. Flexible modular design — complete in any order. Lausanne campus events and Swiss peer network included.",
+    pros:["CAS qualification — 10 ECTS credits","Swiss academic credential recognized across Europe","Modular: take programs in any order","Up to 24 months — manageable alongside work","IMD's entire AI portfolio access","Swiss and European C-suite peer network","Eligible for Swiss employer funding"],
+    chRelevanceDetail:["Swiss Federal Diploma / CAS recognized by Swiss employers","10 ECTS — eligible for Swiss further education funding","Lausanne campus experience with Swiss executives","Cross-industry Swiss case studies","Strong FINMA and pharma regulatory coverage"]
+  },
+  {
+    name:"Oxford Executive Diploma in AI for Business",inst:"Oxford Saïd Business School",country:"UK",
+    tier:"elite",priceRaw:43000,priceDisplay:"£34,310 (~$43K)",
+    duration:"12 months (4 in-person modules)",isShort:false,
+    platform:"Oxford Campus (4 modules)",
+    cert:"Oxford Executive Diploma (Master's level)",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"Ethics",c:"ethics"},{l:"Governance",c:"gov"},{l:"Transformation",c:"change"}],
+    sectors:["Finance","Healthcare","Policy","Any"],chRelevance:"High — prestige credential, strong for Swiss financial sector leadership",
+    chScore:3,rating:5,score:88,isSwiss:false,isSector:false,isCompany:false,nodegree:false,
+    verdict:{txt:"🎯 Oxford Prestige Diploma",isBadge:true},
+    url:"https://www.sbs.ox.ac.uk/programmes/executive-diplomas/oxford-executive-diploma-ai-business",
+    desc:"Master's-level Oxford Executive Diploma. Four in-person modules in Oxford over 12 months. Covers AI strategy, governance, ethics, and transformation. £34,310 inclusive of tuition, materials, texts, and dining. Associate college membership at Oxford included.",
+    pros:["Oxford master's-level qualification","In-person Oxford campus experience","Associate college membership","4 intensive in-person modules","Deep governance and ethics track","Global prestige — strongest credential"],
+    chRelevanceDetail:["Oxford credential highly respected by Swiss multinationals","Governance frameworks — aligns with Swiss FDPIC and EU AI Act","Strong for pharma leadership (Novartis, Roche context)","Oxford alumni network strong in Swiss finance and consulting"]
+  },
+  {
+    name:"AI for Senior Executives (6-month)",inst:"MIT xPRO (via Emeritus)",country:"USA",
+    tier:"premium",priceRaw:7500,priceDisplay:"~$7,500",
+    duration:"6 months",isShort:false,
+    platform:"Online Hybrid",
+    cert:"MIT xPRO Certificate",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"Data Strategy",c:"data"},{l:"GenAI",c:"gen"},{l:"Governance",c:"gov"}],
+    sectors:["Finance","Insurance","Any"],chRelevance:"High — responsible AI frameworks, governance depth",
+    chScore:3,rating:5,score:90,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"⭐ Best Value MIT",isBadge:true},
+    url:"https://executive-ed.xpro.mit.edu/ai-strategy-and-leadership",
+    desc:"12-week online program combining AI strategy, data leadership, governance, and GenAI. Fully online — accessible globally. MIT faculty. More affordable entry into the MIT ecosystem.",
+    pros:["MIT brand at lower price","12 weeks manageable","GenAI & agentic AI coverage","Governance and ethics frameworks","Shareable MIT certificate","Ideal for directors/VPs"],
+    chRelevanceDetail:["Responsible AI frameworks applicable to FINMA-regulated entities","Governance track covers EU AI Act context","AI data strategy for Swiss financial institutions"]
+  },
+  // ── MID-RANGE ──────────────────────
+  {
+    name:"Oxford Artificial Intelligence Programme",inst:"Oxford Saïd Business School",country:"UK",
+    tier:"mid",priceRaw:3318,priceDisplay:"$3,318",
+    duration:"6 weeks",isShort:true,
+    platform:"Online (GetSmarter)",
+    cert:"Oxford Saïd Certificate",
+    focus:[{l:"AI Fundamentals",c:"strat"},{l:"GenAI",c:"gen"},{l:"Ethics",c:"ethics"},{l:"Business Strategy",c:"strat"}],
+    sectors:["Finance","Insurance","Any"],chRelevance:"Medium-High — Oxford credential valuable in Swiss market, ethics focus",
+    chScore:3,rating:5,score:88,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"⭐ Best Mid-Range Value",isBadge:true},
+    url:"https://www.getsmarter.com/products/oxford-artificial-intelligence-programme",
+    desc:"6-week online Oxford program. AI/ML fundamentals, ethics, GenAI, neural networks — all from a business perspective. No coding required. $3,318 with installment payment. Consistently rated best-value premium AI program globally.",
+    pros:["Oxford brand at accessible price","No coding required","GenAI dedicated 2026 module","Ethics and responsible AI","Flexible 2-instalment payment","Globally recognized"],
+    chRelevanceDetail:["Oxford credential well-recognized by Swiss multinationals","Ethics-first approach aligns with Swiss regulatory culture","6 weeks fits busy Swiss executive schedules"]
+  },
+  {
+    name:"Kellogg: Org Leadership in Age of AI",inst:"Kellogg (Northwestern)",country:"USA",
+    tier:"mid",priceRaw:2900,priceDisplay:"~$2,900",
+    duration:"6–8 weeks",isShort:true,
+    platform:"Online + Live Webinars",
+    cert:"Kellogg Certificate",
+    focus:[{l:"Agentic AI",c:"agent"},{l:"Change Mgmt",c:"change"},{l:"Workforce Transform",c:"change"},{l:"AI Governance",c:"gov"}],
+    sectors:["Insurance","Banking","Reinsurance","Healthcare","Any"],chRelevance:"High — workforce transformation critical for Swiss re/insurance sector",
+    chScore:4,rating:5,score:87,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"⭐ Best Agentic AI + Change",isBadge:true},
+    url:"https://www.kellogg.northwestern.edu/executive-education",
+    desc:"Unique focus on Agentic AI and people/culture change. Uses AI Radar framework. Live faculty webinars. Best for leaders managing workforce transformation as AI becomes operational in their organizations.",
+    pros:["Agentic AI — very current for 2026","Change management frameworks","AI Radar strategic tool","Workforce anxiety management","Live faculty webinar sessions","Redesign workflows for AI agents"],
+    chRelevanceDetail:["Agentic AI operational scaling — matching Swiss insurance 2026 priorities","Workforce transformation for Swiss reinsurers scaling AI","Change management for Swiss banking digital transformation"]
+  },
+  {
+    name:"Leadership with AI Programme",inst:"ISB Online (Indian School of Business)",country:"India",
+    tier:"mid",priceRaw:2200,priceDisplay:"~$2,200",
+    duration:"3–4 months",isShort:false,
+    platform:"Online (live sessions)",
+    cert:"ISB Certificate + Alumni Status",
+    focus:[{l:"GenAI",c:"gen"},{l:"Agentic AI",c:"agent"},{l:"ML Applications",c:"data"},{l:"AI Strategy",c:"strat"}],
+    sectors:["Finance","Insurance","Any"],chRelevance:"Medium — ISB not as recognized in CH, but excellent curriculum value",
+    chScore:2,rating:5,score:82,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"⭐ Best India/Asia Option",isBadge:true},
+    url:"https://online-er.isb.edu/leadership-with-ai/",
+    desc:"ISB's flagship — #1 B-school India, #12 globally (FT 2026). 26 successful batches. Covers GenAI, Agentic AI, ML, strategy. Alumni status included. Excellent ROI for price.",
+    pros:["ISB #1 India, #12 globally (FT 2026)","26 batch legacy","Agentic AI coverage","ISB Alumni Status","Live faculty sessions","Capstone project"],
+    chRelevanceDetail:["ISB not as recognized in Swiss market vs. Western schools","Strong curriculum value still delivers relevant skills","Good for professionals with Asia-Pacific market exposure"]
+  },
+  {
+    name:"Business of AI",inst:"London Business School",country:"UK",
+    tier:"mid",priceRaw:3500,priceDisplay:"~$3,500",
+    duration:"10 weeks",isShort:false,
+    platform:"Online",
+    cert:"LBS Certificate",
+    focus:[{l:"AI Value Creation",c:"strat"},{l:"Business Results",c:"strat"},{l:"Analytics",c:"data"},{l:"NLP",c:"data"}],
+    sectors:["Finance","Insurance","Consulting","Any"],chRelevance:"Medium-High — LBS European brand resonates in Swiss market",
+    chScore:3,rating:4,score:82,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Strong European Option",isBadge:false},
+    url:"https://www.london.edu/executive-education",
+    desc:"10-week LBS program connecting AI to business results. Two-phase approach: tech understanding then business application. Strong on financial AI. Can be part of LBS Certificate in Management.",
+    pros:["LBS European B-school brand","Two-phase: tech then business","Financial AI applications","Part of broader LBS Certificate","NLP and robotics modules","Peer networking"],
+    chRelevanceDetail:["LBS well-recognized in Swiss financial sector","European perspective aligns with Swiss regulatory context","Financial AI applicable to Swiss banking and asset management"]
+  },
+  {
+    name:"INSEAD: Transforming Business with AI",inst:"INSEAD Executive Education",country:"France/Singapore",
+    tier:"mid",priceRaw:3200,priceDisplay:"~$3,200",
+    duration:"5 weeks",isShort:true,
+    platform:"Online",
+    cert:"INSEAD Certificate",
+    focus:[{l:"AI Transformation",c:"change"},{l:"VUCA Leadership",c:"strat"},{l:"Data Sci Collaboration",c:"data"},{l:"EU AI Act",c:"gov"}],
+    sectors:["Finance","Healthcare","Insurance","Pharma","Any"],chRelevance:"High — EU AI Act coverage crucial for Swiss firms with EU exposure",
+    chScore:4,rating:4,score:83,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Best for Global/EU Leaders",isBadge:false},
+    url:"https://www.insead.edu/executive-education",
+    desc:"INSEAD's program with EU AI Act compliance focus, VUCA leadership, and personal learning coach. Practical frameworks and templates to work with data scientists. Ideal for multinational leaders.",
+    pros:["EU AI Act regulatory coverage","VUCA and adaptive leadership","Personal learning coach","Work with data science teams","5 weeks efficient","INSEAD global network"],
+    chRelevanceDetail:["EU AI Act compliance — critical for Swiss firms with EU market exposure","Switzerland signed Council of Europe AI Convention — aligns perfectly","INSEAD European perspective directly relevant to Swiss leaders","Covers cross-border digital finance frameworks"]
+  },
+  {
+    name:"AI: Implications for Business Strategy",inst:"MIT Sloan / CSAIL",country:"USA",
+    tier:"mid",priceRaw:3200,priceDisplay:"~$3,200",
+    duration:"6 weeks",isShort:true,
+    platform:"Online (self-paced)",
+    cert:"MIT Sloan Certificate",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"Org Design",c:"change"},{l:"GenAI Business",c:"gen"},{l:"Managerial AI",c:"strat"}],
+    sectors:["Finance","Healthcare","Any"],chRelevance:"High — MIT brand highly respected in Swiss multinationals",
+    chScore:3,rating:5,score:87,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Classic MIT Sloan Choice",isBadge:false},
+    url:"https://executive-ed.xpro.mit.edu",
+    desc:"Jointly by MIT Sloan and CSAIL. Focuses on organizational and managerial implications of AI — not technical. Conceptual understanding of GenAI and integration into management practice. Compact 6-week format.",
+    pros:["MIT Sloan + CSAIL joint","Management lens, not technical","GenAI business integration","6-week compact format","MIT brand globally respected","Asynchronous flexible"],
+    chRelevanceDetail:["MIT credential highly valued by Swiss multinationals","Management-focused approach for Swiss executive audience","GenAI business integration relevant across Swiss sectors"]
+  },
+  {
+    name:"AI for Business Leaders (PGP)",inst:"UT Austin McCombs",country:"USA",
+    tier:"mid",priceRaw:3000,priceDisplay:"~$3,000",
+    duration:"4 months",isShort:false,
+    platform:"Online (Great Learning)",
+    cert:"UT Austin McCombs + CEUs",
+    focus:[{l:"GenAI for NLP",c:"gen"},{l:"Prompt Engineering",c:"strat"},{l:"AI Products",c:"strat"},{l:"Ethics",c:"ethics"}],
+    sectors:["Tech","Finance","Any"],chRelevance:"Medium — strong curriculum but limited Swiss market brand recognition",
+    chScore:2,rating:4,score:78,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Strong US Value",isBadge:false},
+    url:"https://onlineexeced.mccombs.utexas.edu/ai-for-business-leaders-course",
+    desc:"4-month PGP from UT Austin McCombs (#6 globally MS Business Analytics). Covers GenAI for NLP, prompt engineering, AI products, and cross-functional leadership. 5.5 CEUs awarded.",
+    pros:["UT Austin #6 for analytics globally","Prompt engineering focus","5.5 Continuing Education Units","Live mentorship sessions","No coding prerequisite","Hands-on GenAI NLP"],
+    chRelevanceDetail:["Good curriculum value for analytics skills","UT Austin not as recognized in Swiss market","CEUs transferable but not Swiss-accredited"]
+  },
+  {
+    name:"NUS Leadership in AI Programme",inst:"NUS School of Computing",country:"Singapore",
+    tier:"mid",priceRaw:4500,priceDisplay:"~$4,500",
+    duration:"3–4 months",isShort:false,
+    platform:"Online (faculty-led)",
+    cert:"NUS Certificate + ACE Network",
+    focus:[{l:"AI Value Creation",c:"strat"},{l:"GenAI",c:"gen"},{l:"Cybersecurity",c:"gov"},{l:"Digital Transform",c:"change"}],
+    sectors:["Finance","Insurance","Tech","Any"],chRelevance:"Medium — good for Swiss-Asia business context, NUS #1 in Asia",
+    chScore:2,rating:4,score:80,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Best Asia-Pacific Premium",isBadge:false},
+    url:"https://www.nus.edu.sg",
+    desc:"NUS School of Computing — #1 in Asia, #8 globally (QS 2025). Five pillars: AI value creation, business growth, intelligent technologies, resilience, transformation. Cybersecurity + AI. 2-week capstone.",
+    pros:["NUS #1 Asia, #8 globally","Cybersecurity + AI unique combo","5-pillar curriculum","12 months material access","NUS ACE Network","2-week capstone"],
+    chRelevanceDetail:["Good for Swiss professionals with APAC business exposure","Cybersecurity-AI integration relevant to Swiss financial sector","NUS recognized in Singapore-Switzerland business corridor"]
+  },
+  {
+    name:"HBS AI for Leaders",inst:"Harvard Business School Online",country:"USA",
+    tier:"mid",priceRaw:1750,priceDisplay:"~$1,750",
+    duration:"6 weeks",isShort:true,
+    platform:"Online (HBS case-method)",
+    cert:"HBS Online Certificate",
+    focus:[{l:"AI Strategy",c:"strat"},{l:"Case Method",c:"strat"},{l:"Business Applications",c:"strat"},{l:"GenAI",c:"gen"}],
+    sectors:["Finance","Healthcare","Any"],chRelevance:"High — HBS brand highly respected by Swiss firms",
+    chScore:3,rating:4,score:82,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🎓 HBS Case Method",isBadge:true},
+    url:"https://online.hbs.edu/courses/ai-for-leaders",
+    desc:"HBS Online's signature case-method AI program. Real cases from Moderna, JPMorgan, P&G. 6 weeks. HBS community network access. Strong inductive, discussion-based learning style.",
+    pros:["HBS case-method learning","Moderna, JPMorgan, P&G cases","HBS community network","6-week format","HBS brand on certificate","Non-technical approach"],
+    chRelevanceDetail:["HBS credential very respected in Swiss financial sector","Case-method includes financial services AI cases","JPMorgan AI cases relevant to Swiss banking"]
+  },
+  {
+    name:"AI in Healthcare Leadership",inst:"Johns Hopkins University",country:"USA",
+    tier:"mid",priceRaw:2800,priceDisplay:"~$2,800",
+    duration:"10 weeks",isShort:false,
+    platform:"Online (Great Learning)",
+    cert:"JHU Certificate",
+    focus:[{l:"Healthcare AI",c:"sector"},{l:"Clinical Workflows",c:"sector"},{l:"Pharma AI",c:"sector"},{l:"AI Governance",c:"gov"}],
+    sectors:["Healthcare","Pharma","Biotech","Life Sciences"],chRelevance:"High — critical for Swiss pharma leaders (Novartis, Roche, Lonza)",
+    chScore:4,rating:4,score:85,isSwiss:false,isSector:true,isCompany:false,nodegree:true,
+    verdict:{txt:"Best for Pharma/Healthcare",isBadge:false},
+    url:"https://online.lifelonglearning.jhu.edu/jhu-ai-in-healthcare-certificate-program",
+    desc:"JHU program covering AI-driven decision support, personalized medicine, AI governance in healthcare, ROAD Management Framework. 8+ real-world use cases. Live mentored sessions. Critical for Swiss life sciences leaders.",
+    pros:["JHU top-10 US university","Pharma AI and medical devices covered","ROAD Framework for AI integration","AI in clinical workflows","Governance and ethics focus","Real-world healthcare cases"],
+    chRelevanceDetail:["Swiss pharma sector (Novartis, Roche, Lonza) — direct applicability","Healthcare AI governance aligns with Swissmedic requirements","Pharma AI for drug discovery and trial design","Life sciences AI for Swiss medtech sector"]
+  },
+  // ── BUDGET / PLATFORM ────────────────────
+  {
+    name:"GenAI Leadership & Strategy (Specialization)",inst:"Vanderbilt University",country:"USA",
+    tier:"budget",priceRaw:200,priceDisplay:"~$200",
+    duration:"4 weeks",isShort:true,
+    platform:"Coursera",
+    cert:"Vanderbilt/Coursera Certificate",
+    focus:[{l:"GenAI Strategy",c:"gen"},{l:"Governance Policy",c:"gov"},{l:"AI Innovation",c:"strat"},{l:"Ethics",c:"ethics"}],
+    sectors:["Finance","Insurance","Any"],chRelevance:"Medium — curriculum relevant, Vanderbilt brand moderate in CH",
+    chScore:2,rating:4,score:74,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"💰 Best Budget Pick",isBadge:true},
+    url:"https://www.coursera.org/specializations/generative-ai-leadership-strategy",
+    desc:"Taught by Dr. Jules White. Covers GenAI strategy, governance policies, and 'Flipped Interaction Pattern' for innovation. 4 weeks, self-paced. Financial aid available.",
+    pros:["~$200 total cost","4 weeks — fast completion","GenAI governance drafting","Flipped Interaction Pattern","Vanderbilt certificate","Financial aid available"],
+    chRelevanceDetail:["GenAI governance drafting applicable to Swiss firm AI policies","Quick upskilling for Swiss leaders before deeper programs","Budget entry point before IMD or Oxford"]
+  },
+  {
+    name:"GenAI for Executives (IBM Specialization)",inst:"IBM on Coursera",country:"USA",
+    tier:"budget",priceRaw:200,priceDisplay:"~$200",
+    duration:"4–8 weeks",isShort:true,
+    platform:"Coursera (Subscription)",
+    cert:"IBM / Coursera Certificate",
+    focus:[{l:"GenAI Applications",c:"gen"},{l:"Use Cases",c:"strat"},{l:"Finance AI",c:"sector"},{l:"HR AI",c:"sector"}],
+    sectors:["Finance","HR","Operations","Any"],chRelevance:"Medium — IBM brand respected, multi-sector coverage useful",
+    chScore:2,rating:4,score:72,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Best IBM Budget Cert",isBadge:false},
+    url:"https://www.coursera.org/specializations/generative-ai-for-executives-and-business-leaders",
+    desc:"IBM-designed specialization covering GenAI use cases in customer service, marketing, HR, ITOps, FinOps, and finance. Compliance and governance module. IBM-branded certificate.",
+    pros:["IBM industry credibility","No tech experience needed","All business functions covered","Governance and compliance module","Included in Coursera Plus","Self-paced"],
+    chRelevanceDetail:["Finance and FinOps AI use cases relevant to Swiss banking ops","IBM brand has enterprise credibility","Multi-function coverage for Swiss shared services leaders"]
+  },
+  {
+    name:"Google AI Professional Certificate",inst:"Google (Coursera/Udemy)",country:"USA",
+    tier:"budget",priceRaw:49,priceDisplay:"$49/month",
+    duration:"7 modules (~7 hours)",isShort:true,
+    platform:"Coursera / Google Skills / Udemy",
+    cert:"Google Professional Certificate",
+    focus:[{l:"AI Fundamentals",c:"strat"},{l:"Productivity AI",c:"strat"},{l:"Data Analysis AI",c:"data"},{l:"GenAI Tools",c:"gen"}],
+    sectors:["Any"],chRelevance:"Medium — Google credential widely recognized, practical tools focus",
+    chScore:2,rating:4,score:70,isSwiss:false,isSector:false,isCompany:true,nodegree:true,
+    verdict:{txt:"🚀 Best Google Tools Cert",isBadge:true},
+    url:"https://grow.google/ai-professional/",
+    desc:"Google's 2026 AI Professional Certificate — 7 modules covering AI fundamentals, brainstorming, research with NotebookLM, writing, content creation, and data analysis with Gemini. Validated by major employers. Udemy-Google partnership launched Feb 2026.",
+    pros:["Google brand — employer validated","7 modules in 7 hours","Practical 20+ work scenarios","Gemini and NotebookLM hands-on","Free trial available","Available on Coursera, Udemy, Google Skills"],
+    chRelevanceDetail:["Google tools widely used in Swiss corporate environments","Practical AI productivity directly applicable","Quick credential to build AI fluency before leadership programs"]
+  },
+  {
+    name:"Microsoft AI Transformation Leader Cert",inst:"Microsoft (Microsoft Learn)",country:"USA",
+    tier:"free",priceRaw:0,priceDisplay:"~$165 (exam fee)",
+    duration:"Self-paced study + exam",isShort:true,
+    platform:"Microsoft Learn + Exam AB-731",
+    cert:"Microsoft Certified: AI Transformation Leader",
+    focus:[{l:"AI Transformation",c:"change"},{l:"Copilot Strategy",c:"strat"},{l:"Responsible AI",c:"gov"},{l:"Azure AI",c:"strat"}],
+    sectors:["Finance","Any"],chRelevance:"High — M365 and Azure widely used in Swiss enterprises",
+    chScore:3,rating:4,score:73,isSwiss:false,isSector:false,isCompany:true,nodegree:true,
+    verdict:{txt:"⚡ Best Microsoft Track",isBadge:true},
+    url:"https://learn.microsoft.com/en-us/credentials/certifications/ai-transformation-leader/",
+    desc:"Microsoft's certification for business decision-makers guiding AI transformation with M365 Copilot, Azure AI, and Microsoft Foundry. No coding. Exam AB-731. Focuses on identifying AI opportunities, responsible AI, and driving adoption across teams.",
+    pros:["Microsoft certification — enterprise recognized","No coding required","M365 Copilot strategy focus","Responsible AI frameworks","Azure AI services knowledge","Study materials free on Microsoft Learn"],
+    chRelevanceDetail:["Swiss enterprises heavily use Microsoft 365 — direct application","M365 Copilot adoption driving demand for this cert","FINMA-regulated entities using Azure AI need governance skills"]
+  },
+  {
+    name:"Career Essentials in GenAI (Microsoft+LinkedIn)",inst:"Microsoft & LinkedIn",country:"USA",
+    tier:"free",priceRaw:0,priceDisplay:"FREE",
+    duration:"~5 hours",isShort:true,
+    platform:"LinkedIn Learning",
+    cert:"LinkedIn/Microsoft Certificate",
+    focus:[{l:"GenAI Fundamentals",c:"gen"},{l:"Copilot Tools",c:"strat"},{l:"Ethics",c:"ethics"},{l:"Responsible AI",c:"gov"}],
+    sectors:["Any"],chRelevance:"Medium — quick literacy builder, LinkedIn certificate displayable",
+    chScore:2,rating:3,score:62,isSwiss:false,isSector:false,isCompany:true,nodegree:true,
+    verdict:{txt:"Free Quick Start",isBadge:false},
+    url:"https://www.linkedin.com/learning/paths/career-essentials-in-generative-ai-by-microsoft-and-linkedin",
+    desc:"Free LinkedIn Learning path covering GenAI fundamentals, Microsoft Copilot, ethics, and responsible AI. 5 hours. Professional Certificate on completion. Available in 7 languages including German and French — relevant for Swiss trilingual workforce.",
+    pros:["Completely free","~5 hours total","LinkedIn certificate displayable","Available in German and French","Microsoft Copilot focus","Responsible AI module"],
+    chRelevanceDetail:["Available in German and French — accessible to Swiss workforce","LinkedIn certificate directly visible to Swiss recruiters","Free entry point for Swiss teams before paid programs"]
+  },
+  {
+    name:"AI for Everyone",inst:"DeepLearning.AI (Andrew Ng)",country:"USA",
+    tier:"free",priceRaw:49,priceDisplay:"$31–$49 (or audit free)",
+    duration:"6–10 hours",isShort:true,
+    platform:"Coursera",
+    cert:"DeepLearning.AI Certificate",
+    focus:[{l:"AI Fundamentals",c:"strat"},{l:"Business Applications",c:"strat"},{l:"AI Fluency",c:"strat"}],
+    sectors:["Any"],chRelevance:"Medium — universal AI literacy, best starting point for any Swiss professional",
+    chScore:2,rating:4,score:68,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🚀 Essential Foundation",isBadge:true},
+    url:"https://www.coursera.org/learn/ai-for-everyone",
+    desc:"Andrew Ng's globally recognized AI literacy course. 6–10 hours total. Covers AI concepts, terminology, business applications. Free to audit. 4.8/5 rating. Best first step before any leadership program.",
+    pros:["Andrew Ng — world's top AI educator","Free to audit ($49 for cert)","4.8/5 global rating","6-10 hours — weekend accessible","Best foundation program","Multiple languages"],
+    chRelevanceDetail:["Perfect foundation before IMD, Oxford, or HSG programs","Audit free — zero cost for Swiss professionals","Universal AI vocabulary applicable across all Swiss industries"]
+  },
+  {
+    name:"AI Leadership & Strategic Implementation",inst:"Starweaver on Coursera",country:"USA",
+    tier:"budget",priceRaw:150,priceDisplay:"~$150",
+    duration:"4–6 weeks",isShort:true,
+    platform:"Coursera",
+    cert:"Coursera Certificate",
+    focus:[{l:"AI Governance",c:"gov"},{l:"GenAI Tools",c:"gen"},{l:"Exec Decisions",c:"strat"},{l:"Transform Roadmap",c:"change"}],
+    sectors:["Finance","Any"],chRelevance:"Low-Medium — curriculum good but Starweaver brand unknown in CH",
+    chScore:1,rating:3,score:62,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Budget Practitioner Option",isBadge:false},
+    url:"https://www.coursera.org/specializations/ai-leadership-and-strategic-implementation",
+    desc:"Covers using ChatGPT, Claude, Gemini, and Grok for strategy. AI leadership blueprints, governance plans, transformation roadmaps. Targeted at CEOs and founders. Very hands-on with real tools.",
+    pros:["Lowest cost with cert","Uses ChatGPT, Claude, Gemini","Builds governance plans","Transformation roadmap","Hands-on tools","Financial aid available"],
+    chRelevanceDetail:["Governance plan drafting applicable to Swiss firms","Multi-tool AI fluency practical for any Swiss organization","Budget supplement to Swiss programs"]
+  },
+  {
+    name:"Stanford AI Leadership & Governance",inst:"Stanford Online",country:"USA",
+    tier:"mid",priceRaw:2500,priceDisplay:"~$2,500",
+    duration:"4 weeks",isShort:true,
+    platform:"Online (Cohort or Self-paced)",
+    cert:"Stanford Certificate of Achievement",
+    focus:[{l:"AI Ethics",c:"ethics"},{l:"Data Culture",c:"data"},{l:"Decision-Making",c:"strat"},{l:"Risk Mgmt",c:"gov"}],
+    sectors:["Finance","Healthcare","Any"],chRelevance:"High — ethics and governance focus aligns with Swiss regulatory culture",
+    chScore:3,rating:4,score:83,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Best for Ethics & Governance",isBadge:false},
+    url:"https://online.stanford.edu",
+    desc:"Stanford's program focuses on the human element: decision-making, culture, and ethics. Human-centered AI design, data-driven culture building. Psychology of leadership in technical environments.",
+    pros:["Stanford brand","Ethics and governance depth","Data-driven culture framework","Human-centered AI design","Risk management","Stakeholder buy-in techniques"],
+    chRelevanceDetail:["Ethics governance aligns with Swiss FDPIC and FINMA expectations","Risk management framework relevant to Swiss reinsurers","Data culture applicable to Swiss banking digital transformation"]
+  },
+  {
+    name:"AI Strategy (Wharton) — Short Intensive",inst:"Wharton Executive Education",country:"USA",
+    tier:"premium",priceRaw:9350,priceDisplay:"$9,350",
+    duration:"3 weeks (blended)",isShort:true,
+    platform:"Online + Philadelphia (3 days)",
+    cert:"Wharton Certificate",
+    focus:[{l:"AI Analytics",c:"data"},{l:"Decision Intelligence",c:"strat"},{l:"Competitive Strategy",c:"strat"}],
+    sectors:["Finance","Consulting","Any"],chRelevance:"Medium-High — Wharton brand, fast track option",
+    chScore:3,rating:4,score:84,isSwiss:false,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"Fast Wharton Track",isBadge:false},
+    url:"https://executiveeducation.wharton.upenn.edu",
+    desc:"Intensive 3-week blended program with 3 days in-person in Philadelphia. AI analytics, decision intelligence, and competitive strategy. For executives wanting Wharton credentials with short commitment.",
+    pros:["Wharton brand in 3 weeks","In-person Philadelphia","Decision intelligence focus","Fast track option","Great networking","Time-efficient"],
+    chRelevanceDetail:["Wharton brand resonates in Swiss financial sector","Short format fits Swiss executive schedules","Decision intelligence applicable to Swiss C-suite"]
+  },
+  {
+    name:"PMI AI+ for Project Leaders (CPMAI)",inst:"Cognilytica / PMI Certified",country:"USA",
+    tier:"budget",priceRaw:700,priceDisplay:"~$700",
+    duration:"Self-paced",isShort:true,
+    platform:"PMI / Cognilytica",
+    cert:"CPMAI Certification (no expiry)",
+    focus:[{l:"AI Project Mgmt",c:"strat"},{l:"CRISP-DM",c:"data"},{l:"AI Execution",c:"strat"},{l:"ML Workflow",c:"data"}],
+    sectors:["Finance","Insurance","Any"],chRelevance:"Medium — good for Swiss project/program managers leading AI initiatives",
+    chScore:2,rating:4,score:72,isSwiss:false,isSector:false,isCompany:false,nodegree:false,
+    verdict:{txt:"Best for AI Project Leaders",isBadge:false},
+    url:"https://cognilytica.com/cpmai/",
+    desc:"PMI's Certified Project Manager in Artificial Intelligence. Covers CRISP-DM, AI project lifecycle, ML workflows. No expiry on certification. 21 PDUs included (useful for PMP holders). Strong for those managing AI implementation projects.",
+    pros:["PMI-recognized certification","No expiry — one-time investment","21 PDUs for PMP holders","CRISP-DM methodology","AI project lifecycle focus","Practical ML workflow skills"],
+    chRelevanceDetail:["AI project management for Swiss enterprise AI initiatives","PMI recognized in Swiss corporate environment","Useful for Swiss leaders managing AI vendor relationships"]
+  },
+  {
+    name:"IMD Executive Master: AI & Digital Business",inst:"IMD Business School",country:"🇨🇭 Switzerland",
+    tier:"elite",priceRaw:70000,priceDisplay:"~$70,000+ (18–48 months)",
+    duration:"18–48 months part-time",isShort:false,
+    platform:"Lausanne + online + international locations",
+    cert:"Executive Master degree (EMBA-level)",
+    focus:[{l:"AI & Data Strategy",c:"strat"},{l:"Digital Transformation",c:"change"},{l:"Leadership",c:"change"},{l:"Governance",c:"gov"}],
+    sectors:["Finance","Pharma","Manufacturing","Any"],chRelevance:"🏆 Maximum — Swiss EMBA-level credential, Lausanne campus",
+    chScore:5,rating:5,score:97,isSwiss:true,isSector:false,isCompany:false,nodegree:true,
+    verdict:{txt:"🇨🇭 Swiss EMBA-Level AI Degree",isBadge:true},
+    url:"https://executivecourses.com/schools/switzerland/subject/artificial-intelligence-ai",
+    desc:"IMD's Executive Master in AI and Digital Business Transformation. 18–48 months part-time. Combines deep AI expertise with leadership skills. Lausanne, online, and international locations. Swiss EMBA-level qualification — the most comprehensive AI credential available in Switzerland.",
+    pros:["EMBA-level Swiss credential","Deep AI + leadership integration","18–48 months flexible timeline","Lausanne campus + international modules","Full IMD faculty and network","Most comprehensive Swiss AI qualification"],
+    chRelevanceDetail:["Swiss EMBA qualification recognized by all Swiss employers","Lausanne campus — deepest Swiss executive network","Eligible for Swiss employer education funding","Cross-sector Swiss industry cohort","Most prestigious Swiss AI academic credential available"]
+  },
+  {
+    name:"AI for Reinsurance & Risk Leaders",inst:"Swiss Re Institute / Industry",country:"🇨🇭 Switzerland",
+    tier:"budget",priceRaw:0,priceDisplay:"Via employer / Industry",
+    duration:"Varies",isShort:true,
+    platform:"Swiss Re Institute / Industry Events",
+    cert:"Industry CPD / Internal",
+    focus:[{l:"Reinsurance AI",c:"sector"},{l:"Catastrophe Modeling",c:"sector"},{l:"Treaty AI",c:"sector"},{l:"Risk Pricing",c:"sector"}],
+    sectors:["Reinsurance","Insurance","Finance"],chRelevance:"🏆 Maximum — Swiss Re HQ Zurich, reinsurance-specific",
+    chScore:5,rating:4,score:85,isSwiss:true,isSector:true,isCompany:true,nodegree:false,
+    verdict:{txt:"🇨🇭 Swiss Re Industry Track",isBadge:true},
+    url:"https://www.swissre.com/institute/",
+    desc:"Swiss Re Institute and industry programs covering AI in reinsurance: catastrophe modeling, parametric products, AI-driven risk pricing, treaty automation, and portfolio management. Access via employer partnership, Swiss AI Summit, or Swiss Re Institute events.",
+    pros:["Swiss Re HQ Zurich — world's reinsurance capital","AI in catastrophe modeling and pricing","Parametric product development","Treaty automation content","Swiss Re Institute thought leadership","Peer network of reinsurance leaders"],
+    chRelevanceDetail:["Swiss Re HQ and Munich Re's Swiss office — direct applicability","AI-driven risk simulation for Swiss reinsurers","Parametric and event-triggered AI products","Swiss regulatory compliance for reinsurance AI","Direct peer network in Zurich's reinsurance cluster"]
+  }
+];
+
+/* ═══════════════════════════════════════════
+   SECTOR DATA
+═══════════════════════════════════════════ */
+const sectors = [
+  {
+    icon:"🏦", name:"Swiss Banking & Private Banking",
+    desc:"Switzerland hosts 239 banks including UBS, Credit Suisse (now UBS), Julius Bär, and Pictet. AI priorities: wealth management, KYC/AML, fraud detection, personalized advisory, and risk scoring.",
+    courses:[
+      {name:"AI in Finance — St.Gallen HSG",inst:"University of St.Gallen",why:"Zurich-based, UBS & EY faculty, covers AI in trading, pricing, and asset management"},
+      {name:"IMD AI Strategy & Implementation",inst:"IMD Lausanne",why:"Swiss campus, banking case studies, EU AI Act and FINMA compliance frameworks"},
+      {name:"Wharton AI & Analytics",inst:"Wharton",why:"Deep analytics + ML for private banking and asset management"},
+      {name:"MIT xPRO AI for Senior Executives",inst:"MIT xPRO",why:"Governance and responsible AI — FINMA-aligned, agentic AI for banking workflows"}
+    ]
+  },
+  {
+    icon:"🏛️", name:"Insurance (P&C, Life, Health)",
+    desc:"Zurich Insurance, Swiss Life, Helvetia, Baloise and others. AI priorities: claims automation, underwriting AI, fraud detection, customer experience, and governance frameworks.",
+    courses:[
+      {name:"Kellogg: AI & Agentic AI Leadership",inst:"Kellogg Northwestern",why:"Agentic AI scaling — matches 2026 insurance AI-to-production priority"},
+      {name:"IMD Leading Digital & AI Transformation",inst:"IMD Lausanne",why:"Change management for insurance AI rollout, Swiss campus peer network"},
+      {name:"Stanford AI Ethics & Governance",inst:"Stanford",why:"Governance frameworks for FINMA-regulated insurance AI deployment"},
+      {name:"IBM GenAI for Executives",inst:"IBM on Coursera",why:"Specific coverage of insurance/claims AI use cases"}
+    ]
+  },
+  {
+    icon:"🔁", name:"Reinsurance (Swiss Re, Munich Re CH)",
+    desc:"Switzerland hosts Swiss Re HQ and Munich Re's Swiss operations. AI priorities: parametric products, catastrophe modeling, treaty AI, risk simulation, and portfolio optimization.",
+    courses:[
+      {name:"Swiss Re Institute Programs",inst:"Swiss Re Institute",why:"Direct Swiss reinsurance AI curriculum — parametric products, AI risk modeling"},
+      {name:"AI in Finance — St.Gallen HSG",inst:"University of St.Gallen",why:"Deep learning for derivatives pricing and risk — directly applicable to reinsurance"},
+      {name:"MIT xPRO AI for Senior Executives",inst:"MIT xPRO",why:"AI strategy roadmap for reinsurance transformation initiatives"},
+      {name:"Oxford AI Programme",inst:"Oxford Saïd",why:"Broader strategic AI leadership for reinsurance C-suite"}
+    ]
+  },
+  {
+    icon:"💊", name:"Pharma & Life Sciences",
+    desc:"Novartis, Roche, Lonza, Alcon, Actelion (J&J). AI priorities: drug discovery, clinical trials, regulatory AI, manufacturing AI, and supply chain optimization.",
+    courses:[
+      {name:"Johns Hopkins AI in Healthcare",inst:"JHU",why:"Pharma AI specifically covered — drug discovery, AI trial design, Swissmedic-aligned governance"},
+      {name:"Stanford AI in Healthcare",inst:"Stanford Medicine",why:"Healthcare AI strategy from innovation to implementation"},
+      {name:"IMD Innovate with AI & Tech (EPFL)",inst:"IMD + EPFL",why:"Lausanne campus, pharma AI context, EPFL biotech partnership"},
+      {name:"Oxford Executive Diploma",inst:"Oxford",why:"Deep governance for pharma regulatory AI (Swissmedic / EMA alignment)"}
+    ]
+  },
+  {
+    icon:"💎", name:"Wealth Management & Asset Management",
+    desc:"Pictet, Lombard Odier, GAM, UBP. AI priorities: portfolio AI, ESG analytics, client insights, personalization, robo-advisory, and alternative data.",
+    courses:[
+      {name:"Wharton AI & Analytics Program",inst:"Wharton",why:"Analytics-heavy — directly applicable to portfolio and investment AI"},
+      {name:"AI in Finance — St.Gallen HSG",inst:"University of St.Gallen",why:"Asset management AI, deep learning for systematic strategies"},
+      {name:"LBS Business of AI",inst:"London Business School",why:"European perspective on AI value creation in investment management"},
+      {name:"MIT Sloan AI: Implications for Strategy",inst:"MIT Sloan",why:"AI strategy for asset managers navigating digital transformation"}
+    ]
+  },
+  {
+    icon:"⚡", name:"Commodities, Energy & Trading",
+    desc:"Glencore (Zug), Trafigura, Gunvor, Vitol. AI priorities: trading algorithms, risk pricing, supply chain AI, ESG compliance, and market intelligence.",
+    courses:[
+      {name:"IMD AI Strategy & Implementation",inst:"IMD Lausanne",why:"Swiss campus, energy/commodities executives in cohort"},
+      {name:"Wharton Short AI Intensive",inst:"Wharton",why:"Decision intelligence and competitive strategy for trading environments"},
+      {name:"MIT xPRO AI Strategy",inst:"MIT xPRO",why:"Data strategy and AI analytics for commodity risk management"},
+      {name:"DeepLearning.AI AI for Everyone",inst:"Andrew Ng / Coursera",why:"Foundation before sector-specific upskilling"}
+    ]
+  }
+];
+
+/* ═══════════════════════════════════════════
+   DECISION CRITERIA
+═══════════════════════════════════════════ */
+const criteria = [
+  {icon:"💰",title:"Budget & ROI",items:[
+    {name:"Price Range",desc:"Match program cost to your learning budget and employer reimbursement potential.",opts:["Free–$500","$500–$2K","$2K–$5K","$5K–$15K","$15K+"],optClass:"green"},
+    {name:"Swiss Employer Funding",desc:"Swiss employers often fund education. IMD's CAS (10 ECTS) is eligible for Swiss federal education funding. Ask HR before paying.",opts:["Company funded","Partial reimbursement","Self-funded","Swiss federal funding (CAS/ECTS)"],optClass:"gold"}
+  ]},
+  {icon:"🏫",title:"Institution & Brand",items:[
+    {name:"Swiss Market Recognition",desc:"In Switzerland, IMD, Oxford, MIT, Wharton, and HSG St.Gallen carry the most weight with Swiss employers.",opts:["IMD (Swiss #1)","Oxford/MIT/Wharton","London/INSEAD","Coursera/Platform certs"],optClass:""},
+    {name:"Swiss Accreditation",desc:"IMD's CAS certificate is ECTS-accredited and recognized under the Swiss education system. Important for career advancement.",opts:["ECTS accredited (IMD CAS)","Master's level (Oxford Diploma)","Executive certificate","Platform certificate"],optClass:"gold"}
+  ]},
+  {icon:"📅",title:"Time Commitment",items:[
+    {name:"Duration vs Depth",desc:"Short programs (5–6 weeks) offer breadth; longer programs (6+ months) deliver transformation depth. Match to your availability.",opts:["5–10 hrs (Google/Microsoft)","4–6 weeks (Oxford/HBS/MIT Sloan)","3–6 months (Wharton/MIT xPRO)","12–24 months (Oxford Diploma/IMD)"],optClass:""},
+    {name:"Weekly Hours Required",desc:"Most executive programs require 4–8 hours/week. IMD on-campus is 5 full days. Factor in travel and workload.",opts:["1–3 hrs/week (platform certs)","4–6 hrs/week (Oxford/HBS)","6–10 hrs/week (MIT/Wharton)","Full-time blocks (IMD campus)"],optClass:"rose"}
+  ]},
+  {icon:"🏗️",title:"Program Format",items:[
+    {name:"Delivery Mode",desc:"On-campus Swiss programs give peer networking in Zurich/Lausanne ecosystem. Online is flexible but lacks in-person network.",opts:["Online self-paced","Online + live sessions","Hybrid (online + campus)","On-campus (IMD/HSG)"],optClass:""},
+    {name:"Cohort Quality",desc:"IMD and HSG St.Gallen cohorts attract Swiss industry executives. Global programs attract more diverse but geographically distant peers.",opts:["Swiss industry executives (IMD/HSG)","Global C-suite (MIT/Wharton)","Mixed professionals (Oxford/HBS Online)","Individual (platform certs)"],optClass:"gold"}
+  ]},
+  {icon:"🎯",title:"Focus & Curriculum Depth",items:[
+    {name:"Topic Alignment",desc:"Choose programs matching your top AI priorities. Governance/FINMA → INSEAD/Stanford. Analytics → Wharton. Agentic AI → Kellogg. Swiss industry → IMD/HSG.",opts:["AI Strategy & Governance","GenAI & Agentic AI","Analytics & Data","Sector-specific AI"],optClass:""},
+    {name:"Swiss Regulatory Alignment",desc:"FINMA AI Guidance 08/2024, EU AI Act (relevant for Swiss firms), and the Council of Europe AI Convention (ratification pending). Programs covering these: IMD, INSEAD, Oxford.",opts:["FINMA Guidance 08/2024","EU AI Act (Swiss firms)","Council of Europe AI Conv.","Swiss FDPIC data protection"],optClass:"rose"}
+  ]},
+  {icon:"🌐",title:"Network & Career Impact",items:[
+    {name:"Alumni Network Geography",desc:"Swiss-specific network (IMD, HSG) vs global network (MIT, Wharton). For Swiss career advancement, local network often more valuable.",opts:["Swiss/European network (IMD/HSG)","Global network (MIT/Wharton)","Online community","No network component"],optClass:""},
+    {name:"LinkedIn Signal",desc:"How the credential signals expertise on LinkedIn matters for thought leadership. MIT, Oxford, Wharton, Harvard, IMD all signal strongly in Swiss market.",opts:["MIT/Oxford/Wharton (premium signal)","HBS/Stanford/LBS (strong signal)","IMD/HSG (Swiss-specific signal)","Coursera/Platform (functional signal)"],optClass:"gold"}
+  ]},
+  {icon:"🏭",title:"Sector Relevance",items:[
+    {name:"Industry-Specific Content",desc:"Most programs are generic. For deep sector relevance: HSG for finance, JHU for pharma/healthcare, Swiss Re Institute for reinsurance.",opts:["Finance/Banking → HSG St.Gallen","Pharma/LS → Johns Hopkins","Reinsurance → Swiss Re Institute","Insurance → Kellogg (agentic AI)"],optClass:""},
+    {name:"Swiss Business Context",desc:"Programs with Swiss case studies and Swiss practitioners are rare but valuable. IMD and HSG offer this. Global programs offer transferable frameworks.",opts:["Swiss case studies (IMD/HSG)","European context (LBS/INSEAD)","Global frameworks (MIT/Wharton)","Platform learning (DIY application)"],optClass:"gold"}
+  ]},
+  {icon:"⚖️",title:"Prerequisites & Accessibility",items:[
+    {name:"Technical Background Required",desc:"Most leadership programs require no coding. Technical programs (ETH/ML courses) need quantitative background. Start with non-technical if new to AI.",opts:["None required (most programs)","Basic data literacy","Quantitative background","Technical (ETH/ML programs)"],optClass:"green"},
+    {name:"Language",desc:"Swiss market benefits from multilingual programs. Microsoft/LinkedIn available in German and French. Most top programs are English only.",opts:["English only","English + German (Microsoft)","French + English (IMD)","Multilingual (Google/Microsoft)"],optClass:""}
+  ]},
+  {icon:"🔮",title:"Future-Proofing",items:[
+    {name:"Agentic AI Coverage",desc:"2026's defining trend. Programs with dedicated Agentic AI modules: Kellogg, MIT xPRO, IMD (Lausanne), ISB. Critical for leaders scaling AI operations.",opts:["Kellogg (best agentic coverage)","MIT xPRO / IMD","Oxford/Wharton (broad)","Platform certs (limited)"],optClass:"purple"},
+    {name:"GenAI & LLM Depth",desc:"GenAI is now baseline. Programs with GenAI modules updated for 2026: Oxford (dedicated module), Wharton, MIT, IMD, all Coursera programs.",opts:["Dedicated GenAI track","Integrated in curriculum","Light coverage","Tool-focused only"],optClass:""}
+  ]},
+  {icon:"📊",title:"Learning Outcomes",items:[
+    {name:"Capstone & Deliverable",desc:"Programs with capstone projects force real application. MIT xPRO, IMD, Wharton, ISB all include capstones. Valuable for justifying investment to employer.",opts:["AI strategy roadmap (MIT/Wharton)","Digital transformation plan (IMD)","Governance policy (Vanderbilt/Stanford)","No capstone (short programs)"],optClass:"gold"},
+    {name:"CEUs / Academic Credits",desc:"Continuing Education Units matter for regulated professions. UT Austin gives 5.5 CEUs. IMD's CAS gives 10 ECTS. Oxford Diploma is master's level.",opts:["10 ECTS (IMD CAS)","Master's level (Oxford Diploma)","5.5 CEUs (UT Austin)","Professional CPD (PMI/Swiss Re)"],optClass:""}
+  ]},
+  {icon:"💡",title:"Your Profile Match",items:[
+    {name:"Career Stage",desc:"Senior executives (10+ years) → MIT xPRO flagship or IMD. Mid-senior (5–10 yrs) → Oxford, HBS, ISB. Mid-level → Coursera programs + certifications.",opts:["C-suite / Board → MIT/IMD flagship","VP/Director → Oxford/Wharton","Manager → HBS Online/Kellogg","Individual Contrib → Platform certs"],optClass:""},
+    {name:"Goal: Swiss Market Positioning",desc:"For thought leadership positioning in Switzerland: IMD, HSG, and Oxford credentials carry most weight. For global positioning: MIT and Wharton.",opts:["Swiss thought leadership → IMD/HSG","European credibility → Oxford/LBS/INSEAD","Global positioning → MIT/Wharton","Quick upskilling → Platform certs"],optClass:"gold"}
+  ]},
+  {icon:"🗺️",title:"Recommended Journey",items:[
+    {name:"Optimal Learning Path",desc:"Start with AI fluency, then build strategy depth, then sector specialization. Don't skip foundations — even senior leaders benefit from Andrew Ng's AI for Everyone.",opts:["Step 1: AI for Everyone (free)","Step 2: Oxford or HBS ($1.7K–$3.3K)","Step 3: IMD or MIT xPRO ($9–12K)","Step 4: IMD CAS or Oxford Diploma"],optClass:""},
+    {name:"Swiss Employer Conversation",desc:"Frame investment to employer: FINMA AI governance requirements, competitive positioning vs. UBS/Zurich Insurance AI teams, and EU AI Act compliance readiness.",opts:["FINMA AI compliance framing","Competitive positioning argument","EU AI Act readiness business case","Innovation leadership narrative"],optClass:"gold"}
+  ]}
+];
+
+/* ═══════════════════════════════════════════
+   RECOMMENDATION PATHS
+═══════════════════════════════════════════ */
+const recommendations = [
+  {
+    profile:"Senior Data / AI Leader in Swiss Finance",
+    headline:"Swiss Finance AI Leadership Track",
+    desc:"Building credibility across FINMA-regulated AI, analytics leadership, and Swiss market positioning.",
+    path:["DeepLearning.AI: AI for Everyone (Free — foundation)","Oxford Saïd AI Programme ($3,318 — 6 weeks, build AI vocabulary)","IMD AI Strategy & Implementation (CHF 10,900 — Swiss campus, sector peers)","IMD Exec Certificate in AI & Digital Business (CAS, 10 ECTS — credential)"]
+  },
+  {
+    profile:"Insurance / Reinsurance Executive (CH)",
+    headline:"Swiss Re/Insurance AI Track",
+    desc:"Scaling AI from pilots to operations, FINMA governance, and agentic AI for claims/underwriting.",
+    path:["Microsoft AI Transformation Leader (Free study + exam ~$165)","Kellogg: Org Leadership in Age of AI ($2,900 — agentic AI + change mgmt)","Swiss Re Institute programs (via employer — sector-specific)","IMD Leading Digital & AI Transformation (CHF 10,900 — Lausanne campus)"]
+  },
+  {
+    profile:"Pharma / Life Sciences Leader (Novartis/Roche area)",
+    headline:"Swiss Pharma AI Track",
+    desc:"AI in drug discovery, clinical trials, and Swissmedic-aligned governance.",
+    path:["Google AI Essentials ($49/month — quick tools foundation)","Johns Hopkins AI in Healthcare ($2,800 — pharma-specific depth)","INSEAD Transforming Business with AI ($3,200 — EU AI Act, governance)","IMD Innovate with AI & Tech + EPFL (CHF 10,900 — Swiss pharma context)"]
+  },
+  {
+    profile:"CDO / Analytics Head — Any Swiss Sector",
+    headline:"Swiss CDO / Analytics Leadership Track",
+    desc:"Connecting data strategy, AI governance, and enterprise analytics for Swiss market.",
+    path:["AI for Everyone by Andrew Ng (Free — universal foundation)","Wharton AI & Analytics ($9,800 — deepest analytics+AI program globally)","MIT xPRO AI Strategy (12 weeks, $2,800 — governance and GenAI)","Stanford AI Ethics & Governance ($2,500 — FDPIC and regulatory alignment)"]
+  },
+  {
+    profile:"Mid-Senior Manager — Budget Conscious",
+    headline:"High-Value Budget Track (Under $1,500)",
+    desc:"Maximum learning value and credential credibility on a constrained budget.",
+    path:["AI for Everyone — Andrew Ng (Free/$49)","Microsoft AI Transformation Leader — Free study + $165 exam","Career Essentials in GenAI — LinkedIn+Microsoft (Free, German available)","Vanderbilt GenAI Leadership — Coursera (~$200)","HBS AI for Leaders (~$1,750 — if budget allows, high prestige)"]
+  },
+  {
+    profile:"Wealth Management / Asset Management Leader",
+    headline:"Swiss Asset Management AI Track",
+    desc:"Portfolio AI, ESG analytics, personalized advisory, and robo-advisory governance.",
+    path:["AI for Everyone (Free — foundation for non-technical leaders)","HSG AI in Finance ($3,500 — Zurich, banking/AM specific faculty)","Wharton AI & Analytics ($9,800 — deepest analytics track)","IMD AI Strategy & Implementation (CHF 10,900 — Swiss campus closure)"]
+  }
+];
+
+/* ═══════════════════════════════════════════
+   RENDER FUNCTIONS
+═══════════════════════════════════════════ */
+function stars(n){ return '★'.repeat(n)+'☆'.repeat(5-n); }
+
+function focusTags(focus){
+  return focus.slice(0,4).map(f=>`<span class="tag tag-${f.c}">${f.l}</span>`).join('');
+}
+
+function tierHTML(tier){
+  const map={elite:['t-elite','Elite'],premium:['t-premium','Premium'],mid:['t-mid','Mid-Range'],budget:['t-budget','Budget'],free:['t-free','Free']};
+  const [cls,lbl]=map[tier]||['t-mid','Mid'];
+  return `<span class="tier-badge ${cls}">${lbl}</span>`;
+}
+
+function priceClass(raw){
+  if(raw>=20000) return 'p-elite';
+  if(raw>=5000) return 'p-high';
+  if(raw>=1000) return 'p-mid';
+  if(raw>0) return 'p-low';
+  return 'p-free';
+}
+
+function scoreBar(s){
+  return `<div class="score-bar"><div class="bar-outer"><div class="bar-inner" style="width:${s}%"></div></div><span class="score-num">${s}</span></div>`;
+}
+
+function renderTable(data){
+  const tbody=document.getElementById('tableBody');
+  tbody.innerHTML='';
+  data.forEach(p=>{
+    const tr=document.createElement('tr');
+    tr.dataset.idx=programs.indexOf(p);
+    const verdictHTML=p.verdict.isBadge
+      ?`<span class="verdict-badge">${p.verdict.txt}</span>`
+      :`<span class="verdict-plain">${p.verdict.txt}</span>`;
+    const chEmoji=p.isSwiss?'🏆 ':p.chScore>=4?'⭐ ':p.chScore>=3?'✓ ':'';
+    tr.innerHTML=`
+      <td>
+        <div class="prog-name">${p.name}</div>
+        <div class="prog-inst">${p.inst}</div>
+        <div class="prog-country">${p.country}</div>
+      </td>
+      <td>${tierHTML(p.tier)}</td>
+      <td class="price-cell ${priceClass(p.priceRaw)}">${p.priceDisplay}</td>
+      <td style="white-space:nowrap;color:var(--muted);font-size:12px">${p.duration}</td>
+      <td><span class="platform-badge" style="font-size:9px">${p.platform.split(' ')[0]}</span></td>
+      <td style="font-size:11px;color:var(--muted);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${p.cert}">${p.cert.substring(0,25)}${p.cert.length>25?'…':''}</td>
+      <td>${focusTags(p.focus)}</td>
+      <td style="max-width:160px">${p.sectors.slice(0,3).map(s=>`<span class="sector-tag">${s}</span>`).join('')}${p.sectors.length>3?`<span class="sector-tag">+${p.sectors.length-3}</span>`:''}</td>
+      <td style="font-size:11px;color:${p.isSwiss?'var(--gold)':'var(--muted)'}"><span style="font-size:13px">${chEmoji}</span>${p.chRelevance.replace('🏆 ','').replace('⭐ ','').substring(0,40)}…</td>
+      <td><span class="stars">${stars(p.rating)}</span></td>
+      <td style="font-size:11px;color:var(--muted);max-width:140px">${p.inst.includes('St.Gallen')||p.inst.includes('IMD')||p.inst.includes('Swiss Re')?'🇨🇭 ':''}${p.name.includes('Healthcare')||p.name.includes('Finance')||p.name.includes('Reinsurance')?'🔬 ':''}</td>
+      <td>${scoreBar(p.score)}</td>
+      <td>${verdictHTML}</td>
+    `;
+    tr.addEventListener('click',()=>openPanel(programs.indexOf(p)));
+    tbody.appendChild(tr);
+  });
+}
+
+let activeFilter='all', searchQuery='';
+
+function applyFilters(){
+  let data=programs.filter(p=>{
+    if(activeFilter==='free') return p.priceRaw===0||p.tier==='free';
+    if(activeFilter==='budget') return p.priceRaw<1000&&p.priceRaw>0;
+    if(activeFilter==='mid') return p.priceRaw>=1000&&p.priceRaw<=5000;
+    if(activeFilter==='premium') return p.priceRaw>5000;
+    if(activeFilter==='switzerland') return p.isSwiss;
+    if(activeFilter==='short') return p.isShort;
+    if(activeFilter==='sector') return p.isSector;
+    if(activeFilter==='company') return p.isCompany;
+    if(activeFilter==='nodegree') return p.nodegree;
+    return true;
+  });
+  if(searchQuery){
+    const q=searchQuery.toLowerCase();
+    data=data.filter(p=>
+      p.name.toLowerCase().includes(q)||
+      p.inst.toLowerCase().includes(q)||
+      p.focus.some(f=>f.l.toLowerCase().includes(q))||
+      p.sectors.some(s=>s.toLowerCase().includes(q))||
+      p.verdict.txt.toLowerCase().includes(q)||
+      p.country.toLowerCase().includes(q)
+    );
+  }
+  renderTable(data);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter=btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('searchBox').addEventListener('input',e=>{
+  searchQuery=e.target.value;
+  applyFilters();
+});
+
+/* PANEL */
+function openPanel(idx){
+  const p=programs[idx];
+  const panel=document.getElementById('detailPanel');
+  const overlay=document.getElementById('overlay');
+  document.getElementById('panelContent').innerHTML=`
+    <div class="p-eyebrow">${p.inst} · ${p.country}</div>
+    <div class="p-name">${p.name}</div>
+    <div class="p-price">${p.priceDisplay}</div>
+    <div class="p-price-note">Approximate 2026 pricing — verify on provider site</div>
+    <hr class="p-divider">
+    <div class="p-section">Program Details</div>
+    <div class="p-row"><span class="p-row-label">Duration</span><span class="p-row-val">${p.duration}</span></div>
+    <div class="p-row"><span class="p-row-label">Platform</span><span class="p-row-val">${p.platform}</span></div>
+    <div class="p-row"><span class="p-row-label">Certificate</span><span class="p-row-val">${p.cert}</span></div>
+    <div class="p-row"><span class="p-row-label">Rating</span><span class="p-row-val"><span class="stars">${stars(p.rating)}</span></span></div>
+    <div class="p-row"><span class="p-row-label">Overall Score</span><span class="p-row-val">${scoreBar(p.score)}</span></div>
+    <div class="p-row"><span class="p-row-label">No Tech Required?</span><span class="p-row-val" style="color:${p.nodegree?'var(--green)':'var(--orange)'}">${p.nodegree?'✓ Yes — accessible':'⚠ Some background helps'}</span></div>
+    <hr class="p-divider">
+    <div class="p-section">Overview</div>
+    <div class="p-desc">${p.desc}</div>
+    <div class="p-section">Key Advantages</div>
+    <ul class="p-pros">${p.pros.map(pr=>`<li>${pr}</li>`).join('')}</ul>
+    <hr class="p-divider">
+    <div class="p-ch">
+      <div class="p-ch-title">🇨🇭 Switzerland Relevance</div>
+      <div style="font-size:12px;color:var(--gold);margin-bottom:8px;font-weight:600">${p.chRelevance}</div>
+      ${p.chRelevanceDetail.map(d=>`<div class="p-ch-item">${d}</div>`).join('')}
+    </div>
+    <hr class="p-divider">
+    <div class="p-section">Sectors Covered</div>
+    <div style="margin-bottom:16px">${p.sectors.map(s=>`<span class="sector-tag">${s}</span>`).join('')}</div>
+    <div class="p-section">Focus Areas</div>
+    <div style="margin-bottom:20px">${focusTags(p.focus)}</div>
+    <a class="p-link" href="${p.url}" target="_blank">Visit Program Page →</a>
+  `;
+  panel.classList.add('open');
+  overlay.classList.add('open');
+}
+
+document.getElementById('panelClose').addEventListener('click',()=>{
+  document.getElementById('detailPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+});
+document.getElementById('overlay').addEventListener('click',()=>{
+  document.getElementById('detailPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+});
+
+/* SECTOR GRID */
+function renderSectors(){
+  const grid=document.getElementById('sectorGrid');
+  grid.innerHTML=sectors.map(s=>`
+    <div class="sector-card">
+      <div class="sector-icon">${s.icon}</div>
+      <div class="sector-name">${s.name}</div>
+      <div class="sector-desc">${s.desc}</div>
+      <div class="sector-courses">
+        ${s.courses.map(c=>`
+          <div class="sc-item">
+            <div class="sc-item-name">${c.name}</div>
+            <div class="sc-item-inst">${c.inst}</div>
+            <div class="sc-item-why">${c.why}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* DECISION FRAMEWORK */
+function renderDecision(){
+  const grid=document.getElementById('decisionGrid');
+  grid.innerHTML=criteria.map(c=>`
+    <div class="decision-card">
+      <div class="dc-title"><span class="dc-icon">${c.icon}</span>${c.title}</div>
+      <div class="dc-criterion">
+        ${c.items.map(item=>`
+          <div class="criterion">
+            <div class="criterion-name">${item.name}</div>
+            <div class="criterion-desc">${item.desc}</div>
+            <div class="criterion-options">
+              ${item.opts.map(o=>`<span class="crit-opt ${item.optClass||''}">${o}</span>`).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  const recGrid=document.getElementById('recommendGrid');
+  recGrid.innerHTML=recommendations.map(r=>`
+    <div class="rec-card">
+      <div class="rec-profile">${r.profile}</div>
+      <h4>${r.headline}</h4>
+      <p>${r.desc}</p>
+      <div class="rec-path">
+        ${r.path.map(step=>`<div class="rec-step">${step}</div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* TABS */
+document.querySelectorAll('.nav-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* INIT */
+renderTable(programs);
+renderSectors();
+renderDecision();
+</script>
+</body>
+</html>
