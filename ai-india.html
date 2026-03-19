@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India AI Learning Guide 2026 — सबके लिए AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f1a;
+  --bg2: #0e1628;
+  --card: #111d32;
+  --card2: #152238;
+  --border: #1d2e48;
+  --border2: #253c5e;
+  --saffron: #ff9933;
+  --saffron2: #ffb366;
+  --green: #138808;
+  --green2: #1db010;
+  --teal: #06b6d4;
+  --sky: #38bdf8;
+  --gold: #fbbf24;
+  --rose: #f87171;
+  --purple: #c084fc;
+  --muted: #7a9bb8;
+  --text: #dde8f4;
+  --white: #f0f6ff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#060d1a 0%,#0d1f3c 40%,#081526 100%);
+  padding:56px 40px 44px;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero::before{content:'';position:absolute;top:-100px;right:-60px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,153,51,.06) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-60px;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(19,136,8,.05) 0%,transparent 70%);pointer-events:none;}
+.tricolor-bar{height:4px;width:100%;background:linear-gradient(90deg,var(--saffron) 33.3%,#fff 33.3% 66.6%,var(--green) 66.6%);margin-bottom:32px;border-radius:2px;}
+.hero-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(18px,3vw,28px);color:var(--saffron);margin-bottom:10px;opacity:.9;letter-spacing:.5px;}
+.hero h1{font-size:clamp(28px,5vw,56px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:14px;}
+.hero h1 .highlight{color:var(--saffron);}
+.hero h1 .highlight2{color:var(--teal);}
+.hero-sub{color:var(--muted);font-size:15px;font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:5px 14px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;}
+.chip-saffron{background:rgba(255,153,51,.1);border:1px solid rgba(255,153,51,.25);color:var(--saffron2);}
+.chip-teal{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.22);color:var(--teal);}
+.chip-green{background:rgba(19,136,8,.12);border:1px solid rgba(19,136,8,.3);color:var(--green2);}
+.chip-gold{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.22);color:var(--gold);}
+.chip-purple{background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.22);color:var(--purple);}
+
+/* NAV */
+.nav{background:var(--bg2);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;padding:0 36px;position:sticky;top:0;z-index:200;gap:0;}
+.nav-btn{padding:14px 20px;font-size:11.5px;font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;}
+.nav-btn:hover{color:var(--text);}
+.nav-btn.active{color:var(--saffron);border-bottom-color:var(--saffron);}
+
+/* TABS */
+.tab{display:none;}.tab.active{display:block;}
+
+/* AUDIENCE LADDER */
+.ladder{padding:32px 40px 60px;}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--white);margin-bottom:6px;}
+.section-sub{color:var(--muted);font-size:14px;margin-bottom:30px;max-width:680px;line-height:1.7;}
+.ladder-grid{display:flex;flex-direction:column;gap:28px;}
+.level-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s;}
+.level-card:hover{border-color:var(--border2);}
+.level-header{padding:22px 28px;display:flex;align-items:center;gap:16px;cursor:pointer;}
+.level-badge{flex-shrink:0;width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.l0{background:rgba(19,136,8,.15);border:1px solid rgba(19,136,8,.3);}
+.l1{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.25);}
+.l2{background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);}
+.l3{background:rgba(255,153,51,.12);border:1px solid rgba(255,153,51,.25);}
+.l4{background:rgba(192,132,252,.12);border:1px solid rgba(192,132,252,.25);}
+.l5{background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.25);}
+.level-meta{flex:1;}
+.level-name{font-size:17px;font-weight:700;color:var(--white);margin-bottom:2px;}
+.level-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+.level-count{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(255,153,51,.1);color:var(--saffron2);border:1px solid rgba(255,153,51,.2);}
+.level-courses{padding:0 28px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+.course-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .2s;}
+.course-card:hover{border-color:var(--saffron);background:var(--card2);}
+.cc-name{font-size:13px;font-weight:700;color:var(--white);margin-bottom:3px;line-height:1.35;}
+.cc-inst{font-size:10.5px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:6px;letter-spacing:.3px;}
+.cc-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px;}
+.cc-price{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;}
+.price-free{color:var(--green2);}
+.price-budget{color:var(--teal);}
+.price-mid{color:var(--gold);}
+.price-high{color:var(--saffron);}
+.price-premium{color:var(--purple);}
+.cc-tag{display:inline-block;border-radius:4px;padding:2px 7px;font-size:9.5px;}
+.tag-hindi{background:rgba(255,153,51,.1);border:1px solid rgba(255,153,51,.2);color:var(--saffron2);}
+.tag-online{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.18);color:var(--teal);}
+.tag-cert{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.18);color:var(--gold);}
+.tag-iit{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.18);color:var(--rose);}
+.tag-iim{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.18);color:var(--purple);}
+.tag-job{background:rgba(19,136,8,.08);border:1px solid rgba(19,136,8,.2);color:var(--green2);}
+.tag-emi{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:var(--sky);}
+.cc-summary{font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:5px;}
+
+/* TABLE TAB */
+.table-tab{padding:24px 40px 60px;}
+.filters{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:24px;border-radius:10px;}
+.f-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.fbtn{background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 13px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.fbtn:hover{border-color:var(--saffron);color:var(--saffron);}
+.fbtn.active{background:var(--saffron);border-color:var(--saffron);color:#000;font-weight:700;}
+.search-inp{margin-left:auto;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:7px 14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;width:220px;outline:none;transition:border-color .2s;}
+.search-inp:focus{border-color:var(--saffron);}
+.search-inp::placeholder{color:var(--muted);}
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:1400px;}
+thead tr{background:#090f1d;}
+thead th{padding:12px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;}
+thead th:hover{color:var(--saffron);}
+tbody tr{background:var(--card);border-bottom:1px solid var(--border);transition:background .15s;cursor:pointer;}
+tbody tr:hover{background:var(--card2);}
+tbody tr:last-child{border-bottom:none;}
+tbody tr.hidden{display:none;}
+td{padding:12px 14px;vertical-align:middle;}
+.cn{font-weight:700;color:var(--white);font-size:12.5px;line-height:1.3;}
+.ci{font-size:10px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+.lvl-badge{display:inline-block;border-radius:4px;padding:2px 8px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+.lv0{background:rgba(19,136,8,.15);color:var(--green2);border:1px solid rgba(19,136,8,.3);}
+.lv1{background:rgba(6,182,212,.12);color:var(--teal);border:1px solid rgba(6,182,212,.25);}
+.lv2{background:rgba(251,191,36,.12);color:var(--gold);border:1px solid rgba(251,191,36,.25);}
+.lv3{background:rgba(255,153,51,.12);color:var(--saffron2);border:1px solid rgba(255,153,51,.25);}
+.lv4{background:rgba(192,132,252,.12);color:var(--purple);border:1px solid rgba(192,132,252,.25);}
+.lv5{background:rgba(248,113,113,.12);color:var(--rose);border:1px solid rgba(248,113,113,.25);}
+.stars{color:var(--gold);letter-spacing:-1px;font-size:11px;}
+.bar-outer{width:55px;height:5px;background:var(--border);border-radius:3px;overflow:hidden;display:inline-block;}
+.bar-inner{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green2),var(--teal));}
+
+/* DECISION TAB */
+.decide-tab{padding:32px 40px 60px;}
+.criteria-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:36px;}
+.dc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;}
+.dc-head{font-size:15px;font-weight:700;color:var(--white);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.dc-icon{font-size:20px;}
+.crit{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;margin-bottom:8px;}
+.crit-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.crit-desc{font-size:11px;color:var(--muted);line-height:1.6;}
+.crit-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
+.pill{display:inline-block;padding:2px 9px;border-radius:4px;font-size:9.5px;font-family:'JetBrains Mono',monospace;}
+.pill-s{background:rgba(255,153,51,.08);border:1px solid rgba(255,153,51,.2);color:var(--saffron2);}
+.pill-t{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.18);color:var(--teal);}
+.pill-g{background:rgba(19,136,8,.08);border:1px solid rgba(19,136,8,.2);color:var(--green2);}
+.pill-p{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.18);color:var(--purple);}
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.path-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color .2s;}
+.path-card:hover{border-color:var(--saffron);}
+.path-persona{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--saffron);margin-bottom:8px;}
+.path-card h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.path-card p{font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+.path-steps{display:flex;flex-direction:column;gap:5px;}
+.path-step{font-size:11px;color:var(--text);display:flex;gap:6px;align-items:flex-start;line-height:1.5;}
+.path-step::before{content:'→';color:var(--saffron);flex-shrink:0;font-size:10px;margin-top:2px;}
+.salary-section{margin-top:36px;}
+.salary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.sal-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.sal-role{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.sal-range{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--saffron);}
+.sal-note{font-size:10px;color:var(--muted);margin-top:4px;}
+
+/* DETAIL PANEL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:300;}
+.overlay.open{display:block;}
+.panel{display:none;position:fixed;right:0;top:0;bottom:0;width:440px;background:#0a1220;border-left:1px solid var(--border2);z-index:400;overflow-y:auto;animation:slideIn .25s ease;padding:36px 28px;}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.panel.open{display:block;}
+.panel-close{position:absolute;top:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;color:var(--muted);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.panel-close:hover{color:var(--white);border-color:var(--saffron);}
+.p-level{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+.p-name{font-size:20px;font-weight:800;color:var(--white);line-height:1.3;margin-bottom:4px;}
+.p-inst{font-size:12px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:16px;}
+.p-price{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;color:var(--saffron);line-height:1;}
+.p-price-note{font-size:11px;color:var(--muted);margin-top:3px;margin-bottom:18px;}
+.p-divider{border:none;border-top:1px solid var(--border);margin:16px 0;}
+.p-sec{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.p-row{display:flex;justify-content:space-between;margin-bottom:9px;font-size:12.5px;}
+.p-rl{color:var(--muted);}
+.p-rv{color:var(--text);font-weight:500;text-align:right;max-width:56%;}
+.p-desc{font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:14px;}
+.p-pros{list-style:none;}
+.p-pros li{padding:5px 0;font-size:12px;color:var(--text);display:flex;gap:8px;}
+.p-pros li::before{content:'✓';color:var(--green2);font-weight:700;flex-shrink:0;}
+.p-link{display:block;margin-top:22px;background:var(--saffron);color:#000;text-align:center;padding:13px;border-radius:8px;font-weight:700;text-decoration:none;font-size:13px;transition:background .15s;}
+.p-link:hover{background:var(--saffron2);}
+
+/* SALARY TABLE */
+.salary-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;}
+.salary-table th{padding:10px 14px;background:var(--bg2);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
+.salary-table td{padding:10px 14px;border-top:1px solid var(--border);}
+.salary-table tr:hover td{background:var(--card2);}
+
+/* NOTE */
+.note-bar{margin:0 40px 20px;padding:14px 20px;background:rgba(255,153,51,.06);border:1px solid rgba(255,153,51,.15);border-radius:10px;font-size:12px;color:var(--muted);line-height:1.7;}
+.note-bar strong{color:var(--saffron2);}
+
+@media(max-width:768px){
+  .hero,.ladder,.table-tab,.decide-tab{padding-left:16px;padding-right:16px;}
+  .filters{padding:12px 16px;}
+  .criteria-grid,.paths-grid,.salary-grid{grid-template-columns:1fr;}
+  .panel{width:100%;}
+  .level-courses{padding:0 16px 20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tricolor-bar"></div>
+  <div class="hero-hindi">🇮🇳 AI सीखो, आगे बढ़ो — सबके लिए, हर बजट में</div>
+  <h1>India AI Learning Guide<br><span class="highlight">2026</span> — <span class="highlight2">सबके लिए</span></h1>
+  <p class="hero-sub">From rural first-timers to IIT graduates to senior CXOs — a complete guide to AI learning in India across all budgets (₹0 to ₹8L+), all levels, and all languages. India has 45,000+ open AI jobs and only ~8,000 graduates per year — your opportunity window is now.</p>
+  <div class="hero-chips">
+    <span class="chip chip-saffron">35+ Programs Mapped</span>
+    <span class="chip chip-teal">₹0 to ₹8,00,000</span>
+    <span class="chip chip-green">6 Audience Levels</span>
+    <span class="chip chip-gold">IIT • IIM • NPTEL • Jio</span>
+    <span class="chip chip-purple">Hindi & 12 Regional Languages</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" data-tab="ladder">🪜 Learning Ladder</button>
+  <button class="nav-btn" data-tab="table">📊 All Programs</button>
+  <button class="nav-btn" data-tab="decide">🎯 Decision Guide</button>
+</div>
+
+<!-- ═══ TAB 1: LADDER ═══ -->
+<div class="tab active" id="tab-ladder">
+  <div class="ladder">
+    <h2 class="section-title">The India AI Learning Ladder</h2>
+    <p class="section-sub">Choose your level below. Each step builds on the previous one. Start wherever you are — no background required for Levels 0 and 1. Click any course card to see full details.</p>
+    <div class="ladder-grid" id="ladderGrid"></div>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: TABLE ═══ -->
+<div class="tab" id="tab-table">
+  <div class="table-tab">
+    <h2 class="section-title" style="margin-bottom:20px;">All Programs at a Glance</h2>
+    <div class="filters">
+      <span class="f-label">Level:</span>
+      <button class="fbtn active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="l0">Aam Aadmi</button>
+      <button class="fbtn" data-filter="l1">Beginner</button>
+      <button class="fbtn" data-filter="l2">Working Professional</button>
+      <button class="fbtn" data-filter="l3">Manager / Leader</button>
+      <button class="fbtn" data-filter="l4">Tech Developer</button>
+      <button class="fbtn" data-filter="l5">Advanced / IIT-level</button>
+      <span class="f-label" style="margin-left:8px">Price:</span>
+      <button class="fbtn" data-filter="free">Free/₹0</button>
+      <button class="fbtn" data-filter="under10k">Under ₹10K</button>
+      <button class="fbtn" data-filter="under1L">Under ₹1 Lakh</button>
+      <button class="fbtn" data-filter="hindi">Hindi</button>
+      <button class="fbtn" data-filter="iit">IIT Backed</button>
+      <button class="fbtn" data-filter="iim">IIM Backed</button>
+      <button class="fbtn" data-filter="job">Job/Placement</button>
+      <input class="search-inp" type="text" placeholder="🔍  Search programs..." id="searchBox">
+    </div>
+    <div class="table-wrap">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th>Program</th><th>Level</th><th>Price (INR)</th><th>Duration</th>
+            <th>Platform</th><th>Certificate</th><th>Language</th>
+            <th>IIT/IIM?</th><th>Job Support</th><th>EMI?</th>
+            <th>Rating</th><th>Value Score</th><th>Best For</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="note-bar" style="margin:20px 0 0;">
+      <strong>Note:</strong> Prices are approximate 2026 figures in Indian Rupees. Many programs offer EMI/no-cost EMI options. IIT/IIM certificates add strong credibility for Indian employers. Free programs from NPTEL/SWAYAM are completely free to audit; ₹1,000 exam fee for verified certificate.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: DECIDE ═══ -->
+<div class="tab" id="tab-decide">
+  <div class="decide-tab">
+    <h2 class="section-title">How to Decide: India-Specific Framework</h2>
+    <p class="section-sub">14 decision criteria tailored for Indian learners — covering budget, language, EMI, employer recognition, placement support, and realistic career outcomes.</p>
+    <div class="criteria-grid" id="criteriaGrid"></div>
+
+    <h3 style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:18px;">Personalized Paths by Persona</h3>
+    <div class="paths-grid" id="pathsGrid"></div>
+
+    <div class="salary-section">
+      <h3 style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:6px;">🤑 AI Salary Reality in India (2026)</h3>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">Data from Glassdoor, AmbitionBox, and industry reports. Use this to evaluate ROI of any program.</p>
+      <div class="salary-grid" id="salaryGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="panel" id="detailPanel">
+  <button class="panel-close" id="panelClose">✕</button>
+  <div id="panelContent"></div>
+</div>
+
+<script>
+/* ═══════════════════ DATA ═══════════════════ */
+
+const levels = [
+  {
+    id:'l0', icon:'🌱', name:'Level 0 — Aam Aadmi (Common Man)',
+    nameHindi:'सामान्य नागरिक', badge:'lv0',
+    desc:'No prior education in tech needed. Perfect for homemakers, farmers, shop owners, school students, government employees, and anyone curious about AI. Available in Hindi and 12 Indian languages.',
+    courses:[
+      {
+        id:'jio-ai', name:'Jio AI Classroom Foundation Course',inst:'Jio / Reliance',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'Self-paced',platform:'Jio AI Classroom (app)',cert:'Completion Certificate',
+        lang:'12 Indian languages (Hindi, Telugu, Tamil, Kannada, Bengali, Gujarati + more)',
+        iit:false,iim:false,job:false,emi:false,rating:5,score:95,isHindi:true,
+        level:'l0',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Every Indian — schoolchildren to senior citizens',
+        url:'https://www.jio.com/ai-classroom/',
+        desc:'Jio\'s free AI Foundation Course is built for India\'s masses — available in 12 regional languages including Hindi, Telugu, Tamil, Marathi, and more. Covers AI basics, learning to solve problems with AI, and building simple projects. Designed by Dr. Shailesh Kumar, one of India\'s top AI leaders.',
+        pros:['Completely FREE — no cost whatsoever','Available in Hindi + 11 other Indian languages','No prerequisites — truly for everyone','Teaches AI with mobile phone only','Certificate on completion','Built for Bharat (rural + urban)','Covers AI in daily life context']
+      },
+      {
+        id:'dhruv-ai', name:'AI Masterclass (Hindi)',inst:'Dhruv Rathee Academy',
+        price:'₹499',priceNum:499,priceClass:'price-free',
+        duration:'2.5 hours (live workshop)',platform:'TagMango',cert:'Certificate of Participation',
+        lang:'Hindi only',
+        iit:false,iim:false,job:false,emi:false,rating:4,score:78,isHindi:true,
+        level:'l0',isFree:false,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Hindi-speaking beginners — students, common citizens',
+        url:'https://academy.dhruvrathee.com/aimasterclass',
+        desc:'Dhruv Rathee\'s AI Masterclass is conducted entirely in Hindi, making it one of the most accessible AI programs for Hindi-speaking India. Covers ChatGPT, AI tools, prompting, and practical daily life applications. Includes prompt sheets and recording access.',
+        pros:['Conducted 100% in Hindi','Affordable — ₹499','Live workshop with Dhruv Rathee','Practical ChatGPT & AI tools focus','Prompt sheets included','UPI/Debit/Credit/EMI payments','Popular YouTuber — trusted voice']
+      },
+      {
+        id:'udemy-hindi', name:'Free AI Course for Beginners (Hindi)',inst:'Udemy Community',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'3–5 hours',platform:'Udemy',cert:'Udemy Certificate',
+        lang:'Hindi',
+        iit:false,iim:false,job:false,emi:false,rating:3,score:68,isHindi:true,
+        level:'l0',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Hindi-speaking beginners, no tech background',
+        url:'https://www.udemy.com/course/free-artificial-intelligence-course-for-beginners-in-hindi/',
+        desc:'Free AI course on Udemy taught entirely in Hindi. No coding or prior AI knowledge required. Covers AI basics, machine learning concepts, deep learning overview, AI applications (chatbots, self-driving cars, recommendation systems). Great as a first step.',
+        pros:['100% Free','Taught in Hindi','No coding required','AI basics clearly explained','Udemy certificate on completion','Self-paced — learn anytime']
+      },
+      {
+        id:'5min-eng', name:'Complete AI Course in Hindi (5-Hour)',inst:'5 Minutes Engineering / YouTube',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'5 hours (single video)',platform:'YouTube',cert:'No certificate',
+        lang:'Hindi',
+        iit:false,iim:false,job:false,emi:false,rating:4,score:72,isHindi:true,
+        level:'l0',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Self-motivated Hindi learners wanting depth without cost',
+        url:'https://www.classcentral.com/course/youtube-complete-ai-artificial-intelligence-in-one-shot-5-hours-in-hindi-290191',
+        desc:'A comprehensive 5-hour AI course on YouTube in Hindi. Covers intelligent agents, fuzzy logic, problem-solving, neural networks, NLP, and genetic algorithms. Free supplementary notes included. Best YouTube resource for AI in Hindi.',
+        pros:['Completely free on YouTube','5 hours of comprehensive content','Free supplementary notes','Covers advanced topics in accessible Hindi','No registration needed','Download for offline viewing']
+      }
+    ]
+  },
+  {
+    id:'l1', icon:'📱', name:'Level 1 — Beginner (Student / Non-Tech Professional)',
+    nameHindi:'शुरुआती सीखने वाले',badge:'lv1',
+    desc:'For college students, arts/commerce graduates, HR, marketing, finance professionals — anyone who wants AI fluency without becoming a programmer. Under ₹5,000 range.',
+    courses:[
+      {
+        id:'google-essentials', name:'Google AI Essentials / Professional Certificate',inst:'Google (Coursera/Udemy)',
+        price:'₹4,100/month',priceNum:4100,priceClass:'price-budget',
+        duration:'1–3 months',platform:'Coursera / Google Skills / Udemy',cert:'Google Professional Certificate',
+        lang:'English (some Hindi subtitles)',
+        iit:false,iim:false,job:true,emi:false,rating:5,score:88,isHindi:false,
+        level:'l1',isFree:false,isUnder10k:true,isUnder1L:true,isJob:true,
+        bestFor:'Non-technical professionals — HR, marketing, finance, operations',
+        url:'https://grow.google/ai-professional/',
+        desc:'Google\'s 2026 AI Professional Certificate covers AI fundamentals, prompting, research with NotebookLM, writing with AI, content creation, and data analysis with Gemini. Validated by major employers globally. 7 modules, ~7 hours total. Very practical and employer-recognized.',
+        pros:['Google brand — employer validated','7 modules in 7 hours','Practical work scenarios','Gemini and NotebookLM hands-on','Free trial available','Udemy-Google partnership 2026','Certificate on LinkedIn instantly']
+      },
+      {
+        id:'ms-genai', name:'Career Essentials in GenAI (Microsoft+LinkedIn)',inst:'Microsoft & LinkedIn Learning',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'~5 hours',platform:'LinkedIn Learning',cert:'LinkedIn/Microsoft Certificate',
+        lang:'English, Hindi, multiple languages',
+        iit:false,iim:false,job:true,emi:false,rating:4,score:82,isHindi:true,
+        level:'l1',isFree:true,isUnder10k:true,isUnder1L:true,isJob:true,
+        bestFor:'Working professionals wanting quick GenAI credential on LinkedIn',
+        url:'https://www.linkedin.com/learning/paths/career-essentials-in-generative-ai-by-microsoft-and-linkedin',
+        desc:'Free LinkedIn Learning path from Microsoft covering GenAI fundamentals, Microsoft Copilot, ethics, and responsible AI. Only 5 hours. Certificate appears directly on your LinkedIn profile — great for visibility with Indian recruiters.',
+        pros:['Completely free','LinkedIn certificate — visible to recruiters','~5 hours only','Microsoft Copilot focus','Available in multiple languages','Responsible AI module included','Instant career signal on LinkedIn']
+      },
+      {
+        id:'deeplearning-everyone', name:'AI for Everyone (Andrew Ng)',inst:'DeepLearning.AI on Coursera',
+        price:'₹2,600 (cert) / Free to audit',priceNum:2600,priceClass:'price-budget',
+        duration:'6–10 hours',platform:'Coursera',cert:'DeepLearning.AI Certificate',
+        lang:'English (Hindi subtitles on Coursera)',
+        iit:false,iim:false,job:false,emi:false,rating:5,score:90,isHindi:false,
+        level:'l1',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Anyone wanting the world\'s best AI foundation — free to audit',
+        url:'https://www.coursera.org/learn/ai-for-everyone',
+        desc:'Andrew Ng\'s globally rated #1 AI foundation course. Rated 4.8/5 by millions. Covers AI concepts, business applications, machine learning basics — no coding required. Free to audit or pay ₹2,600 for certificate. The single best starting point for any Indian professional.',
+        pros:['Andrew Ng — world\'s #1 AI educator','4.8/5 global rating — millions of learners','Free to audit','Done in 6–10 hours','No coding required','Available with financial aid','Hindi subtitles on Coursera']
+      },
+      {
+        id:'scaler-free', name:'Free AI Course with Certificate',inst:'Scaler Topics',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'Self-paced',platform:'Scaler Topics (online)',cert:'Scaler Certificate',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:false,rating:4,score:74,isHindi:false,
+        level:'l1',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Students wanting structured free AI learning with certificate',
+        url:'https://www.scaler.com/topics/',
+        desc:'Scaler Topics offers a free AI course with certificate covering supervised/unsupervised learning, common ML algorithms, and practical examples. Interactive quizzes and coding exercises. Beginner-friendly structured path from basics to intermediate.',
+        pros:['Completely free','Scaler brand — well-recognized in India','Interactive quizzes and coding exercises','Certificate on completion','Structured learning path','Good for engineering students']
+      },
+      {
+        id:'vanderbilt-genai', name:'GenAI Leadership & Strategy',inst:'Vanderbilt University on Coursera',
+        price:'₹4,100/month',priceNum:4100,priceClass:'price-budget',
+        duration:'4 weeks',platform:'Coursera',cert:'Vanderbilt Certificate',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:false,rating:4,score:78,isHindi:false,
+        level:'l1',isFree:false,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Non-tech professionals, MBA students, business leaders',
+        url:'https://www.coursera.org/specializations/generative-ai-leadership-strategy',
+        desc:'4-week GenAI strategy course covering AI governance policies, the Flipped Interaction Pattern, and strategic AI use cases. By Dr. Jules White of Vanderbilt. Fast, practical, and results in a shareable international certificate. Financial aid available.',
+        pros:['4 weeks — fast completion','GenAI governance drafting','Vanderbilt international certificate','Financial aid available','No coding required','Practical strategy frameworks']
+      }
+    ]
+  },
+  {
+    id:'l2', icon:'💼', name:'Level 2 — Working Professional (Career Switcher / Upskiller)',
+    nameHindi:'कामकाजी पेशेवर',badge:'lv2',
+    desc:'For IT professionals, data analysts, business analysts, and professionals with 2–5 years experience wanting to add AI to their skillset. Budget range: ₹10,000 – ₹1,00,000. Most programs include placement support.',
+    courses:[
+      {
+        id:'great-learning', name:'PG Program in AI & ML (IIT Madras)',inst:'Great Learning + IIT Madras',
+        price:'₹1,00,000 – ₹1,80,000',priceNum:140000,priceClass:'price-mid',
+        duration:'11–18 months',platform:'Great Learning (online)',cert:'IIT Madras Certificate',
+        lang:'English',
+        iit:true,iim:false,job:true,emi:true,rating:5,score:90,isHindi:false,
+        level:'l2',isFree:false,isUnder10k:false,isUnder1L:false,isJob:true,
+        bestFor:'Working professionals wanting IIT certification with placement support',
+        url:'https://www.mygreatlearning.com/artificial-intelligence/courses',
+        desc:'Great Learning\'s AI & Data Science program backed by IIT Madras faculty. 400+ hours of instruction, ML, deep learning, NLP, and GenAI. Real-world projects, career mentorship, mock interviews, and placement assistance. 1:1 career sessions. IIT Madras certificate adds strong credibility for Indian employers.',
+        pros:['IIT Madras branded certificate','400+ hours comprehensive curriculum','1:1 career mentorship sessions','Mock interviews and resume review','Placement assistance included','No-cost EMI options','Live classes + recorded lectures']
+      },
+      {
+        id:'scaler-aiml', name:'AI & ML Program (IIT Roorkee / IIT Madras)',inst:'Scaler Academy',
+        price:'₹3,99,000',priceNum:399000,priceClass:'price-high',
+        duration:'9–11 months',platform:'Scaler (online + live)',cert:'IIT Roorkee / IIT Madras Certificate',
+        lang:'English',
+        iit:true,iim:false,job:true,emi:true,rating:5,score:92,isHindi:false,
+        level:'l2',isFree:false,isUnder10k:false,isUnder1L:false,isJob:true,
+        bestFor:'Career switchers wanting job guarantee and IIT credential',
+        url:'https://www.scaler.com/courses/ai-and-machine-learning/',
+        desc:'Scaler\'s comprehensive AI & ML program with IIT Roorkee/Madras certification. Covers Python, ML, deep learning, NLP, and GenAI with strong mentorship. Known for strong placement outcomes (avg. salary hike 70%+). 1:1 mentorship with industry experts. Strong placement network with top tech companies.',
+        pros:['IIT Roorkee/Madras certificate','Strong placement support','1:1 mentorship with industry experts','Live classes with recording','Python to GenAI full stack','No-cost EMI on major banks','Capstone projects with real companies']
+      },
+      {
+        id:'upgrad-iiit', name:'PG Program in AI & ML (IIIT Bangalore)',inst:'upGrad + IIIT Bangalore',
+        price:'₹2,50,000 – ₹3,50,000',priceNum:300000,priceClass:'price-high',
+        duration:'18 months',platform:'upGrad (online)',cert:'IIIT Bangalore PG Diploma',
+        lang:'English',
+        iit:false,iim:false,job:true,emi:true,rating:5,score:88,isHindi:false,
+        level:'l2',isFree:false,isUnder10k:false,isUnder1L:false,isJob:true,
+        bestFor:'Working professionals wanting IIIT-B academic credential + placement',
+        url:'https://www.upgrad.com/machine-learning-ai-pgd-iiitb/',
+        desc:'upGrad\'s flagship AI & ML PG Diploma with IIIT Bangalore — one of India\'s best programs. 18-month part-time program covering Python, ML, deep learning, GenAI, and MLOps. Multiple capstone projects. Includes career support, industry projects, and mentorship. 10 million+ learners on upGrad.',
+        pros:['IIIT Bangalore PG Diploma — strong Indian credential','18 months — comprehensive','ML, DL, GenAI, and MLOps covered','Industry projects and capstones','Career counseling and placement','No-cost EMI up to 18 months','10M+ upGrad learner community']
+      },
+      {
+        id:'physics-wallah', name:'AI & Data Science Course',inst:'Physics Wallah (PW Skills)',
+        price:'₹15,000 – ₹25,000',priceNum:20000,priceClass:'price-mid',
+        duration:'4–6 months',platform:'PW Skills (online)',cert:'PW Certificate',
+        lang:'Hindi + English',
+        iit:false,iim:false,job:true,emi:true,rating:4,score:80,isHindi:true,
+        level:'l2',isFree:false,isUnder10k:false,isUnder1L:true,isJob:true,
+        bestFor:'Budget-conscious learners wanting Hindi-medium tech education',
+        url:'https://pwskills.com/',
+        desc:'Physics Wallah\'s PW Skills offers AI & Data Science courses at extremely affordable prices — often under ₹25,000. Taught in Hinglish (Hindi + English), making it accessible to tier-2/3 city students. Good placement support network. Covers Python, ML, and GenAI basics. Popular for students who can\'t afford premium programs.',
+        pros:['Very affordable — under ₹25,000','Taught in Hindi-English (Hinglish)','PW brand trusted in India','Placement support included','Accessible for tier-2/3 city students','EMI options available','Live batch + recordings']
+      },
+      {
+        id:'guvi', name:'AI & Python Bootcamp',inst:'GUVI (IIT Madras Incubated)',
+        price:'₹10,000 – ₹40,000',priceNum:25000,priceClass:'price-mid',
+        duration:'3–6 months',platform:'GUVI (online)',cert:'GUVI Certificate (IIT Madras incubated)',
+        lang:'English, Tamil, Hindi, Telugu',
+        iit:true,iim:false,job:true,emi:true,rating:4,score:82,isHindi:true,
+        level:'l2',isFree:false,isUnder10k:false,isUnder1L:true,isJob:true,
+        bestFor:'South India professionals wanting regional language + IIT-incubated credential',
+        url:'https://www.guvi.in/',
+        desc:'GUVI is incubated at IIT Madras and offers AI and Python courses in English, Tamil, Hindi, and Telugu. Strong South India presence. Affordable fees with placement support. Covers ML, Python, and GenAI. Particularly good for Tamil Nadu and South India professionals wanting regional language access.',
+        pros:['IIT Madras incubated brand','Courses in Tamil, Telugu, Hindi, English','Affordable — starts at ₹10,000','Placement support and career services','Good for South India learners','Python + ML + GenAI curriculum','Certificate recognized in tech sector']
+      }
+    ]
+  },
+  {
+    id:'l3', icon:'🏢', name:'Level 3 — Manager / Business Leader / CXO',
+    nameHindi:'प्रबंधक और व्यापार नेता',badge:'lv3',
+    desc:'For mid-senior professionals, managers, and CXOs who want to lead AI strategy without coding. IIM-backed programs dominate this level. Range: ₹1,50,000 – ₹5,00,000.',
+    courses:[
+      {
+        id:'iimb-managers', name:'AI for Managers',inst:'IIM Bangalore (IIMBx)',
+        price:'₹80,000 – ₹1,20,000',priceNum:100000,priceClass:'price-high',
+        duration:'6–8 months',platform:'IIMBx (online)',cert:'IIM Bangalore Professional Certificate',
+        lang:'English',
+        iit:false,iim:true,job:false,emi:true,rating:5,score:93,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Mid-senior managers wanting IIM-B credential for career advancement',
+        url:'https://iimbx.iimb.ac.in/ai-for-managers/',
+        desc:'IIM Bangalore\'s AI for Managers is a professional program covering AI/ML concepts, deep learning, GenAI, and business applications using Python, SPSS, Excel, and Tableau. Harvard Business Publishing case studies included. 8 modules with hands-on tools and continuous assessments. IIM-B is India\'s #1 management school.',
+        pros:['IIM Bangalore — India\'s #1 B-school','Harvard Business Publishing cases','8 modules from foundations to GenAI','Python, SPSS, Excel, Tableau hands-on','Assessment-based certification','IIM-B alumni network access','No prior coding required']
+      },
+      {
+        id:'iimk-ai-officer', name:'AI Officer Programme',inst:'IIM Kozhikode + Kellogg Executive Ed',
+        price:'₹2,50,000 – ₹3,50,000',priceNum:300000,priceClass:'price-high',
+        duration:'6 months',platform:'Emeritus (online + optional campus)',cert:'IIM Kozhikode + Kellogg Certificate',
+        lang:'English',
+        iit:false,iim:true,job:false,emi:true,rating:5,score:91,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Senior leaders wanting dual IIM + global Kellogg credential',
+        url:'https://iimkozhikode.emeritus.org/iimk-ai-officer-programme',
+        desc:'IIM Kozhikode\'s AI Officer Programme in collaboration with Kellogg Executive Education (Northwestern University). Translates GenAI potential into business strategy. Dual certificate from IIM-K and Kellogg. Optional campus networking session.',
+        pros:['Dual certificate: IIM-K + Kellogg (US)','GenAI business strategy focus','Optional campus networking','IIM-K + Kellogg alumni network','Leadership-focused curriculum','No coding required','EMI payment options']
+      },
+      {
+        id:'iimi-dt', name:'Digital Transformation & AI for Leaders',inst:'IIM Indore',
+        price:'₹1,49,900 + GST',priceNum:177000,priceClass:'price-high',
+        duration:'6–8 months',platform:'Emeritus (online)',cert:'IIM Indore Certificate',
+        lang:'English',
+        iit:false,iim:true,job:false,emi:true,rating:4,score:86,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Business leaders wanting AI + digital transformation strategy',
+        url:'https://iimindore.emeritus.org/iimi-certificate-programme-in-digital-transformation-and-innovation',
+        desc:'IIM Indore\'s Certificate Programme in Digital Transformation and AI for Leaders. Covers AI-driven decision making, business model innovation, process reengineering, marketing automation, CRM, and cybersecurity. Capstone project included. Executive alumni status of IIM Indore.',
+        pros:['IIM Indore executive alumni status','Capstone project included','Digital transformation + AI combined','Cybersecurity module','IIM-Indore campus visit option','EMI available','Colleague discount ₹10,000']
+      },
+      {
+        id:'iima-analytics', name:'Strategic Decision Making Through AI & Analytics',inst:'IIM Ahmedabad',
+        price:'₹2,00,000 – ₹3,00,000',priceNum:250000,priceClass:'price-high',
+        duration:'3–5 days (intensive) / Online options',platform:'IIM-A Executive Education',cert:'IIM Ahmedabad Certificate',
+        lang:'English',
+        iit:false,iim:true,job:false,emi:false,rating:5,score:94,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Senior executives, CEOs, CDOs — India\'s top management school',
+        url:'https://exed.iima.ac.in/',
+        desc:'IIM Ahmedabad\'s executive program on AI and analytics for strategic decision-making. Covers ML techniques for structured/unstructured data, competitive advantage through AI, and managing AI projects. IIM-A is India\'s most prestigious management school — highest brand value for Indian market.',
+        pros:['IIM Ahmedabad — India\'s most prestigious B-school','Highest brand value in India','Strategic not technical focus','ML for business decision-making','Cross-disciplinary AI approach','IIM-A alumni network — gold standard','Intensive format fits busy leaders']
+      },
+      {
+        id:'iiml-exec', name:'Executive Program in AI for Business',inst:'IIM Lucknow + Imarticus',
+        price:'₹1,50,000 – ₹2,00,000',priceNum:175000,priceClass:'price-high',
+        duration:'8–12 months',platform:'Online + 2-day campus immersion',cert:'IIM Lucknow Certificate + Alumni Status',
+        lang:'English',
+        iit:false,iim:true,job:false,emi:true,rating:4,score:85,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Leaders wanting IIM-L alumni status and campus experience',
+        url:'https://imarticus.org/executive-programme-in-ai-for-business-iim-lucknow/',
+        desc:'IIM Lucknow executive program with 2-day campus immersion in Lucknow. Covers AI & ML landscape, supervised learning, natural language processing, computer vision, and AI ethics. IIM-L alumni status on completion — access to alumni network and campus events.',
+        pros:['IIM Lucknow alumni status','2-day physical campus immersion','Peer networking with leadership cohort','ML fundamentals to advanced AI','NLP and computer vision covered','EMI payment available','AMBA/AACSB dual accredited IIM']
+      },
+      {
+        id:'isb-leadership', name:'Leadership with AI Programme',inst:'ISB Online',
+        price:'₹1,80,000 – ₹2,20,000',priceNum:200000,priceClass:'price-high',
+        duration:'3–4 months',platform:'ISB Online (live sessions)',cert:'ISB Certificate + Alumni Status',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:true,rating:5,score:92,isHindi:false,
+        level:'l3',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Executives wanting ISB brand + agentic AI + GenAI depth',
+        url:'https://online-er.isb.edu/leadership-with-ai/',
+        desc:'ISB Online\'s flagship Leadership with AI programme. 26 successful batches, #1 B-school in India, #12 globally (FT 2026). Covers GenAI, Agentic AI, ML tools, and AI strategy. ISB Online Alumni Status included. Strong for building Indian C-suite credibility.',
+        pros:['ISB #1 in India, #12 globally (FT 2026)','26 successful batch legacy','Agentic AI dedicated coverage','ISB Online Alumni Status','Live faculty sessions','Capstone project + real cases','Strong for Indian CXO positioning']
+      }
+    ]
+  },
+  {
+    id:'l4', icon:'💻', name:'Level 4 — Tech Professional / AI Developer',
+    nameHindi:'तकनीकी पेशेवर',badge:'lv4',
+    desc:'For software engineers, data scientists, and tech professionals wanting hands-on AI/ML development skills. Python, TensorFlow, PyTorch, LangChain, and LLMs. Range: ₹500 – ₹4,00,000.',
+    courses:[
+      {
+        id:'nptel-intro', name:'Introduction to AI (IIT Delhi)',inst:'NPTEL / IIT Delhi',
+        price:'FREE (₹1,000 for cert)',priceNum:1000,priceClass:'price-free',
+        duration:'12 weeks',platform:'SWAYAM / NPTEL',cert:'IIT Delhi + NPTEL Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:false,rating:5,score:88,isHindi:false,
+        level:'l4',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Engineering students wanting IIT Delhi certificate at near-zero cost',
+        url:'https://nptel.ac.in/courses/106102220',
+        desc:'Prof. Mausam\'s AI course from IIT Delhi on NPTEL. Covers search, logic, Bayes nets, MDPs, and first algorithms. 12-week comprehensive course. Free to audit or ₹1,000 for IIT Delhi + NPTEL verified certificate. Massive credibility for the price — India\'s best value AI certification.',
+        pros:['IIT Delhi branded certificate for just ₹1,000','12-week comprehensive course','Prof. Mausam — top IIT Delhi AI faculty','Covers AI fundamentals rigorously','NPTEL certificate widely recognized','Free to audit — pay only for cert','24,000+ learners enrolled']
+      },
+      {
+        id:'nptel-management', name:'AI for Management (IIT Madras)',inst:'NPTEL / IIT Madras',
+        price:'FREE (₹1,000 for cert)',priceNum:1000,priceClass:'price-free',
+        duration:'12 weeks',platform:'SWAYAM / NPTEL',cert:'IIT Madras + NPTEL Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:false,rating:5,score:87,isHindi:false,
+        level:'l4',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Management + tech professionals — bridges business and AI',
+        url:'https://onlinecourses.nptel.ac.in/noc26_cs10/preview',
+        desc:'IIT Madras AI for Management course by Prof. Saji K Mathew. 24,370 learners enrolled. Covers AI business value, bias recognition, human-AI co-existence, and AI regulation. Designed for practicing managers but with academic rigor. IIT Madras certificate for ₹1,000.',
+        pros:['IIT Madras certificate for ₹1,000','Business + technical AI bridge','24,370 learners — proven program','Covers AI regulation and ethics','Bias recognition coverage','For practicing managers','AICTE approved FDP course']
+      },
+      {
+        id:'iit-kgp-deep', name:'Deep Learning Course (IIT Kharagpur)',inst:'NPTEL / IIT Kharagpur',
+        price:'FREE (₹1,000 for cert)',priceNum:1000,priceClass:'price-free',
+        duration:'12 weeks',platform:'SWAYAM / NPTEL',cert:'IIT Kharagpur + NPTEL Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:false,rating:5,score:86,isHindi:false,
+        level:'l4',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Engineering students/graduates wanting deep learning fundamentals',
+        url:'https://onlinecourses.nptel.ac.in/',
+        desc:'IIT Kharagpur\'s free Deep Learning course on SWAYAM. Covers image recognition, speech processing, chatbots, fraud detection, and autonomous systems. 12 weeks. IIT Kharagpur certificate for ₹1,000 optional exam. Top IIT brand for near-zero cost.',
+        pros:['IIT Kharagpur certificate for ₹1,000','Deep learning from real IIT faculty','Image recognition and speech AI','Practical industry use cases','Free to audit all content','Widely recognized by Indian industry']
+      },
+      {
+        id:'andrew-ng-ml', name:'Machine Learning Specialization',inst:'Andrew Ng / Stanford on Coursera',
+        price:'₹4,100/month',priceNum:4100,priceClass:'price-budget',
+        duration:'3 months',platform:'Coursera',cert:'DeepLearning.AI Certificate',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:false,rating:5,score:95,isHindi:false,
+        level:'l4',isFree:false,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Developers wanting the world\'s best ML foundation course',
+        url:'https://www.coursera.org/specializations/machine-learning-introduction',
+        desc:'Andrew Ng\'s Machine Learning Specialization — the global gold standard. Supervised and unsupervised learning, neural networks, decision trees, recommender systems. Teaches visual intuition first, then code, then math. 3 courses, ~3 months. The best ML course in the world.',
+        pros:['Andrew Ng — world\'s #1 ML educator','Global gold standard course','Visual + code + math approach','3-course comprehensive specialization','Financial aid available in India','Recognized by top tech companies globally','Prepares for advanced AI roles']
+      },
+      {
+        id:'fast-ai', name:'Practical Deep Learning for Coders',inst:'fast.ai',
+        price:'FREE',priceNum:0,priceClass:'price-free',
+        duration:'Self-paced',platform:'fast.ai (online)',cert:'No formal certificate',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:false,rating:5,score:88,isHindi:false,
+        level:'l4',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Developers who want to build real AI models — learn by doing',
+        url:'https://www.fast.ai/',
+        desc:'fast.ai\'s practical deep learning course by Jeremy Howard. Build and deploy image recognition, NLP models from scratch using PyTorch. Top-down approach — build first, understand theory later. Used by thousands of Indian ML engineers. Completely free.',
+        pros:['Completely free','Top-down practical approach','Build real models from day 1','PyTorch deep learning','Image recognition and NLP focus','Jeremy Howard — world-class educator','Huge Indian community online']
+      },
+      {
+        id:'ibm-ai-eng', name:'IBM AI Engineering Professional Certificate',inst:'IBM on Coursera',
+        price:'₹4,100/month',priceNum:4100,priceClass:'price-budget',
+        duration:'4–6 months',platform:'Coursera',cert:'IBM Certificate',
+        lang:'English',
+        iit:false,iim:false,job:true,emi:false,rating:4,score:84,isHindi:false,
+        level:'l4',isFree:false,isUnder10k:true,isUnder1L:true,isJob:true,
+        bestFor:'Tech professionals wanting industry-recognized AI engineering skills',
+        url:'https://www.coursera.org/professional-certificates/ai-engineer',
+        desc:'IBM\'s AI Engineering Professional Certificate covering ML, deep learning, NLP, and computer vision. Guided labs, Watson integration, and IBM-branded certificate. Practical focus with resume and interview support. Good for developers transitioning to AI engineer roles.',
+        pros:['IBM industry brand credibility','ML, DL, NLP, computer vision covered','Guided labs and hands-on projects','Watson AI platform experience','Resume and interview tips','Financial aid available','Recognized by Indian tech companies']
+      }
+    ]
+  },
+  {
+    id:'l5', icon:'🔬', name:'Level 5 — Advanced / Research / IIT-Level Developer',
+    nameHindi:'उन्नत शोधकर्ता और विशेषज्ञ',badge:'lv5',
+    desc:'For senior engineers, data scientists, researchers, and PhD students. Covers LLMs, GenAI development, MLOps, Agentic AI, and advanced research. Range: ₹500 – ₹8,00,000.',
+    courses:[
+      {
+        id:'iit-kanpur-emasters', name:'e-Masters in Machine Learning',inst:'IIT Kanpur',
+        price:'₹3,50,000 – ₹5,00,000',priceNum:425000,priceClass:'price-premium',
+        duration:'1–3 years (flexible)',platform:'IIT Kanpur Online',cert:'IIT Kanpur Degree / Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:true,rating:5,score:95,isHindi:false,
+        level:'l5',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Senior developers wanting the most prestigious Indian ML degree',
+        url:'https://emasters.iitk.ac.in/',
+        desc:'IIT Kanpur\'s e-Masters in Machine Learning — the most prestigious online ML degree from an IIT. 1–3 year flexible program. Covers advanced ML, deep learning, NLP, and research-oriented content. IIT Kanpur faculty-taught. Among the highest-value AI credentials in India.',
+        pros:['IIT Kanpur degree — top-tier credential','1–3 year flexible timeline','Research-oriented curriculum','IIT Kanpur faculty — world-class researchers','Advanced ML and deep learning','Recognized internationally','Highest Indian credential for ML engineers']
+      },
+      {
+        id:'scaler-genai', name:'GenAI & LLMs Engineer Program',inst:'Scaler + IIT Roorkee CEC',
+        price:'₹3,50,000 – ₹4,50,000',priceNum:400000,priceClass:'price-premium',
+        duration:'8–10 months',platform:'Scaler (online + live)',cert:'IIT Roorkee CEC Advanced Certificate',
+        lang:'English',
+        iit:true,iim:false,job:true,emi:true,rating:5,score:91,isHindi:false,
+        level:'l5',isFree:false,isUnder10k:false,isUnder1L:false,isJob:true,
+        bestFor:'Senior developers wanting GenAI and LLM engineering skills with IIT credential',
+        url:'https://www.scaler.com/',
+        desc:'Hands-on AI engineering program covering ML, GenAI, LLMs, RAG systems, LangChain, and agentic AI. Delivered by IIT Roorkee CEC. Strong placement support with top tech companies. For working professionals with 2+ years experience wanting to become AI engineers.',
+        pros:['IIT Roorkee CEC Advanced Certificate','ML + GenAI + LLMs + Agentic AI','RAG systems and LangChain focus','Strong placement network','1:1 mentorship with senior AI engineers','No-cost EMI options','Covers 2026 industry tools']
+      },
+      {
+        id:'deeplearning-llm', name:'LLM Specialization / Generative AI Courses',inst:'DeepLearning.AI (Andrew Ng)',
+        price:'₹4,100/month',priceNum:4100,priceClass:'price-budget',
+        duration:'2–6 months',platform:'Coursera',cert:'DeepLearning.AI Certificate',
+        lang:'English',
+        iit:false,iim:false,job:false,emi:false,rating:5,score:93,isHindi:false,
+        level:'l5',isFree:false,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Developers wanting cutting-edge LLM and GenAI technical skills',
+        url:'https://www.deeplearning.ai/',
+        desc:'DeepLearning.AI\'s suite of GenAI courses including LangChain, LLMOps, Fine-tuning LLMs, RAG, and Agentic AI. Updated in 2026 with the latest models and frameworks. The best source for staying current with GenAI engineering. Short courses (1–4 weeks) stackable.',
+        pros:['Most up-to-date GenAI content','LangChain, RAG, LLMOps covered','Short stackable courses','New courses added regularly','Andrew Ng and industry experts','Financial aid available in India','Best for staying current with AI']
+      },
+      {
+        id:'iit-palakkad-nvidia', name:'Applied AI with NVIDIA (IIT Palakkad)',inst:'NPTEL / IIT Palakkad + NVIDIA',
+        price:'FREE (₹1,000 for cert)',priceNum:1000,priceClass:'price-free',
+        duration:'12 weeks',platform:'SWAYAM / NPTEL',cert:'IIT Palakkad + NPTEL + NVIDIA Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:false,rating:5,score:89,isHindi:false,
+        level:'l5',isFree:true,isUnder10k:true,isUnder1L:true,isJob:false,
+        bestFor:'Researchers and developers wanting GPU AI and NVIDIA tools experience',
+        url:'https://onlinecourses.nptel.ac.in/noc22_cs83/preview',
+        desc:'IIT Palakkad + NVIDIA collaboration on NPTEL. Covers AI with GPU acceleration, industrial use cases in healthcare and smart cities, NVIDIA AI SDKs, end-to-end AI deployments. Unique combination of IIT + NVIDIA certification for ₹1,000.',
+        pros:['IIT + NVIDIA dual credential for ₹1,000','GPU AI and NVIDIA SDKs','Industrial healthcare + smart city cases','End-to-end AI deployment training','Research-grade content','Unique NVIDIA collaboration in India','IIT Palakkad + NPTEL certificate']
+      },
+      {
+        id:'iit-hyderabad', name:'Executive AI & ML (Advanced)',inst:'IIT Hyderabad + TalentSprint',
+        price:'₹2,00,000 – ₹3,00,000',priceNum:250000,priceClass:'price-high',
+        duration:'12 months',platform:'TalentSprint (hybrid)',cert:'IIT Hyderabad Certificate',
+        lang:'English',
+        iit:true,iim:false,job:false,emi:true,rating:5,score:88,isHindi:false,
+        level:'l5',isFree:false,isUnder10k:false,isUnder1L:false,isJob:false,
+        bestFor:'Mid-senior tech professionals wanting IIT Hyderabad research exposure',
+        url:'https://talentsprint.com/aiml',
+        desc:'IIT Hyderabad advanced AI & ML program with deep learning, capstone projects, and hands-on lab access. Complex real-world use cases in finance, healthcare, and automation. Direct faculty engagement and IIT Hyderabad research ecosystem access.',
+        pros:['IIT Hyderabad certificate','Advanced deep learning and research focus','Capstone with real-world complex cases','Finance, healthcare, automation domains','Direct faculty mentorship','IIT research ecosystem access','EMI available for working professionals']
+      }
+    ]
+  }
+];
+
+/* ══════════════ TABLE DATA ══════════════ */
+const tableData = [];
+levels.forEach(lv => {
+  lv.courses.forEach(c => {
+    tableData.push({...c, levelId: lv.id, levelName: lv.name.split(' — ')[1].split(' (')[0], badge: lv.badge});
+  });
+});
+
+/* ══════════════ CRITERIA ══════════════ */
+const criteria = [
+  {icon:'💰',title:'Budget Reality Check',items:[
+    {name:'Price Range in India',desc:'India offers the widest price range in the world — from ₹0 (Jio, NPTEL) to ₹8 lakh (IIT Kanpur e-Masters). Always start with free options.',pills:['Free: Jio, NPTEL, fast.ai','₹499–5K: Hindi courses, Google','₹10K–1L: Great Learning, PW Skills','₹1L–5L: IIM programs, Scaler'],pillClass:'pill-s'},
+    {name:'EMI / No-Cost EMI',desc:'Most programs above ₹50,000 offer no-cost EMI on major banks (HDFC, ICICI, Axis, SBI). Always ask before paying upfront.',pills:['No-cost EMI on 6/12/18 months','Employer reimbursement (IT companies)','Education loans (SBI, Axis)','Company L&D budget'],pillClass:'pill-g'}
+  ]},
+  {icon:'🏆',title:'Brand & Employer Recognition',items:[
+    {name:'Indian Employer Hierarchy',desc:'For Indian job market: IIT > IIM > ISB > IIIT-B > reputed platforms. International brands (MIT, Oxford) help for global roles.',pills:['IIT (NPTEL ₹1K – e-Masters)','IIM (₹80K–3L)','ISB (₹2L)','IIIT-B (upGrad ₹3L)'],pillClass:'pill-s'},
+    {name:'IIT for ₹1,000!',desc:'NPTEL\'s IIT certificates are the world\'s best-value credentials. IIT Delhi, IIT Madras, IIT Kharagpur certificates for ₹1,000 via proctored exam.',pills:['IIT Delhi — Introduction to AI','IIT Madras — AI for Management','IIT Kharagpur — Deep Learning','IIT Palakkad + NVIDIA — Applied AI'],pillClass:'pill-g'}
+  ]},
+  {icon:'🌐',title:'Language Accessibility',items:[
+    {name:'Hindi & Regional Language Options',desc:'Not all courses need to be in English. Hindi and regional language options are growing rapidly and are equally effective for learning.',pills:['Jio: 12 Indian languages (FREE)','Dhruv Rathee: Hindi (₹499)','PW Skills: Hinglish','GUVI: Tamil, Telugu, Hindi'],pillClass:'pill-t'},
+    {name:'Tier 2/3 City Accessibility',desc:'Programs like PW Skills, Jio AI Classroom, and NPTEL/SWAYAM are designed for Bharat — accessible without strong English skills or expensive devices.',pills:['Mobile-first (Jio, NPTEL app)','Offline download support','Low-bandwidth optimized','Regional language medium'],pillClass:'pill-p'}
+  ]},
+  {icon:'💼',title:'Career & Placement',items:[
+    {name:'Job Support Quality',desc:'Check placement records not just promises. Scaler and upGrad have strong track records. IIT/IIM certificates are self-signaling. Free courses need supplementary portfolio.',pills:['Scaler: Strong placement (avg 70%+ hike)','upGrad: 1:1 mentorship + placement','Great Learning: Career mentorship','IIM certs: Self-signaling for CXO'],pillClass:'pill-s'},
+    {name:'Portfolio > Certificate',desc:'For tech roles, a GitHub portfolio with real ML projects often matters more than any certificate. Combine any course with hands-on projects on Kaggle or HackerRank.',pills:['Kaggle competitions (free)','GitHub portfolio projects','Hugging Face model uploads','Real company internships'],pillClass:'pill-g'}
+  ]},
+  {icon:'⏱️',title:'Time & Format',items:[
+    {name:'Choose Based on Time Available',desc:'Weekend learners: weekend batches (Scaler, PW Skills). Full-time: NPTEL 12-week structure. Busy professionals: self-paced (Great Learning). Executives: live cohort sessions (IIM, ISB).',pills:['6-10 hrs one-time (AI for Everyone)','4 weeks (Vanderbilt/Coursera)','12 weeks (NPTEL IIT)','9–18 months (upGrad/Scaler)'],pillClass:'pill-t'},
+    {name:'Weekend-Friendly Programs',desc:'Most Indian platforms offer weekend batches specifically for working professionals. Scaler, upGrad, Great Learning, and PW Skills all offer Sat-Sun batches.',pills:['Saturday/Sunday batches','8–10 PM weekday sessions','Recorded + live combo','Self-paced anytime'],pillClass:'pill-p'}
+  ]},
+  {icon:'🎯',title:'Domain / Sector',items:[
+    {name:'India Sector-Specific AI',desc:'Banking/FinTech: focus on Python + ML for finance models. IT/Software: focus on LLMs + GenAI development. Healthcare: IIT + domain programs. Manufacturing: IIT applied AI.',pills:['FinTech → ML for finance','IT/Product → GenAI/LLM dev','Healthcare → JHU/domain programs','Manufacturing → IIT applied AI'],pillClass:'pill-s'},
+    {name:'Government / PSU Jobs',desc:'UPSC, NIC, NASSCOM, and DRDO are all prioritizing AI skills. NPTEL IIT certificates are government-recognized. Jio AI Classroom is aligned with Digital India.',pills:['NPTEL — government recognized','Digital India AI initiative','NASSCOM FutureSkills Prime','SWAYAM — MoE certified'],pillClass:'pill-g'}
+  ]},
+  {icon:'🚀',title:'2026 Trends — What to Learn',items:[
+    {name:'Hottest Skills in 2026 India',desc:'GenAI and LLMs are driving 45,000+ open roles. Agentic AI is the next wave. Python remains essential. Prompt engineering is entry-level. RAG and fine-tuning are mid-level.',pills:['Agentic AI (Kellogg/Scaler)','LLMs & RAG (DeepLearning.AI)','Prompt Engineering (all levels)','MLOps + Deployment (IISc/Scaler)'],pillClass:'pill-t'},
+    {name:'Salary Growth by Skill (2026)',desc:'AI Engineers earn ₹10–25 LPA. GenAI specialists earn ₹15–35 LPA. ML Engineers earn ₹8–20 LPA. IIT-certified professionals earn 30-50% premium.',pills:['Fresher AI: ₹6–10 LPA','Mid-level ML: ₹12–20 LPA','GenAI specialist: ₹15–35 LPA','IIT/IIM: +30–50% premium'],pillClass:'pill-p'}
+  ]}
+];
+
+/* ══════════════ PATHS ══════════════ */
+const paths = [
+  {persona:'Class 10/12 Student',title:'Student AI Track (Budget ₹0)',
+   desc:'Build AI literacy before college. Free resources give you a 2-year head start.',
+   steps:['Jio AI Classroom (FREE, regional language)','AI for Everyone — Andrew Ng (Free audit)','NPTEL IIT course (₹1,000 for IIT cert)','Kaggle competitions + GitHub portfolio']},
+  {persona:'Non-Tech Professional',title:'Manager / Non-Tech Track',
+   desc:'AI strategy without coding. IIM certificate for career acceleration.',
+   steps:['LinkedIn/Microsoft GenAI (FREE, 5 hrs)','Google AI Professional ($49/month)','Vanderbilt GenAI Strategy — Coursera (₹4K)','IIM Bangalore AI for Managers (₹1L)']},
+  {persona:'Software Engineer',title:'Developer → AI Engineer Track',
+   desc:'Transition from software development to AI engineering.',
+   steps:['Andrew Ng ML Specialization (₹4.1K/month)','fast.ai Practical Deep Learning (FREE)','DeepLearning.AI LLM Specialization (₹4.1K)','Scaler GenAI + IIT Roorkee (₹4L, job support)']},
+  {persona:'Senior Manager / VP',title:'CXO AI Leadership Track',
+   desc:'Lead AI strategy with credibility. IIM or ISB credential.',
+   steps:['AI for Everyone — Foundation (Free)','IIM Kozhikode AI Officer + Kellogg (₹3L)','ISB Leadership with AI (₹2L, alumni status)','IIM Ahmedabad Strategic AI (₹2.5L, top brand)']},
+  {persona:'Tier 2/3 City Learner',title:'Bharat AI Track (Hindi Medium)',
+   desc:'Accessible AI learning for non-metro India in your language.',
+   steps:['Jio AI Classroom (FREE, 12 languages)','Dhruv Rathee AI Masterclass (Hindi, ₹499)','PW Skills AI course (Hinglish, ₹15–25K)','NPTEL IIT course (₹1,000, govt recognized)']},
+  {persona:'Researcher / PhD Scholar',title:'Research / Advanced Track',
+   desc:'Deep technical mastery for AI research and innovation roles.',
+   steps:['NPTEL IIT Delhi AI (FREE + ₹1K cert)','Andrew Ng Deep Learning Specialization (₹4K)','IIT Palakkad + NVIDIA (FREE + NVIDIA cert)','IIT Kanpur e-Masters ML (₹4–5L, degree)']},
+];
+
+/* ══════════════ SALARY ══════════════ */
+const salaries = [
+  {role:'AI Engineer (Fresher)',range:'₹6–10 LPA',note:'After 6–12 month program'},
+  {role:'ML Engineer (2–5 yrs)',range:'₹10–20 LPA',note:'With practical projects'},
+  {role:'Data Scientist',range:'₹8–18 LPA',note:'With domain expertise'},
+  {role:'GenAI Specialist',range:'₹15–35 LPA',note:'LLMs + RAG + Agentic'},
+  {role:'AI Product Manager',range:'₹18–30 LPA',note:'Tech + business combo'},
+  {role:'AI/ML Lead (IIT/IIM cert)',range:'₹25–45 LPA',note:'+30–50% premium vs peers'},
+  {role:'Chief AI Officer (CAIO)',range:'₹50–1.5 Cr',range2:'₹50L–1.5 Cr',note:'IIM + ISB + global exp'},
+  {role:'AI Researcher',range:'₹12–25 LPA',note:'Or PhD + stipend ₹35K/month'},
+];
+
+/* ═══════════════════ RENDER ═══════════════════ */
+function renderLadder(){
+  const grid=document.getElementById('ladderGrid');
+  grid.innerHTML=levels.map(lv=>`
+    <div class="level-card">
+      <div class="level-header" onclick="toggleLevel(this)">
+        <div class="level-badge ${lv.id}"><span>${lv.icon}</span></div>
+        <div class="level-meta">
+          <div class="level-name">${lv.name}</div>
+          <div class="level-desc">${lv.desc}</div>
+        </div>
+        <span class="level-count">${lv.courses.length} programs</span>
+      </div>
+      <div class="level-courses">
+        ${lv.courses.map(c=>`
+          <div class="course-card" onclick="openPanel('${c.id}')">
+            <div class="cc-name">${c.name}</div>
+            <div class="cc-inst">${c.inst}</div>
+            <div class="cc-row">
+              <span class="cc-price ${c.priceClass}">${c.price}</span>
+              ${c.isHindi?'<span class="cc-tag tag-hindi">हिंदी</span>':''}
+              ${c.iit?'<span class="cc-tag tag-iit">IIT</span>':''}
+              ${c.iim?'<span class="cc-tag tag-iim">IIM</span>':''}
+              ${c.job?'<span class="cc-tag tag-job">Placement</span>':''}
+              ${c.emi?'<span class="cc-tag tag-emi">EMI</span>':''}
+              ${c.isFree?'<span class="cc-tag tag-cert">FREE</span>':''}
+            </div>
+            <div class="cc-row">
+              <span style="font-size:10px;color:var(--muted)">⏱ ${c.duration}</span>
+              <span style="font-size:10px;color:var(--muted)">📍 ${c.platform.split(' ')[0]}</span>
+            </div>
+            <div class="cc-summary">${c.desc.substring(0,100)}…</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleLevel(el){
+  const courses=el.nextElementSibling;
+  courses.style.display=courses.style.display==='none'?'grid':'none';
+}
+
+function renderTable(data){
+  const tbody=document.getElementById('tableBody');
+  tbody.innerHTML='';
+  data.forEach(c=>{
+    const tr=document.createElement('tr');
+    tr.dataset.id=c.id;
+    const bar=`<div class="bar-outer"><div class="bar-inner" style="width:${c.score}%"></div></div> <span style="font-size:10px;font-family:'JetBrains Mono',monospace">${c.score}</span>`;
+    tr.innerHTML=`
+      <td><div class="cn">${c.name}</div><div class="ci">${c.inst}</div></td>
+      <td><span class="lvl-badge ${c.badge}">${c.levelName}</span></td>
+      <td class="cc-price ${c.priceClass}" style="font-family:'JetBrains Mono',monospace;font-size:12px">${c.price}</td>
+      <td style="color:var(--muted);font-size:11px;white-space:nowrap">${c.duration}</td>
+      <td style="font-size:10px;color:var(--muted)">${c.platform.split(' ')[0]}</td>
+      <td style="font-size:10px;color:var(--muted);max-width:120px">${c.cert.substring(0,28)}…</td>
+      <td style="font-size:10px;color:var(--muted)">${c.lang.split(',')[0]}</td>
+      <td style="text-align:center">${c.iit?'<span style="color:var(--rose);font-size:13px">★</span>':c.iim?'<span style="color:var(--purple);font-size:13px">★</span>':'—'}</td>
+      <td style="text-align:center">${c.job?'<span style="color:var(--green2);font-size:16px">✓</span>':'—'}</td>
+      <td style="text-align:center">${c.emi?'<span style="color:var(--sky);font-size:13px">✓</span>':'—'}</td>
+      <td><span class="stars">${'★'.repeat(c.rating)+'☆'.repeat(5-c.rating)}</span></td>
+      <td style="white-space:nowrap">${bar}</td>
+      <td style="font-size:11px;color:var(--muted);max-width:150px">${c.bestFor}</td>
+    `;
+    tr.addEventListener('click',()=>openPanel(c.id));
+    tbody.appendChild(tr);
+  });
+}
+
+let activeFilter='all', searchQ='';
+function applyFilters(){
+  let data=tableData.filter(c=>{
+    if(activeFilter==='l0') return c.level==='l0';
+    if(activeFilter==='l1') return c.level==='l1';
+    if(activeFilter==='l2') return c.level==='l2';
+    if(activeFilter==='l3') return c.level==='l3';
+    if(activeFilter==='l4') return c.level==='l4';
+    if(activeFilter==='l5') return c.level==='l5';
+    if(activeFilter==='free') return c.isFree;
+    if(activeFilter==='under10k') return c.isUnder10k;
+    if(activeFilter==='under1L') return c.isUnder1L;
+    if(activeFilter==='hindi') return c.isHindi;
+    if(activeFilter==='iit') return c.iit;
+    if(activeFilter==='iim') return c.iim;
+    if(activeFilter==='job') return c.isJob;
+    return true;
+  });
+  if(searchQ){
+    const q=searchQ.toLowerCase();
+    data=data.filter(c=>c.name.toLowerCase().includes(q)||c.inst.toLowerCase().includes(q)||c.levelName.toLowerCase().includes(q)||c.bestFor.toLowerCase().includes(q));
+  }
+  renderTable(data);
+}
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter=btn.dataset.filter;
+    applyFilters();
+  });
+});
+document.getElementById('searchBox').addEventListener('input',e=>{searchQ=e.target.value;applyFilters();});
+
+/* PANEL */
+const allCourses={};
+levels.forEach(lv=>lv.courses.forEach(c=>{allCourses[c.id]=c;}));
+
+function openPanel(id){
+  const c=allCourses[id];
+  if(!c) return;
+  const lv=levels.find(l=>l.id===c.level);
+  document.getElementById('panelContent').innerHTML=`
+    <div class="p-level">${lv.name.split(' — ')[1]}</div>
+    <div class="p-name">${c.name}</div>
+    <div class="p-inst">${c.inst}</div>
+    <div class="p-price">${c.price}</div>
+    <div class="p-price-note">Approx 2026 pricing — verify on provider site</div>
+    <hr class="p-divider">
+    <div class="p-sec">Program Details</div>
+    <div class="p-row"><span class="p-rl">Duration</span><span class="p-rv">${c.duration}</span></div>
+    <div class="p-row"><span class="p-rl">Platform</span><span class="p-rv">${c.platform}</span></div>
+    <div class="p-row"><span class="p-rl">Certificate</span><span class="p-rv">${c.cert}</span></div>
+    <div class="p-row"><span class="p-rl">Language</span><span class="p-rv">${c.lang}</span></div>
+    <div class="p-row"><span class="p-rl">IIT Backed?</span><span class="p-rv" style="color:${c.iit?'var(--rose)':'var(--muted)'}">${c.iit?'✓ Yes':'No'}</span></div>
+    <div class="p-row"><span class="p-rl">IIM Backed?</span><span class="p-rv" style="color:${c.iim?'var(--purple)':'var(--muted)'}">${c.iim?'✓ Yes':'No'}</span></div>
+    <div class="p-row"><span class="p-rl">Placement Support</span><span class="p-rv" style="color:${c.job?'var(--green2)':'var(--muted)'}">${c.job?'✓ Included':'Not included'}</span></div>
+    <div class="p-row"><span class="p-rl">EMI Available</span><span class="p-rv" style="color:${c.emi?'var(--sky)':'var(--muted)'}">${c.emi?'✓ Yes (check provider)':'Not typically'}</span></div>
+    <div class="p-row"><span class="p-rl">Value Score</span><span class="p-rv"><div class="bar-outer" style="width:80px"><div class="bar-inner" style="width:${c.score}%"></div></div> ${c.score}/100</span></div>
+    <hr class="p-divider">
+    <div class="p-sec">Overview</div>
+    <div class="p-desc">${c.desc}</div>
+    <div class="p-sec">Key Advantages</div>
+    <ul class="p-pros">${c.pros.map(p=>`<li>${p}</li>`).join('')}</ul>
+    <hr class="p-divider">
+    <div class="p-sec">Best For</div>
+    <div class="p-desc">${c.bestFor}</div>
+    <a class="p-link" href="${c.url}" target="_blank">Visit Program Page →</a>
+  `;
+  document.getElementById('detailPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+document.getElementById('panelClose').addEventListener('click',closePanel);
+document.getElementById('overlay').addEventListener('click',closePanel);
+function closePanel(){document.getElementById('detailPanel').classList.remove('open');document.getElementById('overlay').classList.remove('open');}
+
+/* CRITERIA */
+function renderCriteria(){
+  document.getElementById('criteriaGrid').innerHTML=criteria.map(c=>`
+    <div class="dc">
+      <div class="dc-head"><span class="dc-icon">${c.icon}</span>${c.title}</div>
+      ${c.items.map(i=>`
+        <div class="crit">
+          <div class="crit-name">${i.name}</div>
+          <div class="crit-desc">${i.desc}</div>
+          <div class="crit-pills">${i.pills.map(p=>`<span class="pill ${i.pillClass}">${p}</span>`).join('')}</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderPaths(){
+  document.getElementById('pathsGrid').innerHTML=paths.map(p=>`
+    <div class="path-card">
+      <div class="path-persona">${p.persona}</div>
+      <h4>${p.title}</h4>
+      <p>${p.desc}</p>
+      <div class="path-steps">${p.steps.map(s=>`<div class="path-step">${s}</div>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+function renderSalary(){
+  document.getElementById('salaryGrid').innerHTML=salaries.map(s=>`
+    <div class="sal-card">
+      <div class="sal-role">${s.role}</div>
+      <div class="sal-range">${s.range}</div>
+      <div class="sal-note">${s.note}</div>
+    </div>
+  `).join('');
+}
+
+/* TABS */
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* INIT */
+renderLadder();
+renderTable(tableData);
+renderCriteria();
+renderPaths();
+renderSalary();
+</script>
+</body>
+</html>
