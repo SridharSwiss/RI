@@ -1,933 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The EU AI Act | Comprehensive Overview</title>
-    <meta name="description" content="Modern, comprehensive guide to the European Union's landmark AI regulation with Gen-Z styling.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>EU AI ACT | Strategic Intelligence Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary: #0A1E42;
-            --primary-dark: #06152D;
-            --secondary: #ffffff;
-            --navy: #1E3A5F;
-            --navy-light: #2C5282;
-            --accent: #4A90E2;
-            --accent-light: #6BA3E8;
-            --silver: #C0C0C0;
-            --platinum: #E5E4E2;
-            --gradient-navy: linear-gradient(135deg, #1E3A5F 0%, #0A1E42 100%);
-            --gradient-accent: linear-gradient(135deg, #4A90E2 0%, #2C5282 100%);
-            --glass: rgba(74, 144, 226, 0.1);
-            --glass-border: rgba(74, 144, 226, 0.3);
+            --mckinsey-blue: #001e62;
+            --cyber-purple: #a855f7;
+            --glass-bg: rgba(15, 23, 42, 0.7);
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--primary);
-            color: var(--secondary);
-            overflow-x: hidden;
-            line-height: 1.7;
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #020617; 
+            color: #94a3b8;
+            scroll-behavior: smooth;
         }
-
-        .heading-font {
-            font-family: 'Playfair Display', serif;
+        .heading-font { font-weight: 800; letter-spacing: -0.02em; }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background: radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 100%);
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(44, 82, 130, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(106, 163, 232, 0.12) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 5%;
-            background: rgba(10, 30, 66, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid var(--glass-border);
-        }
-
-        nav.scrolled {
-            padding: 0.8rem 5%;
-            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
-
-        .nav-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-list a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-list a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-list a:hover::after,
-        .nav-list a.active::after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-
-        .nav-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--accent);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        /* Header */
-        header {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10rem 5% 6rem;
-            position: relative;
-            background: linear-gradient(135deg, rgba(10, 30, 66, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%);
-            border-bottom: 3px solid var(--accent);
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 40%, rgba(74, 144, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(44, 82, 130, 0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .header-content {
-            max-width: 1000px;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
-        }
-
-        header h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 5%;
-            border-bottom: 1px solid rgba(74, 144, 226, 0.15);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-        }
-
-        h3 {
-            color: var(--accent);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h4 {
-            color: var(--accent-light);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            opacity: 0.9;
-            font-size: 1.05rem;
-        }
-
-        ul, ol {
-            padding-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 1rem;
-            opacity: 0.85;
-            line-height: 1.8;
-        }
-
-        strong {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        /* Highlight Box */
-        .highlight {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.15);
-        }
-
-        .highlight strong {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Risk Categories */
-        .risk-category {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-        }
-
-        .risk-category:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 50px rgba(74, 144, 226, 0.25);
-        }
-
-        .risk-unacceptable {
-            border-color: #ff4444;
-            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
-        }
-
-        .risk-high {
-            border-color: #FFA500;
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 140, 0, 0.1) 100%);
-        }
-
-        .risk-limited {
-            border-color: #4169E1;
-            background: linear-gradient(135deg, rgba(65, 105, 225, 0.1) 0%, rgba(30, 144, 255, 0.1) 100%);
-        }
-
-        .risk-minimal {
-            border-color: #00ff88;
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 100, 0.1) 100%);
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 2px dotted var(--accent);
-            cursor: help;
-        }
-
-        .tooltiptext {
-            visibility: hidden;
-            width: 250px;
-            background: rgba(10, 30, 66, 0.98);
-            color: var(--accent-light);
-            text-align: center;
-            border-radius: 12px;
-            padding: 1rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -125px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            border: 2px solid var(--accent);
-            font-size: 0.9rem;
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid var(--glass-border);
-        }
-
-        th, td {
-            text-align: left;
-            padding: 1.2rem;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        th {
-            background: var(--gradient-accent);
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 1.05rem;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover {
-            background: rgba(74, 144, 226, 0.08);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 30, 66, 0.98);
-            padding: 3rem 5%;
-            border-top: 3px solid var(--accent);
-            text-align: center;
-        }
-
-        footer p {
-            margin-bottom: 0.8rem;
-            opacity: 0.8;
-        }
-
-        footer a {
-            color: var(--accent-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
+        .glass-card:hover {
+            border-color: var(--cyber-purple);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.6);
+            box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.2);
         }
-
-        /* Scroll Reveal */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
+        .gradient-text {
+            background: linear-gradient(135deg, #c084fc 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .timeline-dot {
+            width: 12px; height: 12px;
+            background: var(--cyber-purple);
+            box-shadow: 0 0 15px var(--cyber-purple);
         }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-list {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                flex-direction: column;
-                background: rgba(10, 30, 66, 0.98);
-                width: 100%;
-                padding: 2rem;
-                transition: right 0.3s ease;
-                border-top: 2px solid var(--accent);
-                align-items: flex-start;
-            }
-
-            .nav-list.active {
-                right: 0;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            header {
-                padding: 8rem 5% 4rem;
-            }
-
-            section {
-                padding: 3rem 5%;
-            }
-        }
-
-        @media (max-width: 640px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .scroll-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-            }
-        }
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body>
-    <div class="bg-animation"></div>
+<body class="antialiased">
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo heading-font">EU AI ACT</div>
-            <ul class="nav-list" id="navList">
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#objectives">Objectives</a></li>
-                <li><a href="#scope">Scope</a></li>
-                <li><a href="#risk-approach">Risk Levels</a></li>
-                <li><a href="#high-risk-obligations">Obligations</a></li>
-                <li><a href="#transparency">Transparency</a></li>
-                <li><a href="#governance">Governance</a></li>
-                <li><a href="#penalties">Penalties</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#preparation">Preparation</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-white italic">EU</div>
+            <span class="text-white font-extrabold tracking-tighter text-xl">AI.ACT</span>
         </div>
+        <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#summary" class="hover:text-purple-400 transition-colors">Summary</a>
+            <a href="#risk" class="hover:text-purple-400 transition-colors">Risk Matrix</a>
+            <a href="#gpai" class="hover:text-purple-400 transition-colors">GPAI & LLMs</a>
+            <a href="#timeline" class="hover:text-purple-400 transition-colors">Timeline</a>
+        </div>
+        <button class="bg-purple-600 hover:bg-purple-500 text-white px-5 py-2 rounded-full text-xs font-bold transition-all">
+            Download PDF
+        </button>
     </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <h1 class="heading-font">The EU AI Act</h1>
-            <p>A Comprehensive Overview of the European Union's Landmark Artificial Intelligence Regulation</p>
+    <header class="pt-40 pb-20 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-purple-500 font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Strategic Intelligence Report // 2026</span>
+            <h1 class="text-6xl md:text-8xl heading-font text-white mb-6">
+                The World's First <br><span class="gradient-text">AI Constitution.</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Navigating the European Union's landmark regulation. A risk-based framework designed to foster innovation while safeguarding fundamental human rights.
+            </p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Introduction -->
-        <section id="introduction" class="scroll-reveal">
-            <h2>👋 Introduction to the EU AI Act</h2>
-            <p>The European Union's AI Act is a landmark piece of legislation, representing the world's first comprehensive attempt to regulate artificial intelligence. Proposed by the European Commission in April 2021 and formally adopted in 2024, the Act aims to ensure that AI systems used in the EU are safe, transparent, ethical, and respect fundamental rights. It follows a risk-based approach, imposing stricter rules on AI systems that pose greater risks to individuals and society.</p>
-            <p>This document provides a detailed overview of the EU AI Act, its key provisions, obligations, and implications for businesses and developers working with AI.</p>
-            <div class="highlight">
-                <strong>Key Goal:</strong>
-                <p>To establish a harmonized legal framework for AI across the EU, fostering innovation while safeguarding fundamental rights and user safety.</p>
+    <section id="summary" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-purple-500">01.</span> Scope
+                </h3>
+                <p class="text-sm">Extra-territorial reach. Applies to anyone putting AI into the EU market, regardless of where the provider is located.</p>
             </div>
-        </section>
-
-        <!-- Objectives -->
-        <section id="objectives" class="scroll-reveal">
-            <h2>🎯 Objectives of the Act</h2>
-            <p>The EU AI Act has several overarching objectives:</p>
-            <ul>
-                <li><strong>Ensure AI systems are safe and respect fundamental rights and EU values:</strong> Protecting health, safety, and fundamental rights from risks posed by AI systems.</li>
-                <li><strong>Provide legal certainty:</strong> Establishing clear rules to facilitate investment and innovation in AI.</li>
-                <li><strong>Enhance governance and effective enforcement:</strong> Creating a robust governance structure for the oversight of AI systems.</li>
-                <li><strong>Develop a single market for lawful, safe, and trustworthy AI applications:</strong> Preventing market fragmentation and ensuring a level playing field.</li>
-                <li><strong>Promote an AI that is human-centric and trustworthy:</strong> Ensuring that AI development serves humanity and adheres to ethical principles.</li>
-            </ul>
-        </section>
-
-        <!-- Scope -->
-        <section id="scope" class="scroll-reveal">
-            <h2>🌍 Scope of the Act</h2>
-            <p>The AI Act has a broad territorial scope and applies to:</p>
-            <ul>
-                <li><strong>Providers</strong> placing AI systems on the EU market or putting them into service, irrespective of whether they are established within the EU or in a third country.</li>
-                <li><strong>Users (deployers)</strong> of AI systems located within the EU.</li>
-                <li><strong>Providers and users (deployers)</strong> of AI systems located in a third country, where the output produced by the AI system is used in the EU.</li>
-            </ul>
-            <p>The definition of an AI system in the Act is aligned with the OECD definition, covering machine learning, logic- and knowledge-based approaches, and statistical approaches. It does not apply to AI systems developed or used exclusively for military purposes or to AI systems used by public authorities in a third country or international organisations for law enforcement and judicial cooperation, provided they offer reciprocal safeguards.</p>
-        </section>
-
-        <!-- Risk Approach -->
-        <section id="risk-approach" class="scroll-reveal">
-            <h2>🚦 Risk-Based Approach</h2>
-            <p>The AI Act categorizes AI systems into four risk levels, with obligations proportionate to the level of risk:</p>
-
-            <div class="risk-category risk-unacceptable">
-                <h3><span class="tooltip">🚫 Unacceptable Risk AI<span class="tooltiptext">AI systems posing a clear threat to the safety, livelihoods, and rights of people.</span></span></h3>
-                <p>These AI systems are deemed to present a clear threat to fundamental rights and are therefore <strong>banned</strong> in the EU. Examples include:</p>
-                <ul>
-                    <li>AI systems that deploy subliminal techniques beyond a person's consciousness to materially distort their behavior in a manner that causes or is likely to cause physical or psychological harm.</li>
-                    <li>AI systems that exploit vulnerabilities of specific groups (due to age, physical or mental disability) to materially distort their behavior in a harmful way.</li>
-                    <li>Social scoring systems by public authorities for general purposes.</li>
-                    <li>Real-time remote biometric identification systems in publicly accessible spaces for law enforcement purposes (with narrow exceptions).</li>
-                    <li>Emotion recognition in the workplace and educational institutions (unless for medical/safety reasons).</li>
-                    <li>Indiscriminate scraping of facial images from the internet or CCTV footage to create facial recognition databases.</li>
-                </ul>
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-purple-500">02.</span> Enforcement
+                </h3>
+                <p class="text-sm">Fines up to €35M or 7% of global turnover. Managed by the newly established European AI Office.</p>
             </div>
-
-            <div class="risk-category risk-high">
-                <h3><span class="tooltip">⚠️ High-Risk AI<span class="tooltiptext">AI systems that create a high risk to health, safety, or fundamental rights of persons.</span></span></h3>
-                <p>High-risk AI systems are permitted but are subject to stringent requirements and a conformity assessment before being placed on the market. These systems fall into two main categories:</p>
-                <ol>
-                    <li>AI systems intended to be used as a safety component of products, or are themselves products, covered by existing EU product safety legislation (e.g., toys, medical devices, machinery).</li>
-                    <li>Specific AI systems listed in Annex III of the Act, covering critical areas such as:
-                        <ul>
-                            <li>Biometric identification and categorisation of natural persons (with exceptions for verification).</li>
-                            <li>Management and operation of critical infrastructure (e.g., water, gas, electricity).</li>
-                            <li>Education and vocational training (e.g., assessing students).</li>
-                            <li>Employment, workers management, and access to self-employment (e.g., CV-sorting software).</li>
-                            <li>Access to and enjoyment of essential private and public services and benefits (e.g., credit scoring, dispatching emergency services).</li>
-                            <li>Law enforcement (e.g., evaluating evidence, predicting crime).</li>
-                            <li>Migration, asylum, and border control management (e.g., verifying travel documents, assessing asylum applications).</li>
-                            <li>Administration of justice and democratic processes (e.g., AI assisting judicial authorities).</li>
-                        </ul>
-                    </li>
-                </ol>
-                <p>Providers of high-risk AI systems face significant obligations (detailed in the next section).</p>
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-purple-500">03.</span> GPAI Models
+                </h3>
+                <p class="text-sm">Specific rules for General Purpose AI (ChatGPT, Claude). Systemic risk models face tier-two obligations.</p>
             </div>
-
-            <div class="risk-category risk-limited">
-                <h3><span class="tooltip">💬 Limited Risk AI<span class="tooltiptext">AI systems with specific transparency obligations.</span></span></h3>
-                <p>For AI systems classified as limited risk, the focus is on transparency. Users should be made aware that they are interacting with an AI system. This includes:</p>
-                <ul>
-                    <li>AI systems intended to interact directly with natural persons (e.g., chatbots), which must inform users that they are interacting with an AI, unless this is obvious from the context.</li>
-                    <li>AI systems used to generate or manipulate image, audio, or video content that appreciably resembles existing persons, places or events and would falsely appear to a person to be authentic or truthful ("deepfakes"). The AI-generated nature must be disclosed.</li>
-                    <li>AI systems that generate text for publication on matters of public interest must disclose that the text is AI-generated, unless reviewed and edited by a human with editorial responsibility.</li>
-                </ul>
-            </div>
-
-            <div class="risk-category risk-minimal">
-                <h3><span class="tooltip">✅ Minimal or No Risk AI<span class="tooltiptext">The vast majority of AI systems, which can be developed and used freely.</span></span></h3>
-                <p>This category includes AI systems like spam filters or AI in video games. The Act does not impose mandatory obligations for these systems, though providers may choose to voluntarily adhere to codes of conduct.</p>
-            </div>
-        </section>
-
-        <!-- High-Risk Obligations -->
-        <section id="high-risk-obligations" class="scroll-reveal">
-            <h2>📝 Obligations for Providers of High-Risk AI Systems</h2>
-            <p>Providers of high-risk AI systems must comply with a comprehensive set of requirements throughout the AI system's lifecycle:</p>
-            <ul>
-                <li><strong>Risk Management System:</strong> Establish, implement, document, and maintain a continuous iterative risk management system.</li>
-                <li><strong>Data Governance and Management:</strong> Ensure training, validation, and testing data sets are relevant, representative, free of errors, and complete. Appropriate data governance and management practices must be applied.</li>
-                <li><strong>Technical Documentation:</strong> Draw up detailed technical documentation demonstrating compliance with the requirements before placing the system on the market. This documentation must be kept up-to-date.</li>
-                <li><strong>Record-Keeping (Logging):</strong> Ensure AI systems are designed to automatically record events ("logs") while the high-risk AI systems are operating to ensure a level of traceability of the system's functioning.</li>
-                <li><strong>Transparency and Provision of Information to Users:</strong> Design systems to be sufficiently transparent to enable users to interpret the system's output and use it appropriately. Users must be provided with clear and adequate instructions for use.</li>
-                <li><strong>Human Oversight:</strong> Ensure systems can be effectively overseen by humans during their use. This includes measures to allow human intervention to prevent or minimize risks.</li>
-                <li><strong>Accuracy, Robustness, and Cybersecurity:</strong> Design and develop systems to achieve an appropriate level of accuracy, robustness, and cybersecurity throughout their lifecycle.</li>
-                <li><strong>Conformity Assessment:</strong> Undergo a conformity assessment procedure before being placed on the market or put into service. For most high-risk AI systems listed in Annex III, a self-assessment by the provider is sufficient. However, for certain particularly critical AI systems (e.g., remote biometric identification), a third-party conformity assessment by a Notified Body is required.</li>
-                <li><strong>Registration:</strong> Register their high-risk AI systems in an EU-wide public database managed by the European Commission (some exceptions for law enforcement).</li>
-                <li><strong>Quality Management System:</strong> Implement a quality management system ensuring compliance with the Act.</li>
-                <li><strong>Post-Market Monitoring:</strong> Establish and implement a post-market monitoring system to collect and analyze data about the performance of high-risk AI systems.</li>
-                <li><strong>Incident Reporting:</strong> Report any serious incidents and malfunctions to national competent authorities.</li>
-            </ul>
-            <p>Importers and distributors also have specific obligations to ensure that the AI systems they handle comply with the Act.</p>
-        </section>
-
-        <!-- Transparency -->
-        <section id="transparency" class="scroll-reveal">
-            <h2>🗣️ Transparency Requirements for Certain AI Systems</h2>
-            <p>Beyond high-risk systems, the Act imposes specific transparency obligations for certain AI systems to ensure individuals are aware they are interacting with AI or exposed to AI-generated content:</p>
-            <ul>
-                <li><strong>Chatbots and AI interacting with humans:</strong> Users must be informed that they are interacting with an AI system, unless it is obvious.</li>
-                <li><strong>Emotion recognition systems and biometric categorisation systems:</strong> Individuals exposed to these systems need to be informed of their operation.</li>
-                <li><strong>Deepfakes (AI-generated content):</strong> If AI is used to generate or manipulate image, audio, or video content that could be mistaken for authentic, it must be disclosed that the content is AI-generated. This also applies to text generated by AI that is published on matters of public interest.</li>
-            </ul>
-            <p>These rules aim to prevent deception and empower individuals to make informed decisions.</p>
-        </section>
-
-        <!-- Governance -->
-        <section id="governance" class="scroll-reveal">
-            <h2>🏛️ Governance and Enforcement</h2>
-            <p>The EU AI Act establishes a governance framework at both Union and national levels:</p>
-            <ul>
-                <li><strong>European AI Office:</strong> A new European AI Office will be established within the European Commission. Its tasks include:
-                    <ul>
-                        <li>Supporting the consistent application of the AI Act.</li>
-                        <li>Developing guidelines and standards.</li>
-                        <li>Overseeing the rules for general-purpose AI models.</li>
-                        <li>Monitoring the implementation and enforcement of the Act.</li>
-                        <li>Coordinating with national authorities.</li>
-                    </ul>
-                </li>
-                <li><strong>National Competent Authorities:</strong> Each EU Member State will designate one or more national competent authorities responsible for supervising and enforcing the Act. These authorities will conduct market surveillance, investigate non-compliance, and impose penalties.</li>
-                <li><strong>Notified Bodies:</strong> Independent third-party bodies designated by Member States to conduct conformity assessments for certain high-risk AI systems where required.</li>
-                <li><strong>European Artificial Intelligence Board (EAIB):</strong> Composed of representatives from national supervisory authorities and the European Data Protection Supervisor (EDPS), the Board will advise and assist the Commission and Member States to ensure consistent application of the Act.</li>
-                <li><strong>Codes of Conduct and Standardisation:</strong> The Act encourages the development of codes of conduct for non-high-risk AI systems and promotes the creation of harmonised technical standards to support compliance.</li>
-                <li><strong>Regulatory Sandboxes:</strong> Member States are encouraged to establish AI regulatory sandboxes to allow businesses, especially SMEs and startups, to test innovative AI systems in a controlled environment under the supervision of competent authorities.</li>
-            </ul>
-        </section>
-
-        <!-- Penalties -->
-        <section id="penalties" class="scroll-reveal">
-            <h2>💰 Fines and Penalties for Non-Compliance</h2>
-            <p>The AI Act introduces significant penalties for non-compliance, which can be substantial, especially for large enterprises:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type of Infringement</th>
-                        <th>Maximum Fine</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Non-compliance with the prohibition of AI practices (unacceptable risk) or with requirements for high-risk AI related to data and data governance (for GPAI models with systemic risk)</td>
-                        <td>Up to €35 million or 7% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
-                    </tr>
-                    <tr>
-                        <td>Non-compliance with most other obligations of the Act, including those for high-risk AI systems not covered above, and obligations for providers and deployers of certain AI systems.</td>
-                        <td>Up to €15 million or 3% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
-                    </tr>
-                    <tr>
-                        <td>Providing incorrect, incomplete, or misleading information to notified bodies and national competent authorities.</td>
-                        <td>Up to €7.5 million or 1.5% of the company's total worldwide annual turnover for the preceding financial year, whichever is higher.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>For SMEs and startups, the fines are generally capped at the lower of these percentages or fixed amounts. Member States will lay down rules on effective, proportionate, and dissuasive penalties.</p>
-        </section>
-
-        <!-- Timeline -->
-        <section id="timeline" class="scroll-reveal">
-            <h2>🗓️ Timeline for Implementation</h2>
-            <p>The EU AI Act has a phased implementation timeline following its entry into force (20 days after publication in the Official Journal of the EU):</p>
-            <ul>
-                <li><strong>6 months after entry into force:</strong> Provisions on prohibited AI systems (unacceptable risk) will start to apply.</li>
-                <li><strong>12 months after entry into force:</strong> Rules on general-purpose AI governance (including for GPAI models with systemic risk), and obligations for bodies responsible for pre-market conformity assessment (Notified Bodies) will apply. The European AI Office is also expected to be operational.</li>
-                <li><strong>24 months after entry into force:</strong> Most other provisions, including obligations for high-risk AI systems (as defined in Annex III), will apply. Some specific exceptions for high-risk systems used by public authorities will apply after 36 months.</li>
-                <li><strong>36 months after entry into force:</strong> Obligations for high-risk AI systems that are safety components of products covered by existing EU legislation (Annex II) will apply, unless specific transitional periods are shorter under that legislation.</li>
-            </ul>
-            <p>It's crucial for organizations to monitor the exact dates and prepare accordingly.</p>
-        </section>
-
-        <!-- Preparation -->
-        <section id="preparation" class="scroll-reveal">
-            <h2>🚀 What Businesses Should Do to Prepare</h2>
-            <p>Organizations developing, deploying, or distributing AI systems in or for the EU market should take proactive steps:</p>
-            <ol>
-                <li><strong>Understand the Act:</strong> Familiarize yourself with the definitions, scope, risk categories, and specific obligations relevant to your AI systems.</li>
-                <li><strong>Inventory AI Systems:</strong> Identify and classify all AI systems your organization develops, uses, or places on the market according to the Act's risk categories.</li>
-                <li><strong>Assess Risk and Gap Analysis:</strong> For systems potentially classified as high-risk, conduct a thorough risk assessment and a gap analysis against the Act's requirements (data governance, technical documentation, transparency, human oversight, etc.).</li>
-                <li><strong>Implement Data Governance:</strong> Review and enhance data collection, processing, and management practices, particularly for data used to train AI models.</li>
-                <li><strong>Develop Technical Documentation:</strong> Start preparing the necessary technical documentation for high-risk AI systems.</li>
-                <li><strong>Establish Risk Management Frameworks:</strong> Implement robust risk management systems as required for high-risk AI.</li>
-                <li><strong>Focus on Transparency and Explainability:</strong> Ensure mechanisms are in place for transparency, especially for limited-risk AI and high-risk AI.</li>
-                <li><strong>Plan for Human Oversight:</strong> Design AI systems to allow for effective human oversight where necessary.</li>
-                <li><strong>Consider Conformity Assessments:</strong> Understand the conformity assessment procedures (self-assessment or third-party) applicable to your high-risk AI systems.</li>
-                <li><strong>Monitor Regulatory Developments:</strong> Stay updated on guidelines, harmonized standards, and delegated/implementing acts from the European Commission and AI Office.</li>
-                <li><strong>Train Staff:</strong> Educate relevant teams (legal, technical, product) on the AI Act's implications.</li>
-                <li><strong>Seek Legal Counsel:</strong> Consult with legal experts specializing in AI regulation to ensure compliance.</li>
-            </ol>
-        </section>
-
-        <!-- GPAI Codes of Practice -->
-        <section id="gpaicode" class="scroll-reveal">
-            <h2>🧩 Codes of Practice for General Purpose AI (GPAI)</h2>
-            <p>The EU AI Act introduces specific provisions for <strong>General Purpose AI (GPAI)</strong> models—AI systems capable of performing a wide range of tasks and which can be integrated into various downstream applications. These include advanced foundation models and large language models (LLMs) such as GPT, BERT, or similar technologies that underpin many modern AI solutions.</p>
-            
-            <div class="highlight">
-                <strong>Key Objective:</strong>
-                <p>To ensure GPAI models are developed and deployed in a safe, trustworthy, and transparent manner, minimizing risks to fundamental rights, safety, and the broader society, while supporting innovation and the digital single market.</p>
-            </div>
-
-            <h3>What are Codes of Practice?</h3>
-            <p><strong>Codes of Practice</strong> are voluntary, non-binding frameworks developed by GPAI providers (often in collaboration with the European Commission, the European AI Office, and relevant stakeholders) that outline concrete measures to ensure compliance with the EU AI Act. They supplement the Act's requirements with practical, sector-specific, and evolving guidelines for responsible AI development and deployment.</p>
-
-            <h3>Who Must Adhere to Codes of Practice?</h3>
-            <ul>
-                <li><strong>Providers of GPAI Models:</strong> All organizations placing GPAI models on the EU market, regardless of their country of origin, must comply with baseline transparency and risk mitigation obligations. For GPAI models assessed as posing <em>systemic risk</em> (e.g., very large models or those with far-reaching impacts), adherence to Codes of Practice becomes even more crucial.</li>
-                <li><strong>Developers and Deployers:</strong> Organizations fine-tuning, integrating, or otherwise adapting GPAI models for downstream applications are encouraged to follow Codes of Practice, especially if their deployments could influence safety or fundamental rights.</li>
-            </ul>
-
-            <h3>Key Content of Codes of Practice</h3>
-            <ul>
-                <li><strong>Risk Management:</strong> Guidance on risk identification, assessment, and mitigation throughout the model's lifecycle, including for downstream applications.</li>
-                <li><strong>Transparency and Documentation:</strong> Requirements for detailed, public documentation ("model cards") about a GPAI model's capabilities, limitations, training data, and intended use cases, as well as any known risks or incidents.</li>
-                <li><strong>Information Sharing:</strong> Mechanisms for providers to share information and best practices with downstream deployers, regulators, and other stakeholders.</li>
-                <li><strong>Data Governance:</strong> Standards for ensuring high-quality, diverse, and representative training data, with steps to minimize bias and discrimination.</li>
-                <li><strong>Cybersecurity and Robustness:</strong> Measures to enhance the security and resilience of GPAI models against misuse, adversarial attacks, or unexpected behaviors.</li>
-                <li><strong>Incident Reporting:</strong> Procedures for timely reporting of significant incidents, malfunctions, or misuse to the European AI Office and national authorities.</li>
-                <li><strong>Environmental Impact:</strong> Recommendations for measuring and minimizing the environmental footprint (e.g., energy use) of training and deploying GPAI models.</li>
-                <li><strong>Human Oversight:</strong> Best practices to ensure that GPAI models can be overseen, controlled, or intervened upon by qualified humans, especially in sensitive applications.</li>
-                <li><strong>Support for SMEs and Open Source:</strong> Provisions to help smaller enterprises and open-source developers comply with obligations in a proportionate, feasible way.</li>
-            </ul>
-
-            <div class="highlight">
-                <strong>Summary:</strong>
-                <p>The Codes of Practice are a cornerstone of the EU AI Act's flexible, forward-looking approach to regulating powerful and widely-used AI models. Early participation and compliance help shape responsible AI ecosystems and support smooth market access within the EU.</p>
-            </div>
-        </section>
-
-        <!-- Further Information -->
-        <section id="further-information" class="scroll-reveal">
-            <h2>🔗 Further Information & Resources</h2>
-            <p>For the most current and official information, please refer to:</p>
-            <ul>
-                <li>The official website of the European Commission on AI policy.</li>
-                <li>Publications from the European Parliament and the Council of the EU.</li>
-                <li>Guidance documents released by the European AI Office (once established).</li>
-            </ul>
-            <p><em>Disclaimer: This document provides a general overview and should not be considered legal advice. Organizations should consult with legal professionals for specific guidance on compliance with the EU AI Act.</em></p>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="currentYear"></span> Sridhar Gande. All Rights Reserved.</p>
-            <p>Information on this page is for general guidance only and not legal advice. Consult official EU resources for definitive information on the AI Act.</p>
-            <p><a href="#introduction">Back to Top</a></p>
         </div>
+    </section>
+
+    <section id="risk" class="bg-slate-900/50 py-24 px-6 border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">The Risk-Based <span class="text-purple-500">Pyramid.</span></h2>
+                <p class="text-slate-400">McKinsey framework for assessing AI compliance requirements.</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-red-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <span class="text-red-500 font-bold text-xs uppercase tracking-widest">Level 04</span>
+                            <h4 class="text-2xl text-white font-bold">Unacceptable Risk (Prohibited)</h4>
+                            <p class="mt-2">Social scoring, manipulative dark patterns, and indiscriminate biometric scraping.</p>
+                        </div>
+                        <span class="px-4 py-1 bg-red-500/10 text-red-500 rounded-full text-xs font-bold border border-red-500/20">BANNED</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-orange-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Level 03</span>
+                            <h4 class="text-2xl text-white font-bold">High-Risk Systems</h4>
+                            <p class="mt-2">AI in recruitment, education, law enforcement, and critical infrastructure.</p>
+                        </div>
+                        <span class="px-4 py-1 bg-orange-500/10 text-orange-500 rounded-full text-xs font-bold border border-orange-500/20">STRICT COMPLIANCE</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-blue-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Level 02</span>
+                            <h4 class="text-2xl text-white font-bold">Limited Risk (Transparency)</h4>
+                            <p class="mt-2">Chatbots (GenAI), deepfakes, and emotion recognition.</p>
+                        </div>
+                        <span class="px-4 py-1 bg-blue-500/10 text-blue-500 rounded-full text-xs font-bold border border-blue-500/20">LABELING REQ.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gpai" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-white mb-6">General Purpose AI <br>& <span class="gradient-text">Foundation Models</span></h2>
+                <div class="space-y-6 text-slate-400">
+                    <p>Under the latest 2025 interpretations, GPAI models like GPT-4 or Claude 3.5 are categorized by their compute power.</p>
+                    <div class="flex gap-4">
+                        <div class="w-1 bg-purple-500"></div>
+                        <div>
+                            <p class="text-white font-bold">Systemic Risk Threshold</p>
+                            <p class="text-sm">Models trained with > 10^25 FLOPs are automatically presumed to have systemic risk, requiring adversarial testing and energy reporting.</p>
+                        </div>
+                    </div>
+                    <ul class="list-none space-y-3 text-sm">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Copyright compliance (TDM) is mandatory.</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Technical documentation for downstream providers.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-card p-10 rounded-[3rem] relative overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/20 blur-[100px] rounded-full"></div>
+                <div class="relative z-10 font-mono text-[10px] space-y-4">
+                    <div class="p-4 bg-black/40 rounded-xl border border-white/5">
+                        <span class="text-purple-400">STATUS:</span> GPAI_MODEL_VERIFIED
+                    </div>
+                    <div class="p-4 bg-black/40 rounded-xl border border-white/5">
+                        <span class="text-purple-400">OBLIGATION_01:</span> WATERMARKING_SYNC
+                    </div>
+                    <div class="p-4 bg-black/40 rounded-xl border border-white/5">
+                        <span class="text-purple-400">OBLIGATION_02:</span> RISK_MITIGATION_PLAN
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="bg-slate-900/50 py-24 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-center text-4xl font-bold text-white mb-16 italic">The Countdown.</h2>
+            <div class="relative border-l border-slate-800 ml-4 space-y-12">
+                <div class="relative pl-12">
+                    <div class="absolute -left-[6px] top-1 timeline-dot rounded-full"></div>
+                    <h4 class="text-white font-bold">February 2025</h4>
+                    <p class="text-sm text-slate-400">Prohibited AI practices (Unacceptable Risk) must be phased out entirely.</p>
+                </div>
+                <div class="relative pl-12">
+                    <div class="absolute -left-[6px] top-1 timeline-dot rounded-full"></div>
+                    <h4 class="text-white font-bold">August 2025</h4>
+                    <p class="text-sm text-slate-400">GPAI governance rules and penalties for large models go live.</p>
+                </div>
+                <div class="relative pl-12">
+                    <div class="absolute -left-[6px] top-1 timeline-dot rounded-full"></div>
+                    <h4 class="text-white font-bold">August 2026</h4>
+                    <p class="text-sm text-slate-400">Full applicability. High-risk systems must meet all technical and compliance standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 border-t border-white/5 text-center">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left">
+                <p class="text-white font-bold text-lg">Sridhar Gande</p>
+                <p class="text-xs text-slate-500 uppercase tracking-widest">Global Policy & Tech Strategy</p>
+            </div>
+            <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-purple-400">LinkedIn</a>
+                <a href="#" class="hover:text-purple-400">GitHub</a>
+                <a href="#" class="hover:text-purple-400">Contact</a>
+            </div>
+        </div>
+        <p class="mt-12 text-[10px] text-slate-600 font-mono tracking-widest uppercase italic">
+            Disclaimer: Consult legal professionals for individual compliance audits.
+        </p>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
-
     <script>
-        // Mobile Menu Toggle
-        const navToggle = document.getElementById('navToggle');
-        const navList = document.getElementById('navList');
-
-        navToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-list a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Active link highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-list a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.scroll-reveal');
-
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            revealElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
+        // Smooth scroll reveal logic
+        const observerOptions = {
+            threshold: 0.1
         };
 
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
             });
-        }
+        }, observerOptions);
 
-        // Set current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
